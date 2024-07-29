@@ -1,0 +1,92 @@
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix cc:   <http://creativecommons.org/ns#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfc: <https://w3id.org/rdf-connect#> .
+@prefix rdfc-js: <https://w3id.org/rdf-connect/js#> .
+@prefix rdfc-jvm: <https://w3id.org/rdf-connect/jvm#> .
+
+rdfc: a owl:Ontology ;
+    cc:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dct:author [
+        a foaf:Person ;
+        foaf:name "Arthur Vercruysse"
+    ] ;
+    dct:contributor 
+        [
+            a foaf:Person ;
+            foaf:name "Jens Pots"
+        ] ,
+        <https://julianrojas.org/#me> ,
+        <https://pietercolpaert.be/#me> ;
+                                            
+    dct:issued "2024-07-29"^^xsd:date ;
+    dct:modified "2024-07-29"^^xsd:date ;
+    dct:title "RDF-Connect ontology"@en ;
+    rdfs:comment "Ontology for describing data processing pipelines in the RDF-Connect framework"@en ;
+    owl:versionInfo "v0.1.0"@en ;
+    owl:versionURI <https://github.com/rdf-connect/ontology/releases/tag/v0.1.0> .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+rdfc:Runner a rdfs:Class ;
+    rdfs:label "Runner" ;
+    rdfs:comment "An application for running execution environment specific processors" ;
+    dct:created "2024-07-29"^^xsd:date .
+
+rdfc:Processor a rdfs:Class ;
+    rdfs:label "Processor" ;
+    rdfs:comment "A data processing unit that can be executed by a runner" ;
+    dct:created "2024-07-29"^^xsd:date .
+
+rdfc:Channel a rdfs:Class ;
+    rdfs:label "Channel" ;
+    rdfs:comment "A data channel that enables communication among processors" ;
+    dct:created "2024-07-29"^^xsd:date .
+
+rdfc:ReaderChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:Channel ;
+    rdfs:label "Reader channel" ;
+    rdfs:comment "Reading end of a channel from which processors can read/listen to data flows" ;
+    dct:created "2024-07-29"^^xsd:date .
+
+rdfc:WriterChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:Channel ;
+    rdfs:label "Writer channel" ;
+    rdfs:comment "Writing end of a channel to which processors can write/push data flows" ;
+    dct:created "2024-07-29"^^xsd:date .
+
+rdfc-js:Processor a rdfs:Class ;
+    rdfs:subClassOf rdfc:Processor ;
+    rdfs:label "JavaScript processor" ;
+    rdfs:comment "A data processing step implemented in JavaScript" ;
+    dct:created "2024-07-29"^^xsd:date .
+
+rdfc-jvm:Processor a rdfs:Class ;
+    rdfs:subClassOf rdfc:Processor ;
+    rdfs:label "JVM processor" ;
+    rdfs:comment "A data processing step implemented in a JVM language (e.g., Java, Kotlin, Scala, etc)" ;
+    dct:created "2024-07-29"^^xsd:date .
+
+#################################################################
+#    Properties
+#################################################################
+
+rdfc:supportsChannel a rdfs:Property ;
+    rdfs:label "supports channel" ;
+    rdfs:comment "Indicates that a runner supports a specific channel type" ;
+    rdfs:domain rdfc:Runner ;
+    rdfs:range rdfc:Channel ;
+    dct:created "2024-07-29"^^xsd:date .
+
+rdfc:executes a rdfs:Property ;
+    rdfs:label "executes" ;
+    rdfs:comment "Indicates that a runner executes a specific processor" ;
+    rdfs:domain rdfc:Runner ;
+    rdfs:range rdfc:Processor ;
+    dct:created "2024-07-29"^^xsd:date .
