@@ -134,11 +134,6 @@ rdfc-js:JSRunnerShape a sh:NodeShape ;
             rdfc-js:JSHttpChannel,
             rdfc-js:JSWebSocketChannel,
             rdfc-js:JSKafkaChannel
-    ], [
-        sh:path rdfc:executes ;
-        sh:name "executes" ;
-        sh:class rdfc-js:Processor ;
-        sh:datatype xsd:iri
     ] .
 
 rdfc-js:JSProcessorShape a sh:NodeShape ;
