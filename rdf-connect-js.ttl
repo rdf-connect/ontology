@@ -1,0 +1,500 @@
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix fno: <https://w3id.org/function/ontology#> .
+@prefix rdfl: <https://w3id.org/rdf-lens/ontology#> .
+@prefix rdfc: <https://w3id.org/rdf-connect#> .
+@prefix rdfc-js: <https://w3id.org/rdf-connect/js#> .
+
+#################################################################
+#    JavaScript-specific Classes
+#################################################################
+
+rdfc-js:Runner a rdfs:Class ;
+    rdfs:subClassOf rdfc:Runner ;
+    rdfs:label "JavaScript runner" ;
+    rdfs:comment "A runner that executes JavaScript processors" ;
+    dct:created "2024-08-01"^^xsd:date .
+
+rdfc-js:Processor a rdfs:Class ;
+    rdfs:subClassOf rdfc:Processor ;
+    rdfs:label "JavaScript processor" ;
+    rdfs:comment "A data processing step implemented in JavaScript" ;
+    dct:created "2024-07-29"^^xsd:date .
+
+rdfc-js:JSChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:Channel ;
+    rdfs:label "JavaScript in-memory channel" ;
+    rdfs:comment "A channel that enables in-memory communication among JavaScript processors" ;
+    dct:created "2024-08-01"^^xsd:date .
+
+rdfc-js:JSReaderChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:ReaderChannel ;
+    rdfs:label "JavaScript in-memory reader channel" ;
+    rdfs:comment "Reading end of a channel from which JavaScript processors can read/listen to in-memory data flows" ;
+    dct:created "2024-08-01"^^xsd:date .
+
+rdfc-js:JSWriterChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:WriterChannel ;
+    rdfs:label "JavaScript in-memory writer channel" ;
+    rdfs:comment "Writing end of a channel to which JavaScript processors can write/push in-memory data flows" ;
+    dct:created "2024-08-01"^^xsd:date .
+
+rdfc-js:JSFileChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:Channel ;
+    rdfs:label "JavaScript file channel" ;
+    rdfs:comment "A channel that enables file-based communication for JavaScript processors" ;
+    dct:created "2024-08-01"^^xsd:date .
+
+rdfc-js:JSFileReaderChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:ReaderChannel ;
+    rdfs:label "JavaScript file reader channel" ;
+    rdfs:comment "Reading end of a file channel from which JavaScript processors can read/listen to data flows" ;
+    dct:created "2024-08-01"^^xsd:date .
+
+rdfc-js:JSFileWriterChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:WriterChannel ;
+    rdfs:label "JavaScript file writer channel" ;
+    rdfs:comment "Writing end of a file channel to which JavaScript processors can write/push data flows" ;
+    dct:created "2024-08-01"^^xsd:date .
+
+rdfc-js:JSHttpChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:Channel ;
+    rdfs:label "JavaScript HTTP channel" ;
+    rdfs:comment "A channel that enables HTTP-based communication for JavaScript processors" ;
+    dct:created "2024-08-01"^^xsd:date .
+
+rdfc-js:JSHttpReaderChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:ReaderChannel ;
+    rdfs:label "JavaScript HTTP reader channel" ;
+    rdfs:comment "Reading end of an HTTP channel from which JavaScript processors can read/listen to data flows" ;
+    dct:created "2024-08-01"^^xsd:date .
+
+rdfc-js:JSHttpWriterChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:WriterChannel ;
+    rdfs:label "JavaScript HTTP writer channel" ;
+    rdfs:comment "Writing end of an HTTP channel to which JavaScript processors can write/push data flows" ;
+    dct:created "2024-08-01"^^xsd:date .
+
+rdfc-js:JSWebSocketChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:Channel ;
+    rdfs:label "JavaScript WebSocket channel" ;
+    rdfs:comment "A channel that enables WebSocket-based communication for JavaScript processors" ;
+    dct:created "2024-08-01"^^xsd:date .
+
+rdfc-js:JSWebSocketReaderChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:ReaderChannel ;
+    rdfs:label "JavaScript WebSocket reader channel" ;
+    rdfs:comment "Reading end of a WebSocket channel from which JavaScript processors can read/listen to data flows" ;
+    dct:created "2024-08-01"^^xsd:date .
+
+rdfc-js:JSWebSocketWriterChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:WriterChannel ;
+    rdfs:label "JavaScript WebSocket writer channel" ;
+    rdfs:comment "Writing end of a WebSocket channel to which JavaScript processors can write/push data flows" ;
+    dct:created "2024-08-01"^^xsd:date .
+
+rdfc-js:JSKafkaChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:Channel ;
+    rdfs:label "JavaScript Kafka channel" ;
+    rdfs:comment "A channel that enables Kafka-based communication for JavaScript processors" ;
+    dct:created "2024-08-01"^^xsd:date .
+
+rdfc-js:JSKafkaReaderChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:ReaderChannel ;
+    rdfs:label "JavaScript Kafka reader channel" ;
+    rdfs:comment "Reading end of a Kafka channel from which JavaScript processors can read/listen to data flows" ;
+    dct:created "2024-08-01"^^xsd:date .
+
+rdfc-js:JSKafkaWriterChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:WriterChannel ;
+    rdfs:label "JavaScript Kafka writer channel" ;
+    rdfs:comment "Writing end of a Kafka channel to which JavaScript processors can write/push data flows" ;
+    dct:created "2024-08-01"^^xsd:date .
+
+#################################################################
+#    JavaScript Shapes
+#################################################################
+
+rdfc-js:JSRunnerShape a sh:NodeShape ;
+    sh:targetClass rdfc-js:Runner ;
+    sh:property [
+        sh:path ( ) ;
+        sh:name "id" ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:datatype xsd:iri
+    ], [
+        sh:path rdfc:supportsChannel ;
+        sh:name "supports channel" ;
+        sh:minCount 0 ;
+        sh:class rdfc-js:JSChannel,
+            rdfc-js:JSFileChannel,
+            rdfc-js:JSHttpChannel,
+            rdfc-js:JSWebSocketChannel,
+            rdfc-js:JSKafkaChannel
+    ], [
+        sh:path rdfc:executes ;
+        sh:name "executes" ;
+        sh:class rdfc-js:Processor ;
+        sh:datatype xsd:iri
+    ] .
+
+rdfc-js:JSProcessorShape a sh:NodeShape ;
+    sh:targetClass rdfc-js:Processor ;
+    sh:property [
+        sh:datatype xsd:iri ;
+        sh:path ( ) ;
+        sh:name "ty" ;
+        sh:maxCount 1 ;
+        sh:minCount 1
+    ], [
+        sh:datatype xsd:string ;
+        sh:path rdfc-js:file ;
+        sh:name "file" ;
+        sh:maxCount 1 ;
+        sh:minCount 1
+    ], [
+        sh:datatype xsd:string ;
+        sh:path rdfc-js:location ;
+        sh:name "location" ;
+        sh:maxCount 1 ;
+        sh:minCount 1
+    ], [
+        sh:datatype xsd:string ;
+        sh:path rdfc-js:function ;
+        sh:name "func" ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+    ], [
+        sh:class fno:Mapping ;
+        sh:path rdfc-js:mapping ;
+        sh:name "mapping" ;
+        sh:maxCount 1 ;
+        sh:minCount 1
+    ] , [
+        sh:path rdfc:executedBy ;
+        sh:name "executed by" ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:class rdfc-js:Runner
+    ] .
+
+rdfc-js:JSChannelShape a sh:NodeShape ;
+    sh:targetClass rdfc-js:JSChannel ;
+    sh:property [
+        sh:path ( ) ;
+        sh:name "id" ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:datatype xsd:iri
+    ], [
+        sh:path rdfc:reader ;
+        sh:name "reader" ;
+        sh:maxCount 1 ;
+        sh:class rdfc-js:JSReaderChannel
+    ], [
+        sh:path rdfc:writer ;
+        sh:name "writer" ;
+        sh:maxCount 1 ;
+        sh:class rdfc-js:JSWriterChannel
+    ] .
+
+rdfc-js:ReaderChannelShape a sh:NodeShape ;
+    sh:targetClass rdfc-js:JSReaderChannel ;
+    sh:property [
+        sh:path ( ) ;
+        sh:name "id" ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:datatype xsd:iri
+    ], [
+        sh:path rdf:type ;
+        sh:name "ty" ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:iri
+    ], [
+        sh:path ( ) ;
+        sh:name "config" ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:class rdfl:TypedExtract
+    ] .
+
+rdfc-js:WriterChannelShape a sh:NodeShape ;
+    sh:targetClass rdfc-js:JSWriterChannel ;
+    sh:property [
+        sh:path ( ) ;
+        sh:name "id" ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:datatype xsd:iri
+    ], [
+        sh:path rdf:type ;
+        sh:name "ty" ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:datatype xsd:iri
+    ], [
+        sh:path ( ) ;
+        sh:name "config" ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:class rdfl:TypedExtract
+    ] .
+
+rdfc-js:JSFileChannelShape a sh:NodeShape ;
+    sh:targetClass rdfc-js:JSFileChannel ;
+    sh:property [
+        sh:path rdfc:reader ;
+        sh:name "reader" ;
+        sh:maxCount 1 ;
+        sh:class rdfc-js:JSFileReaderChannel
+    ], [
+        sh:path rdfc:writer ;
+        sh:name "writer" ;
+        sh:maxCount 1 ;
+        sh:class rdfc-js:JSFileWriterChannel
+    ] .
+
+rdfc-js:JSFileRWChannelShape a sh:NodeShape;
+    sh:targetClass rdfc-js:JSFileReaderChannel, rdfc-js:JSFileWriterChannel ;
+    sh:property [
+        sh:path rdfc-js:filePath ;
+        sh:name "path" ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "Path of the used file"
+    ], [
+        sh:path rdfc-js:fileOnReplace ;
+        sh:name "onReplace" ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:datatype xsd:boolean ;
+        sh:description "Boolean indicating if the files is always replaced, or appended to"
+    ], [
+        sh:path rdfc-js:fileReadFirstContent ;
+        sh:name "readFirstContent" ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:boolean ;
+        sh:description "Boolean indicating whether or not the initial content is also a message"
+    ], [
+        sh:path rdfc-js:fileEncoding ;
+        sh:name "encoding" ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "The encoding used for the file"
+    ].
+
+rdfc-js:JSHttpChannelShape a sh:NodeShape ;
+    sh:targetClass rdfc-js:JSHttpChannel ;
+    sh:property [
+        sh:path rdfc:reader ;
+        sh:name "reader" ;
+        sh:maxCount 1 ;
+        sh:class rdfc-js:JSHttpReaderChannel
+    ], [
+        sh:path rdfc:writer ;
+        sh:name "writer" ;
+        sh:maxCount 1 ;
+        sh:class rdfc-js:JSHttpWriterChannel
+    ] .
+
+rdfc-js:JSHttpChannelReaderShape a sh:NodeShape ;
+    sh:targetClass rdfc-js:JSHttpReaderChannel ;
+    sh:property [
+        sh:path rdfc-js:httpEndpoint ;
+        sh:name "endpoint" ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "Used endpoint"
+    ], [
+        sh:path rdfc-js:httpPort ;
+        sh:name "port" ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:integer ;
+        sh:description "Used port" ;
+    ], [
+        sh:path rdfc-js:binary ;
+        sh:name "binary" ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:boolean ;
+        sh:description "Stream raw bytes if true" ;
+    ], [
+        sh:path rdfc-js:waitHandled ;
+        sh:name "waitHandled" ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:boolean ;
+        sh:description "Wait for handlers to be have handled the incoming message"
+    ], [
+        sh:path rdfc-js:responseCode ;
+        sh:name "responseCode" ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:integer ;
+        sh:description "Specify the expected response code (default 200)"
+    ] .
+
+rdfc-js:JSHttpChannelWriterShape a sh:NodeShape ;
+    sh:targetClass rdfc-js:JSHttpWriterChannel ;
+    sh:property [
+        sh:path rdfc-js:httpEndpoint ;
+        sh:name "endpoint" ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "Used endpoint"
+    ], [
+        sh:path rdfc-js:httpMethod ;
+        sh:name "method" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "Used method"
+    ] .
+
+rdfc-js:JSWebSocketChannelShape a sh:NodeShape ;
+    sh:targetClass rdfc-js:JSHWebSocketChannel ;
+    sh:property [
+        sh:path rdfc:reader ;
+        sh:name "reader" ;
+        sh:maxCount 1 ;
+        sh:class rdfc-js:JSWebSocketReaderChannel
+    ], [
+        sh:path rdfc:writer ;
+        sh:name "writer" ;
+        sh:maxCount 1 ;
+        sh:class rdfc-js:JSWebSocketWriterChannel
+    ] .
+
+rdfc-js:JSWebSocketReaderChannelShape a sh:NodeShape ;
+    sh:targetClass rdfc-js:JSWebSocketReaderChannel ;
+    sh:property [
+        sh:name "url" ;
+        sh:path rdfc-js:wsUrl ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:minCount 1
+    ] .
+
+rdfc-js:JSWebSocketWriterChannelShape a sh:NodeShape ;
+    sh:targetClass rdfc-js:JSWebSocketWriterChannel ;
+    sh:property [
+        sh:name "port" ;
+        sh:path rdfc-js:wsPort ;
+        sh:datatype xsd:integer ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+    ], [
+        sh:name "host" ;
+        sh:path rdfc-js:wsHost ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+    ] .
+
+rdfc-js:JSKafkaChannelShape a sh:NodeShape ;
+    sh:targetClass rdfc-js:JSKafkaChannel ;
+    sh:property [
+        sh:path rdfc:reader ;
+        sh:name "reader" ;
+        sh:maxCount 1 ;
+        sh:class rdfc-js:JSKafkaReaderChannel
+    ], [
+        sh:path rdfc:writer ;
+        sh:name "writer" ;
+        sh:maxCount 1 ;
+        sh:class rdfc-js:JSKafkaWriterChannel
+    ] .
+
+rdfc-js:JSKafkaReaderChannelShape a sh:NodeShape ;
+    sh:targetClass rdfc-js:JSKafkaReaderChannel ;
+    sh:property [
+        sh:path rdfc-js:kafkaTopic ;
+        sh:name "topic" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class rdfc-js:KafkaTopic ;
+        sh:description "Information about the used topic"
+    ], [
+        sh:path rdfc-js:kafkaConsumer ;
+        sh:name "consumer" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class rdfc-js:KafkaConsumer ;
+        sh:description "Information about the kafka consumer"
+    ], [
+        sh:path rdfc-js:kafkaBroker ;
+        sh:name "broker" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class rdfc-js:KafkaBroker ;
+        sh:description "Information about the kafka broker"
+    ] .
+
+rdfc-js:JSKafkaWriterChannelShape a sh:NodeShape ;
+    sh:targetClass rdfc-js:JSKafkaWriterChannel ;
+    sh:property [
+        sh:path rdfc-js:kafkaTopic ;
+        sh:name "topic" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class rdfc-js:KafkaTopic ;
+        sh:description "Information about the used topic"
+    ], [
+        sh:path rdfc-js:kafkaBroker ;
+        sh:name "broker" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class :KafkaBroker ;
+        sh:description "Information about the kafka broker"
+    ], [
+        sh:path rdfc-js:kafkaProducer ;
+        sh:name "producer" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class rdfc-js:KafkaProducer ;
+        sh:description "Information about the kafka producer"
+    ] .
+
+rdfc-js:KafkaTopicShape a sh:NodeShape ;
+    sh:targetClass rdfc-js:KafkaTopic ;
+    sh:property [
+        sh:path rdfc-js:topicName ;
+        sh:name "name" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "Name of the topic"
+    ], [
+        sh:path rdfc-js:topicFromBeginning ;
+        sh:name "fromBeginning" ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:boolean ;
+        sh:description "Restart the topic from the beginning"
+    ] .
+
+rdfc-js:KafkaConsumerShape a sh:NodeShape ;
+    sh:targetClass rdfc-js:KafkaConsumer ;
+    sh:property [
+        sh:path rdfc-js:groupId ;
+        sh:name "groupId" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "Group identifier"
+    ].
+
+rdfc-js:KafkaBrokerShape a sh:NodeShape ;
+    sh:targetClass rdfc-js:KafkaBroker ;
+    sh:property [
+        sh:path rdfc-js:brokerHost ;
+        sh:name "hosts" ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "Broker host to connect to"
+    ].
+
+rdfc-js:KafkaProducerShape a sh:NodeShape ;
+    sh:targetClass rdfc-js:KafkaProducer .

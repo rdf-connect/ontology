@@ -1,0 +1,24 @@
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix fno: <https://w3id.org/function/ontology#> .
+@prefix rdfl: <https://w3id.org/rdf-lens/ontology#> .
+@prefix rdfc: <https://w3id.org/rdf-connect#> .
+@prefix rdfc-jvm: <https://w3id.org/rdf-connect/jvm#> .
+
+#################################################################
+#    JVM-specific Classes
+#################################################################
+
+rdfc-jvm:Runner a rdfs:Class ;
+    rdfs:subClassOf rdfc:Runner ;
+    rdfs:label "JVM runner" ;
+    rdfs:comment "A runner that executes JVM processors" ;
+    dct:created "2024-08-01"^^xsd:date .
+
+rdfc-jvm:Processor a rdfs:Class ;
+    rdfs:subClassOf rdfc:Processor ;
+    rdfs:label "JVM processor" ;
+    rdfs:comment "A data processing step implemented in a JVM language (e.g., Java, Kotlin, Scala, etc)" ;
+    dct:created "2024-07-29"^^xsd:date .
