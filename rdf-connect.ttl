@@ -25,10 +25,10 @@ rdfc: a owl:Ontology ;
         <https://pietercolpaert.be/#me> ;
                                             
     dct:issued "2024-07-29"^^xsd:date ;
-    dct:modified "2024-08-01"^^xsd:date ;
+    dct:modified "2024-08-02"^^xsd:date ;
     dct:title "RDF-Connect ontology"@en ;
     rdfs:comment "Ontology for describing data processing pipelines in the RDF-Connect framework"@en ;
-    owl:versionInfo "v0.1.0"@en ;
+    owl:versionInfo "v0.1.1"@en ;
     owl:versionURI <https://github.com/rdf-connect/ontology/releases/tag/v0.1.0> ;
     owl:imports rdfc-js:, rdfc-jvm: . # Import JavaScript and JVM-specific classes
 
