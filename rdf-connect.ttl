@@ -95,3 +95,338 @@ rdfc:writer a rdfs:Property ;
     rdfs:domain rdfc:Channel ;
     rdfs:range rdfc:WriterChannel ;
     dct:created "2024-08-01"^^xsd:date .
+
+#################################################################
+#    Channel types
+#################################################################
+
+rdfc:FileChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:Channel ;
+    rdfs:label "File channel" ;
+    rdfs:comment "A channel that passes data among processors via files" ;
+    dct:created "2024-08-02"^^xsd:date .
+
+rdfc:FileReaderChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:ReaderChannel ;
+    rdfs:label "File reader channel" ;
+    rdfs:comment "Reading end of a file channel from which processors can read/listen to data flows" ;
+    dct:created "2024-08-02"^^xsd:date .
+
+rdfc:FileWriterChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:WriterChannel ;
+    rdfs:label "File writer channel" ;
+    rdfs:comment "Writing end of a file channel to which processors can write/push data flows" ;
+    dct:created "2024-08-02"^^xsd:date .
+
+rdfc:HttpChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:Channel ;
+    rdfs:label "HTTP channel" ;
+    rdfs:comment "A channel that enables HTTP-based communication for processors" ;
+    dct:created "2024-08-02"^^xsd:date .
+
+rdfc:HttpReaderChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:ReaderChannel ;
+    rdfs:label "HTTP reader channel" ;
+    rdfs:comment "Reading end of an HTTP channel from which processors can read/listen to data flows" ;
+    dct:created "2024-08-02"^^xsd:date .
+
+rdfc:HttpWriterChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:WriterChannel ;
+    rdfs:label "HTTP writer channel" ;
+    rdfs:comment "Writing end of an HTTP channel to which processors can write/push data flows" ;
+    dct:created "2024-08-02"^^xsd:date .
+
+rdfc:WebSocketChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:Channel ;
+    rdfs:label "WebSocket channel" ;
+    rdfs:comment "A channel that enables WebSocket-based communication for processors" ;
+    dct:created "2024-08-02"^^xsd:date .
+
+rdfc:WebSocketReaderChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:ReaderChannel ;
+    rdfs:label "WebSocket reader channel" ;
+    rdfs:comment "Reading end of a WebSocket channel from which processors can read/listen to data flows" ;
+    dct:created "2024-08-02"^^xsd:date .
+
+rdfc:WebSocketWriterChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:WriterChannel ;
+    rdfs:label "WebSocket writer channel" ;
+    rdfs:comment "Writing end of a WebSocket channel to which processors can write/push data flows" ;
+    dct:created "2024-08-02"^^xsd:date .
+
+rdfc:KafkaChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:Channel ;
+    rdfs:label "Kafka channel" ;
+    rdfs:comment "A channel that enables Kafka-based communication for processors" ;
+    dct:created "2024-08-02"^^xsd:date .
+
+rdfc:KafkaReaderChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:ReaderChannel ;
+    rdfs:label "Kafka reader channel" ;
+    rdfs:comment "Reading end of a Kafka channel from which processors can read/listen to data flows" ;
+    dct:created "2024-08-02"^^xsd:date .
+
+rdfc:KafkaWriterChannel a rdfs:Class ;
+    rdfs:subClassOf rdfc:WriterChannel ;
+    rdfs:label "Kafka writer channel" ;
+    rdfs:comment "Writing end of a Kafka channel to which processors can write/push data flows" ;
+    dct:created "2024-08-02"^^xsd:date .
+
+#################################################################
+#    Channel Shapes
+#################################################################
+
+rdfc:FileChannelShape a sh:NodeShape ;
+    sh:targetClass rdfc:FileChannel ;
+    sh:property [
+        sh:path rdfc:reader ;
+        sh:name "reader" ;
+        sh:maxCount 1 ;
+        sh:class rdfc:FileReaderChannel
+    ], [
+        sh:path rdfc:writer ;
+        sh:name "writer" ;
+        sh:maxCount 1 ;
+        sh:class rdfc:FileWriterChannel
+    ] .
+
+rdfc:FileRWChannelShape a sh:NodeShape;
+    sh:targetClass rdfc:FileReaderChannel, rdfc:FileWriterChannel ;
+    sh:property [
+        sh:path rdfc:filePath ;
+        sh:name "path" ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "Path of the used file"
+    ], [
+        sh:path rdfc:fileOnReplace ;
+        sh:name "onReplace" ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:datatype xsd:boolean ;
+        sh:description "Boolean indicating if the files is always replaced, or appended to"
+    ], [
+        sh:path rdfc:fileReadFirstContent ;
+        sh:name "readFirstContent" ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:boolean ;
+        sh:description "Boolean indicating whether or not the initial content is also a message"
+    ], [
+        sh:path rdfc:fileEncoding ;
+        sh:name "encoding" ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "The encoding used for the file"
+    ].
+
+rdfc:HttpChannelShape a sh:NodeShape ;
+    sh:targetClass rdfc:HttpChannel ;
+    sh:property [
+        sh:path rdfc:reader ;
+        sh:name "reader" ;
+        sh:maxCount 1 ;
+        sh:class rdfc:HttpReaderChannel
+    ], [
+        sh:path rdfc:writer ;
+        sh:name "writer" ;
+        sh:maxCount 1 ;
+        sh:class rdfc:HttpWriterChannel
+    ] .
+
+rdfc:HttpChannelReaderShape a sh:NodeShape ;
+    sh:targetClass rdfc:HttpReaderChannel ;
+    sh:property [
+        sh:path rdfc:httpEndpoint ;
+        sh:name "endpoint" ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "Used endpoint"
+    ], [
+        sh:path rdfc:httpPort ;
+        sh:name "port" ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:integer ;
+        sh:description "Used port" ;
+    ], [
+        sh:path rdfc:binary ;
+        sh:name "binary" ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:boolean ;
+        sh:description "Stream raw bytes if true" ;
+    ], [
+        sh:path rdfc:waitHandled ;
+        sh:name "waitHandled" ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:boolean ;
+        sh:description "Wait for handlers to be have handled the incoming message"
+    ], [
+        sh:path rdfc:responseCode ;
+        sh:name "responseCode" ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:integer ;
+        sh:description "Specify the expected response code (default 200)"
+    ] .
+
+rdfc:HttpChannelWriterShape a sh:NodeShape ;
+    sh:targetClass rdfc:HttpWriterChannel ;
+    sh:property [
+        sh:path rdfc:httpEndpoint ;
+        sh:name "endpoint" ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "Used endpoint"
+    ], [
+        sh:path rdfc:httpMethod ;
+        sh:name "method" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "Used method"
+    ] .
+
+rdfc:WebSocketChannelShape a sh:NodeShape ;
+    sh:targetClass rdfc:WebSocketChannel ;
+    sh:property [
+        sh:path rdfc:reader ;
+        sh:name "reader" ;
+        sh:maxCount 1 ;
+        sh:class rdfc:WebSocketReaderChannel
+    ], [
+        sh:path rdfc:writer ;
+        sh:name "writer" ;
+        sh:maxCount 1 ;
+        sh:class rdfc:WebSocketWriterChannel
+    ] .
+
+rdfc:WebSocketReaderChannelShape a sh:NodeShape ;
+    sh:targetClass rdfc:WebSocketReaderChannel ;
+    sh:property [
+        sh:name "url" ;
+        sh:path rdfc:wsUrl ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:minCount 1
+    ] .
+
+rdfc:WebSocketWriterChannelShape a sh:NodeShape ;
+    sh:targetClass rdfc:WebSocketWriterChannel ;
+    sh:property [
+        sh:name "port" ;
+        sh:path rdfc:wsPort ;
+        sh:datatype xsd:integer ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+    ], [
+        sh:name "host" ;
+        sh:path rdfc:wsHost ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+    ] .
+
+rdfc:KafkaChannelShape a sh:NodeShape ;
+    sh:targetClass rdfc:KafkaChannel ;
+    sh:property [
+        sh:path rdfc:reader ;
+        sh:name "reader" ;
+        sh:maxCount 1 ;
+        sh:class rdfc:KafkaReaderChannel
+    ], [
+        sh:path rdfc:writer ;
+        sh:name "writer" ;
+        sh:maxCount 1 ;
+        sh:class rdfc:KafkaWriterChannel
+    ] .
+
+rdfc:KafkaReaderChannelShape a sh:NodeShape ;
+    sh:targetClass rdfc:KafkaReaderChannel ;
+    sh:property [
+        sh:path rdfc:kafkaTopic ;
+        sh:name "topic" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class rdfc:KafkaTopic ;
+        sh:description "Information about the used topic"
+    ], [
+        sh:path rdfc:kafkaConsumer ;
+        sh:name "consumer" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class rdfc:KafkaConsumer ;
+        sh:description "Information about the kafka consumer"
+    ], [
+        sh:path rdfc:kafkaBroker ;
+        sh:name "broker" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class rdfc:KafkaBroker ;
+        sh:description "Information about the kafka broker"
+    ] .
+
+rdfc:KafkaWriterChannelShape a sh:NodeShape ;
+    sh:targetClass rdfc:KafkaWriterChannel ;
+    sh:property [
+        sh:path rdfc:kafkaTopic ;
+        sh:name "topic" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class rdfc:KafkaTopic ;
+        sh:description "Information about the used topic"
+    ], [
+        sh:path rdfc:kafkaBroker ;
+        sh:name "broker" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class rdfc:KafkaBroker ;
+        sh:description "Information about the kafka broker"
+    ], [
+        sh:path rdfc:kafkaProducer ;
+        sh:name "producer" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class rdfc:KafkaProducer ;
+        sh:description "Information about the kafka producer"
+    ] .
+
+rdfc:KafkaTopicShape a sh:NodeShape ;
+    sh:targetClass rdfc:KafkaTopic ;
+    sh:property [
+        sh:path rdfc:topicName ;
+        sh:name "name" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "Name of the topic"
+    ], [
+        sh:path rdfc:topicFromBeginning ;
+        sh:name "fromBeginning" ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:boolean ;
+        sh:description "Restart the topic from the beginning"
+    ] .
+
+rdfc:KafkaConsumerShape a sh:NodeShape ;
+    sh:targetClass rdfc:KafkaConsumer ;
+    sh:property [
+        sh:path rdfc:groupId ;
+        sh:name "groupId" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "Group identifier"
+    ].
+
+rdfc:KafkaBrokerShape a sh:NodeShape ;
+    sh:targetClass rdfc:KafkaBroker ;
+    sh:property [
+        sh:path rdfc:brokerHost ;
+        sh:name "hosts" ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "Broker host to connect to"
+    ].
+
+rdfc:KafkaProducerShape a sh:NodeShape ;
+    sh:targetClass rdfc:KafkaProducer .
