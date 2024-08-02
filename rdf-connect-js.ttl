@@ -4,6 +4,7 @@
 @prefix sh:   <http://www.w3.org/ns/shacl#> .
 @prefix dct:  <http://purl.org/dc/terms/> .
 @prefix fno: <https://w3id.org/function/ontology#> .
+@prefix fnom: <https://w3id.org/function/vocabulary/mapping#> .
 @prefix rdfl: <https://w3id.org/rdf-lens/ontology#> .
 @prefix rdfc: <https://w3id.org/rdf-connect#> .
 @prefix rdfc-js: <https://w3id.org/rdf-connect/js#> .
@@ -104,6 +105,28 @@ rdfc-js:JSProcessorShape a sh:NodeShape ;
         sh:minCount 1 ;
         sh:class rdfc-js:Runner
     ] .
+
+rdfc-js:FnOMappingShape a sh:NodeShape ;
+    sh:targetClass fno:Mapping ;
+    sh:property [
+        sh:class fnom:PositionParameterMapping ;
+        sh:path fno:parameterMapping ;
+        sh:name "parameters"
+    ].
+
+rdfc-js:FnOPositionParameterMappingShape a sh:NodeShape ;
+    sh:targetClass fnom:PositionParameterMapping ;
+    sh:property [
+        sh:datatype xsd:string ;
+        sh:path fnom:functionParameter ;
+        sh:name "parameter" ;
+        sh:maxCount 1
+    ], [
+        sh:datatype xsd:integer ;
+        sh:path fnom:implementationParameterPosition ;
+        sh:name "position" ;
+        sh:maxCount 1 ;
+    ].
 
 rdfc-js:JSChannelShape a sh:NodeShape ;
     sh:targetClass rdfc-js:JSChannel ;
