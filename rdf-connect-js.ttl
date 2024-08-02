@@ -59,11 +59,13 @@ rdfc-js:JSRunnerShape a sh:NodeShape ;
         sh:path rdfc:supportsChannel ;
         sh:name "supports channel" ;
         sh:minCount 0 ;
-        sh:class rdfc-js:JSChannel,
-            rdfc:FileChannel,
-            rdfc:HttpChannel,
-            rdfc:WebSocketChannel,
+        sh:in (
+            rdfc-js:JSChannel
+            rdfc:FileChannel
+            rdfc:HttpChannel
+            rdfc:WebSocketChannel
             rdfc:KafkaChannel
+        )
     ] .
 
 rdfc-js:JSProcessorShape a sh:NodeShape ;

@@ -72,8 +72,8 @@ rdfc:supportsChannel a rdfs:Property ;
     rdfs:label "supports channel" ;
     rdfs:comment "Indicates that a runner supports a specific channel type" ;
     rdfs:domain rdfc:Runner ;
-    rdfs:range rdfc:Channel ;
-    dct:created "2024-07-29"^^xsd:date .
+    rdfs:range rdfs:Class ;
+    dct:created "2024-08-02"^^xsd:date .
 
 rdfc:executedBy a rdfs:Property ;
     rdfs:label "executed by" ;
