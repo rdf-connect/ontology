@@ -103,7 +103,7 @@ rdfc-js:JSProcessorShape a sh:NodeShape ;
         sh:name "executed by" ;
         sh:maxCount 1 ;
         sh:minCount 1 ;
-        sh:class rdfc-js:Runner
+        sh:hasValue rdfc-js:Runner
     ] .
 
 rdfc-js:FnOMappingShape a sh:NodeShape ;

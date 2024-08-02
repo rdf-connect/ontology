@@ -77,10 +77,10 @@ rdfc:supportsChannel a rdfs:Property ;
 
 rdfc:executedBy a rdfs:Property ;
     rdfs:label "executed by" ;
-    rdfs:comment "Indicates the runner executes a specific processor" ;
+    rdfs:comment "Indicates the class of runners that can execute a specific processor" ;
     rdfs:domain rdfc:Processor ;
-    rdfs:range rdfc:Runner ;
-    dct:created "2024-08-01"^^xsd:date .
+    rdfs:range rdfs:Class ;
+    dct:created "2024-08-02"^^xsd:date .
 
 rdfc:reader a rdfs:Property ;
     rdfs:label "reader" ;
