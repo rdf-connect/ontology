@@ -93,14 +93,14 @@ rdfc-js:JSProcessorShape a sh:NodeShape ;
         sh:path rdfc-js:function ;
         sh:name "func" ;
         sh:maxCount 1 ;
-        sh:minCount 1 ;
+        sh:minCount 1
     ], [
         sh:class fno:Mapping ;
         sh:path rdfc-js:mapping ;
         sh:name "mapping" ;
         sh:maxCount 1 ;
         sh:minCount 1
-    ] , [
+    ], [
         sh:path rdfc:executedBy ;
         sh:name "executed by" ;
         sh:maxCount 1 ;
