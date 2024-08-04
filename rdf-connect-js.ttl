@@ -153,42 +153,19 @@ rdfc-js:JSChannelShape a sh:NodeShape ;
 rdfc-js:ReaderChannelShape a sh:NodeShape ;
     sh:targetClass rdfc-js:JSReaderChannel ;
     sh:property [
-        sh:path ( ) ;
-        sh:name "id" ;
+        sh:path [ sh:inversePath rdfc:reader ] ;
+        sh:name "channel" ;
         sh:maxCount 1 ;
         sh:minCount 1 ;
-        sh:datatype xsd:iri
-    ], [
-        sh:path rdf:type ;
-        sh:name "ty" ;
-        sh:maxCount 1 ;
-        sh:datatype xsd:iri
-    ], [
-        sh:path ( ) ;
-        sh:name "config" ;
-        sh:maxCount 1 ;
-        sh:minCount 1 ;
-        sh:class rdfl:TypedExtract
+        sh:class rdfc-js:JSChannel
     ] .
 
 rdfc-js:WriterChannelShape a sh:NodeShape ;
     sh:targetClass rdfc-js:JSWriterChannel ;
     sh:property [
-        sh:path ( ) ;
-        sh:name "id" ;
+        sh:path [ sh:inversePath rdfc:writer ] ;
+        sh:name "channel" ;
         sh:maxCount 1 ;
         sh:minCount 1 ;
-        sh:datatype xsd:iri
-    ], [
-        sh:path rdf:type ;
-        sh:name "ty" ;
-        sh:maxCount 1 ;
-        sh:minCount 1 ;
-        sh:datatype xsd:iri
-    ], [
-        sh:path ( ) ;
-        sh:name "config" ;
-        sh:maxCount 1 ;
-        sh:minCount 1 ;
-        sh:class rdfl:TypedExtract
+        sh:class rdfc-js:JSChannel
     ] .
