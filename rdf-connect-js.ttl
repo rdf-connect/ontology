@@ -157,7 +157,7 @@ rdfc-js:ReaderChannelShape a sh:NodeShape ;
         sh:name "channel" ;
         sh:maxCount 1 ;
         sh:minCount 1 ;
-        sh:class rdfc-js:JSChannel
+        sh:datatype xsd:iri
     ] .
 
 rdfc-js:WriterChannelShape a sh:NodeShape ;
@@ -167,5 +167,5 @@ rdfc-js:WriterChannelShape a sh:NodeShape ;
         sh:name "channel" ;
         sh:maxCount 1 ;
         sh:minCount 1 ;
-        sh:class rdfc-js:JSChannel
+        sh:datatype xsd:iri
     ] .
