@@ -347,16 +347,6 @@ rdfc:WebSocketChannelShape a sh:NodeShape ;
 rdfc:WebSocketReaderChannelShape a sh:NodeShape ;
     sh:targetClass rdfc:WebSocketReaderChannel ;
     sh:property [
-        sh:name "url" ;
-        sh:path rdfc:wsUrl ;
-        sh:datatype xsd:string ;
-        sh:maxCount 1 ;
-        sh:minCount 1
-    ] .
-
-rdfc:WebSocketWriterChannelShape a sh:NodeShape ;
-    sh:targetClass rdfc:WebSocketWriterChannel ;
-    sh:property [
         sh:name "port" ;
         sh:path rdfc:wsPort ;
         sh:datatype xsd:integer ;
@@ -368,6 +358,16 @@ rdfc:WebSocketWriterChannelShape a sh:NodeShape ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
         sh:minCount 1 ;
+    ] .
+
+rdfc:WebSocketWriterChannelShape a sh:NodeShape ;
+    sh:targetClass rdfc:WebSocketWriterChannel ;
+    sh:property [
+        sh:name "url" ;
+        sh:path rdfc:wsUrl ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:minCount 1
     ] .
 
 rdfc:KafkaChannelShape a sh:NodeShape ;
