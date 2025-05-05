@@ -1,171 +1,21 @@
-@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sh:   <http://www.w3.org/ns/shacl#> .
-@prefix dct:  <http://purl.org/dc/terms/> .
-@prefix fno: <https://w3id.org/function/ontology#> .
-@prefix fnom: <https://w3id.org/function/vocabulary/mapping#> .
-@prefix rdfl: <https://w3id.org/rdf-lens/ontology#> .
-@prefix rdfc: <https://w3id.org/rdf-connect#> .
-@prefix rdfc-js: <https://w3id.org/rdf-connect/js#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+@prefix cc: <http://creativecommons.org/ns#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix rdfc: <https://w3id.org/rdf-connect#>.
+@prefix rdfc-js: <https://w3id.org/rdf-connect/js#>.
 
-#################################################################
-#    JavaScript-specific Classes
-#################################################################
+rdfc:NodeRunner a owl:Class;
+  rdfs:label "Node Runner"@en;
+  rdfs:comment "A specialized runner that executes JavaScript-based processors using Node.js."@en;
+  rdfs:subClassOf rdfc:Runner.
 
-rdfc-js:Runner a rdfs:Class ;
-    rdfs:subClassOf rdfc:Runner ;
-    rdfs:label "JavaScript runner" ;
-    rdfs:comment "A runner that executes JavaScript processors" ;
-    dct:created "2024-08-01"^^xsd:date .
+rdfc:jsImplementationOf a owl:ObjectProperty;
+  rdfs:label "JavaScript Implementation Of"@en;
+  rdfs:comment "Indicates that a processor is implemented in JavaScript and is a specialization of implementationOf."@en;
+  rdfs:subPropertyOf <https://w3id.org/sds#implementationOf>.
 
-rdfc-js:Processor a rdfs:Class ;
-    rdfs:subClassOf rdfc:Processor ;
-    rdfs:label "JavaScript processor" ;
-    rdfs:comment "A data processing step implemented in JavaScript" ;
-    dct:created "2024-07-29"^^xsd:date .
-
-rdfc-js:JSChannel a rdfs:Class ;
-    rdfs:subClassOf rdfc:Channel ;
-    rdfs:label "JavaScript in-memory channel" ;
-    rdfs:comment "A channel that enables in-memory communication among JavaScript processors" ;
-    dct:created "2024-08-01"^^xsd:date .
-
-rdfc-js:JSReaderChannel a rdfs:Class ;
-    rdfs:subClassOf rdfc:ReaderChannel ;
-    rdfs:label "JavaScript in-memory reader channel" ;
-    rdfs:comment "Reading end of a channel from which JavaScript processors can read/listen to in-memory data flows" ;
-    dct:created "2024-08-01"^^xsd:date .
-
-rdfc-js:JSWriterChannel a rdfs:Class ;
-    rdfs:subClassOf rdfc:WriterChannel ;
-    rdfs:label "JavaScript in-memory writer channel" ;
-    rdfs:comment "Writing end of a channel to which JavaScript processors can write/push in-memory data flows" ;
-    dct:created "2024-08-01"^^xsd:date .
-
-#################################################################
-#    JavaScript Shapes
-#################################################################
-
-rdfc-js:JSRunnerShape a sh:NodeShape ;
-    sh:targetClass rdfc-js:Runner ;
-    sh:property [
-        sh:path ( ) ;
-        sh:name "id" ;
-        sh:maxCount 1 ;
-        sh:minCount 1 ;
-        sh:datatype xsd:iri
-    ], [
-        sh:path rdfc:supportsChannel ;
-        sh:name "supports channel" ;
-        sh:minCount 0 ;
-        sh:in (
-            rdfc-js:JSChannel
-            rdfc:FileChannel
-            rdfc:HttpChannel
-            rdfc:WebSocketChannel
-            rdfc:KafkaChannel
-        )
-    ] .
-
-rdfc-js:JSProcessorShape a sh:NodeShape ;
-    sh:targetClass rdfc-js:Processor ;
-    sh:property [
-        sh:datatype xsd:iri ;
-        sh:path ( ) ;
-        sh:name "ty" ;
-        sh:maxCount 1 ;
-        sh:minCount 1
-    ], [
-        sh:datatype xsd:string ;
-        sh:path rdfc-js:file ;
-        sh:name "file" ;
-        sh:maxCount 1 ;
-        sh:minCount 1
-    ], [
-        sh:datatype xsd:string ;
-        sh:path rdfc-js:location ;
-        sh:name "location" ;
-        sh:maxCount 1 ;
-        sh:minCount 1
-    ], [
-        sh:datatype xsd:string ;
-        sh:path rdfc-js:function ;
-        sh:name "func" ;
-        sh:maxCount 1 ;
-        sh:minCount 1
-    ], [
-        sh:class fno:Mapping ;
-        sh:path rdfc-js:mapping ;
-        sh:name "mapping" ;
-        sh:maxCount 1 ;
-        sh:minCount 1
-    ], [
-        sh:path rdfc:executedBy ;
-        sh:name "executed by" ;
-        sh:maxCount 1 ;
-        sh:minCount 1 ;
-        sh:hasValue rdfc-js:Runner
-    ] .
-
-rdfc-js:FnOMappingShape a sh:NodeShape ;
-    sh:targetClass fno:Mapping ;
-    sh:property [
-        sh:class fnom:PositionParameterMapping ;
-        sh:path fno:parameterMapping ;
-        sh:name "parameters"
-    ].
-
-rdfc-js:FnOPositionParameterMappingShape a sh:NodeShape ;
-    sh:targetClass fnom:PositionParameterMapping ;
-    sh:property [
-        sh:datatype xsd:string ;
-        sh:path fnom:functionParameter ;
-        sh:name "parameter" ;
-        sh:maxCount 1
-    ], [
-        sh:datatype xsd:integer ;
-        sh:path fnom:implementationParameterPosition ;
-        sh:name "position" ;
-        sh:maxCount 1 ;
-    ].
-
-rdfc-js:JSChannelShape a sh:NodeShape ;
-    sh:targetClass rdfc-js:JSChannel ;
-    sh:property [
-        sh:path ( ) ;
-        sh:name "id" ;
-        sh:maxCount 1 ;
-        sh:minCount 1 ;
-        sh:datatype xsd:iri
-    ], [
-        sh:path rdfc:reader ;
-        sh:name "reader" ;
-        sh:maxCount 1 ;
-        sh:class rdfc-js:JSReaderChannel
-    ], [
-        sh:path rdfc:writer ;
-        sh:name "writer" ;
-        sh:maxCount 1 ;
-        sh:class rdfc-js:JSWriterChannel
-    ] .
-
-rdfc-js:ReaderChannelShape a sh:NodeShape ;
-    sh:targetClass rdfc-js:JSReaderChannel ;
-    sh:property [
-        sh:path [ sh:inversePath rdfc:reader ] ;
-        sh:name "channel" ;
-        sh:maxCount 1 ;
-        sh:minCount 1 ;
-        sh:datatype xsd:iri
-    ] .
-
-rdfc-js:WriterChannelShape a sh:NodeShape ;
-    sh:targetClass rdfc-js:JSWriterChannel ;
-    sh:property [
-        sh:path [ sh:inversePath rdfc:writer ] ;
-        sh:name "channel" ;
-        sh:maxCount 1 ;
-        sh:minCount 1 ;
-        sh:datatype xsd:iri
-    ] .

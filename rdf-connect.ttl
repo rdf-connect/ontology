@@ -1,476 +1,94 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
-@prefix owl:  <http://www.w3.org/2002/07/owl#> .
-@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sh:   <http://www.w3.org/ns/shacl#> .
-@prefix cc:   <http://creativecommons.org/ns#> .
-@prefix dct:  <http://purl.org/dc/terms/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix rdfl: <https://w3id.org/rdf-lens/ontology#> .
-@prefix rdfc: <https://w3id.org/rdf-connect#> .
-@prefix rdfc-js: <https://w3id.org/rdf-connect/js#> .
-@prefix rdfc-jvm: <https://w3id.org/rdf-connect/jvm#> .
-
-rdfc: a owl:Ontology ;
-    cc:license <https://creativecommons.org/licenses/by/4.0/> ;
-    dct:author [
-        a foaf:Person ;
-        foaf:name "Arthur Vercruysse"
-    ] ;
-    dct:contributor 
-        [
-            a foaf:Person ;
-            foaf:name "Jens Pots"
-        ] ,
-        <https://julianrojas.org/#me> ,
-        <https://pietercolpaert.be/#me> ;
-                                            
-    dct:issued "2024-07-29"^^xsd:date ;
-    dct:modified "2024-08-02"^^xsd:date ;
-    dct:title "RDF-Connect ontology"@en ;
-    rdfs:comment "Ontology for describing data processing pipelines in the RDF-Connect framework"@en ;
-    owl:versionInfo "v0.1.1"@en ;
-    owl:versionURI <https://github.com/rdf-connect/ontology/releases/tag/v0.1.0> ;
-    owl:imports rdfc-js:, rdfc-jvm: . # Import JavaScript and JVM-specific classes
-
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+@prefix cc: <http://creativecommons.org/ns#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix rdfc: <https://w3id.org/rdf-connect#>.
+@prefix rdfc-js: <https://w3id.org/rdf-connect/js#>.
 
 #################################################################
-#    Classes
+# Ontology metadata
 #################################################################
-
-rdfc:Runner a rdfs:Class ;
-    rdfs:label "Runner" ;
-    rdfs:comment "An application for running execution environment specific processors" ;
-    dct:created "2024-07-29"^^xsd:date .
-
-rdfc:Processor a rdfs:Class ;
-    rdfs:label "Processor" ;
-    rdfs:comment "A data processing unit that can be executed by a runner" ;
-    dct:created "2024-07-29"^^xsd:date .
-
-rdfc:Channel a rdfs:Class ;
-    rdfs:label "Channel" ;
-    rdfs:comment "A data channel that enables communication among processors" ;
-    dct:created "2024-07-29"^^xsd:date .
-
-rdfc:ReaderChannel a rdfs:Class ;
-    rdfs:subClassOf rdfc:Channel ;
-    rdfs:label "Reader channel" ;
-    rdfs:comment "Reading end of a channel from which processors can read/listen to data flows" ;
-    dct:created "2024-07-29"^^xsd:date .
-
-rdfc:WriterChannel a rdfs:Class ;
-    rdfs:subClassOf rdfc:Channel ;
-    rdfs:label "Writer channel" ;
-    rdfs:comment "Writing end of a channel to which processors can write/push data flows" ;
-    dct:created "2024-07-29"^^xsd:date .
+<https://w3id.org/rdf-connect/ontology> a owl:Ontology;
+  cc:license <https://creativecommons.org/licenses/by/4.0/>;
+  dct:author [
+    a foaf:Person;
+    foaf:name "Arthur Vercruysse";
+  ];
+  dct:contributor [
+    a foaf:Person;
+    foaf:name "Jens Pots";
+  ], <https://julianrojas.org/#me>, <https://pietercolpaert.be/#me>;
+  dct:issued "2024-07-29"^^xsd:date;
+  dct:modified "2025-05-05"^^xsd:date;
+  rdfs:label "RDF Connect Ontology"@en;
+  rdfs:comment "An ontology for describing processors, runners, and pipelines in RDF-based data processing frameworks."@en;
+  owl:versionInfo "0.2.1";
+  owl:imports rdfc-js:.
 
 #################################################################
-#    Properties
+# Classes
 #################################################################
+rdfc:Processor a owl:Class;
+  rdfs:label "Processor"@en;
+  rdfs:comment "A processing unit that performs an action within a pipeline."@en;
+  rdfs:subClassOf <https://w3id.org/sds#Activity>.
 
-rdfc:supportsChannel a rdfs:Property ;
-    rdfs:label "supports channel" ;
-    rdfs:comment "Indicates that a runner supports a specific channel type" ;
-    rdfs:domain rdfc:Runner ;
-    rdfs:range rdfs:Class ;
-    dct:created "2024-08-02"^^xsd:date .
+rdfc:Runner a owl:Class;
+  rdfs:label "Runner"@en;
+  rdfs:comment "An agent responsible for executing processors based on specific implementations."@en.
 
-rdfc:executedBy a rdfs:Property ;
-    rdfs:label "executed by" ;
-    rdfs:comment "Indicates the class of runners that can execute a specific processor" ;
-    rdfs:domain rdfc:Processor ;
-    rdfs:range rdfs:Class ;
-    dct:created "2024-08-02"^^xsd:date .
+rdfc:Pipeline a owl:Class;
+  rdfs:label "Pipeline"@en;
+  rdfs:comment "A sequence of processors and runners forming a data processing workflow."@en.
 
-rdfc:reader a rdfs:Property ;
-    rdfs:label "reader" ;
-    rdfs:comment "Indicates the reader end of a channel" ;
-    rdfs:domain rdfc:Channel ;
-    rdfs:range rdfc:ReaderChannel ;
-    dct:created "2024-08-01"^^xsd:date .
+rdfc:Reader a owl:Class;
+  rdfs:label "Reader"@en;
+  rdfs:comment "A component that provides input data to a processor."@en.
 
-rdfc:writer a rdfs:Property ;
-    rdfs:label "writer" ;
-    rdfs:comment "Indicates the writer end of a channel" ;
-    rdfs:domain rdfc:Channel ;
-    rdfs:range rdfc:WriterChannel ;
-    dct:created "2024-08-01"^^xsd:date .
+rdfc:Writer a owl:Class;
+  rdfs:label "Writer"@en;
+  rdfs:comment "A component that handles output data from a processor."@en.
 
 #################################################################
-#    Channel types
+# Properties
 #################################################################
+rdfc:handlesSubjectsOf a owl:ObjectProperty;
+  rdfs:label "handles subjects of"@en;
+  rdfs:comment "The property that defines which subjects a runner can handle, typically linked to a specific implementation property."@en.
 
-rdfc:FileChannel a rdfs:Class ;
-    rdfs:subClassOf rdfc:Channel ;
-    rdfs:label "File channel" ;
-    rdfs:comment "A channel that passes data among processors via files" ;
-    dct:created "2024-08-02"^^xsd:date .
+rdfc:command a owl:DatatypeProperty;
+  rdfs:label "command"@en;
+  rdfs:comment "The shell command used by a runner to execute the processor."@en;
+  rdfs:range xsd:string.
 
-rdfc:FileReaderChannel a rdfs:Class ;
-    rdfs:subClassOf rdfc:ReaderChannel ;
-    rdfs:label "File reader channel" ;
-    rdfs:comment "Reading end of a file channel from which processors can read/listen to data flows" ;
-    dct:created "2024-08-02"^^xsd:date .
+rdfc:instantiates a owl:ObjectProperty;
+  rdfs:label "instantiates"@en;
+  rdfs:comment "Relates a pipeline step to the runner it instantiates."@en;
+  rdfs:domain rdfc:Pipeline;
+  rdfs:range rdfc:Runner.
 
-rdfc:FileWriterChannel a rdfs:Class ;
-    rdfs:subClassOf rdfc:WriterChannel ;
-    rdfs:label "File writer channel" ;
-    rdfs:comment "Writing end of a file channel to which processors can write/push data flows" ;
-    dct:created "2024-08-02"^^xsd:date .
+rdfc:processor a owl:ObjectProperty;
+  rdfs:label "processor"@en;
+  rdfs:comment "Relates a pipeline step to the processor it uses."@en;
+  rdfs:domain rdfc:Pipeline;
+  rdfs:range rdfc:Processor.
 
-rdfc:HttpChannel a rdfs:Class ;
-    rdfs:subClassOf rdfc:Channel ;
-    rdfs:label "HTTP channel" ;
-    rdfs:comment "A channel that enables HTTP-based communication for processors" ;
-    dct:created "2024-08-02"^^xsd:date .
+rdfc:entrypoint a owl:DatatypeProperty;
+  rdfs:label "entrypoint"@en;
+  rdfs:comment "The location of the main script or module entry point."@en;
+  rdfs:range xsd:anyURI.
 
-rdfc:HttpReaderChannel a rdfs:Class ;
-    rdfs:subClassOf rdfc:ReaderChannel ;
-    rdfs:label "HTTP reader channel" ;
-    rdfs:comment "Reading end of an HTTP channel from which processors can read/listen to data flows" ;
-    dct:created "2024-08-02"^^xsd:date .
+rdfc:file a owl:DatatypeProperty;
+  rdfs:label "file"@en;
+  rdfs:comment "The file that implements the processor logic."@en;
+  rdfs:range xsd:anyURI.
 
-rdfc:HttpWriterChannel a rdfs:Class ;
-    rdfs:subClassOf rdfc:WriterChannel ;
-    rdfs:label "HTTP writer channel" ;
-    rdfs:comment "Writing end of an HTTP channel to which processors can write/push data flows" ;
-    dct:created "2024-08-02"^^xsd:date .
+rdfc:class a owl:DatatypeProperty;
+  rdfs:label "class"@en;
+  rdfs:comment "The class name of the JavaScript processor."@en;
+  rdfs:range xsd:string.
 
-rdfc:WebSocketChannel a rdfs:Class ;
-    rdfs:subClassOf rdfc:Channel ;
-    rdfs:label "WebSocket channel" ;
-    rdfs:comment "A channel that enables WebSocket-based communication for processors" ;
-    dct:created "2024-08-02"^^xsd:date .
-
-rdfc:WebSocketReaderChannel a rdfs:Class ;
-    rdfs:subClassOf rdfc:ReaderChannel ;
-    rdfs:label "WebSocket reader channel" ;
-    rdfs:comment "Reading end of a WebSocket channel from which processors can read/listen to data flows" ;
-    dct:created "2024-08-02"^^xsd:date .
-
-rdfc:WebSocketWriterChannel a rdfs:Class ;
-    rdfs:subClassOf rdfc:WriterChannel ;
-    rdfs:label "WebSocket writer channel" ;
-    rdfs:comment "Writing end of a WebSocket channel to which processors can write/push data flows" ;
-    dct:created "2024-08-02"^^xsd:date .
-
-rdfc:KafkaChannel a rdfs:Class ;
-    rdfs:subClassOf rdfc:Channel ;
-    rdfs:label "Kafka channel" ;
-    rdfs:comment "A channel that enables Kafka-based communication for processors" ;
-    dct:created "2024-08-02"^^xsd:date .
-
-rdfc:KafkaReaderChannel a rdfs:Class ;
-    rdfs:subClassOf rdfc:ReaderChannel ;
-    rdfs:label "Kafka reader channel" ;
-    rdfs:comment "Reading end of a Kafka channel from which processors can read/listen to data flows" ;
-    dct:created "2024-08-02"^^xsd:date .
-
-rdfc:KafkaWriterChannel a rdfs:Class ;
-    rdfs:subClassOf rdfc:WriterChannel ;
-    rdfs:label "Kafka writer channel" ;
-    rdfs:comment "Writing end of a Kafka channel to which processors can write/push data flows" ;
-    dct:created "2024-08-02"^^xsd:date .
-
-#################################################################
-#    Channel Shapes
-#################################################################
-
-rdfc:ReaderChannelShape a sh:NodeShape ;
-    sh:targetClass rdfc:ReaderChannel ;
-    sh:property [
-        sh:path ( ) ;
-        sh:name "id" ;
-        sh:maxCount 1 ;
-        sh:minCount 1 ;
-        sh:datatype xsd:iri
-    ], [
-        sh:path rdf:type ;
-        sh:name "ty" ;
-        sh:maxCount 1 ;
-        sh:datatype xsd:iri
-    ], [
-        sh:path ( ) ;
-        sh:name "config" ;
-        sh:maxCount 1 ;
-        sh:minCount 1 ;
-        sh:class rdfl:TypedExtract
-    ] .
-
-rdfc:WriterChannelShape a sh:NodeShape ;
-    sh:targetClass rdfc:WriterChannel ;
-    sh:property [
-        sh:path ( ) ;
-        sh:name "id" ;
-        sh:maxCount 1 ;
-        sh:minCount 1 ;
-        sh:datatype xsd:iri
-    ], [
-        sh:path rdf:type ;
-        sh:name "ty" ;
-        sh:maxCount 1 ;
-        sh:minCount 1 ;
-        sh:datatype xsd:iri
-    ], [
-        sh:path ( ) ;
-        sh:name "config" ;
-        sh:maxCount 1 ;
-        sh:minCount 1 ;
-        sh:class rdfl:TypedExtract
-    ] .
-
-rdfc:FileChannelShape a sh:NodeShape ;
-    sh:targetClass rdfc:FileChannel ;
-    sh:property [
-        sh:path rdfc:reader ;
-        sh:name "reader" ;
-        sh:maxCount 1 ;
-        sh:class rdfc:FileReaderChannel
-    ], [
-        sh:path rdfc:writer ;
-        sh:name "writer" ;
-        sh:maxCount 1 ;
-        sh:class rdfc:FileWriterChannel
-    ] .
-
-rdfc:FileRWChannelShape a sh:NodeShape;
-    sh:targetClass rdfc:FileReaderChannel, rdfc:FileWriterChannel ;
-    sh:property [
-        sh:path rdfc:filePath ;
-        sh:name "path" ;
-        sh:maxCount 1 ;
-        sh:minCount 1 ;
-        sh:datatype xsd:string ;
-        sh:description "Path of the used file"
-    ], [
-        sh:path rdfc:fileOnReplace ;
-        sh:name "onReplace" ;
-        sh:maxCount 1 ;
-        sh:minCount 1 ;
-        sh:datatype xsd:boolean ;
-        sh:description "Boolean indicating if the files is always replaced, or appended to"
-    ], [
-        sh:path rdfc:fileReadFirstContent ;
-        sh:name "readFirstContent" ;
-        sh:maxCount 1 ;
-        sh:datatype xsd:boolean ;
-        sh:description "Boolean indicating whether or not the initial content is also a message"
-    ], [
-        sh:path rdfc:fileEncoding ;
-        sh:name "encoding" ;
-        sh:maxCount 1 ;
-        sh:datatype xsd:string ;
-        sh:description "The encoding used for the file"
-    ].
-
-rdfc:HttpChannelShape a sh:NodeShape ;
-    sh:targetClass rdfc:HttpChannel ;
-    sh:property [
-        sh:path rdfc:reader ;
-        sh:name "reader" ;
-        sh:maxCount 1 ;
-        sh:class rdfc:HttpReaderChannel
-    ], [
-        sh:path rdfc:writer ;
-        sh:name "writer" ;
-        sh:maxCount 1 ;
-        sh:class rdfc:HttpWriterChannel
-    ] .
-
-rdfc:HttpChannelReaderShape a sh:NodeShape ;
-    sh:targetClass rdfc:HttpReaderChannel ;
-    sh:property [
-        sh:path rdfc:httpEndpoint ;
-        sh:name "endpoint" ;
-        sh:maxCount 1 ;
-        sh:datatype xsd:string ;
-        sh:description "Used endpoint"
-    ], [
-        sh:path rdfc:httpPort ;
-        sh:name "port" ;
-        sh:maxCount 1 ;
-        sh:datatype xsd:integer ;
-        sh:description "Used port" ;
-    ], [
-        sh:path rdfc:binary ;
-        sh:name "binary" ;
-        sh:maxCount 1 ;
-        sh:datatype xsd:boolean ;
-        sh:description "Stream raw bytes if true" ;
-    ], [
-        sh:path rdfc:waitHandled ;
-        sh:name "waitHandled" ;
-        sh:maxCount 1 ;
-        sh:datatype xsd:boolean ;
-        sh:description "Wait for handlers to be have handled the incoming message"
-    ], [
-        sh:path rdfc:responseCode ;
-        sh:name "responseCode" ;
-        sh:maxCount 1 ;
-        sh:datatype xsd:integer ;
-        sh:description "Specify the expected response code (default 200)"
-    ] .
-
-rdfc:HttpChannelWriterShape a sh:NodeShape ;
-    sh:targetClass rdfc:HttpWriterChannel ;
-    sh:property [
-        sh:path rdfc:httpEndpoint ;
-        sh:name "endpoint" ;
-        sh:maxCount 1 ;
-        sh:minCount 1 ;
-        sh:datatype xsd:string ;
-        sh:description "Used endpoint"
-    ], [
-        sh:path rdfc:httpMethod ;
-        sh:name "method" ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:datatype xsd:string ;
-        sh:description "Used method"
-    ] .
-
-rdfc:WebSocketChannelShape a sh:NodeShape ;
-    sh:targetClass rdfc:WebSocketChannel ;
-    sh:property [
-        sh:path rdfc:reader ;
-        sh:name "reader" ;
-        sh:maxCount 1 ;
-        sh:class rdfc:WebSocketReaderChannel
-    ], [
-        sh:path rdfc:writer ;
-        sh:name "writer" ;
-        sh:maxCount 1 ;
-        sh:class rdfc:WebSocketWriterChannel
-    ] .
-
-rdfc:WebSocketReaderChannelShape a sh:NodeShape ;
-    sh:targetClass rdfc:WebSocketReaderChannel ;
-    sh:property [
-        sh:name "port" ;
-        sh:path rdfc:wsPort ;
-        sh:datatype xsd:integer ;
-        sh:maxCount 1 ;
-        sh:minCount 1 ;
-    ], [
-        sh:name "host" ;
-        sh:path rdfc:wsHost ;
-        sh:datatype xsd:string ;
-        sh:maxCount 1 ;
-        sh:minCount 1 ;
-    ] .
-
-rdfc:WebSocketWriterChannelShape a sh:NodeShape ;
-    sh:targetClass rdfc:WebSocketWriterChannel ;
-    sh:property [
-        sh:name "url" ;
-        sh:path rdfc:wsUrl ;
-        sh:datatype xsd:string ;
-        sh:maxCount 1 ;
-        sh:minCount 1
-    ] .
-
-rdfc:KafkaChannelShape a sh:NodeShape ;
-    sh:targetClass rdfc:KafkaChannel ;
-    sh:property [
-        sh:path rdfc:reader ;
-        sh:name "reader" ;
-        sh:maxCount 1 ;
-        sh:class rdfc:KafkaReaderChannel
-    ], [
-        sh:path rdfc:writer ;
-        sh:name "writer" ;
-        sh:maxCount 1 ;
-        sh:class rdfc:KafkaWriterChannel
-    ] .
-
-rdfc:KafkaReaderChannelShape a sh:NodeShape ;
-    sh:targetClass rdfc:KafkaReaderChannel ;
-    sh:property [
-        sh:path rdfc:kafkaTopic ;
-        sh:name "topic" ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:class rdfc:KafkaTopic ;
-        sh:description "Information about the used topic"
-    ], [
-        sh:path rdfc:kafkaConsumer ;
-        sh:name "consumer" ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:class rdfc:KafkaConsumer ;
-        sh:description "Information about the kafka consumer"
-    ], [
-        sh:path rdfc:kafkaBroker ;
-        sh:name "broker" ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:class rdfc:KafkaBroker ;
-        sh:description "Information about the kafka broker"
-    ] .
-
-rdfc:KafkaWriterChannelShape a sh:NodeShape ;
-    sh:targetClass rdfc:KafkaWriterChannel ;
-    sh:property [
-        sh:path rdfc:kafkaTopic ;
-        sh:name "topic" ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:class rdfc:KafkaTopic ;
-        sh:description "Information about the used topic"
-    ], [
-        sh:path rdfc:kafkaBroker ;
-        sh:name "broker" ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:class rdfc:KafkaBroker ;
-        sh:description "Information about the kafka broker"
-    ], [
-        sh:path rdfc:kafkaProducer ;
-        sh:name "producer" ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:class rdfc:KafkaProducer ;
-        sh:description "Information about the kafka producer"
-    ] .
-
-rdfc:KafkaTopicShape a sh:NodeShape ;
-    sh:targetClass rdfc:KafkaTopic ;
-    sh:property [
-        sh:path rdfc:topicName ;
-        sh:name "name" ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:datatype xsd:string ;
-        sh:description "Name of the topic"
-    ], [
-        sh:path rdfc:topicFromBeginning ;
-        sh:name "fromBeginning" ;
-        sh:maxCount 1 ;
-        sh:datatype xsd:boolean ;
-        sh:description "Restart the topic from the beginning"
-    ] .
-
-rdfc:KafkaConsumerShape a sh:NodeShape ;
-    sh:targetClass rdfc:KafkaConsumer ;
-    sh:property [
-        sh:path rdfc:groupId ;
-        sh:name "groupId" ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:datatype xsd:string ;
-        sh:description "Group identifier"
-    ].
-
-rdfc:KafkaBrokerShape a sh:NodeShape ;
-    sh:targetClass rdfc:KafkaBroker ;
-    sh:property [
-        sh:path rdfc:brokerHost ;
-        sh:name "hosts" ;
-        sh:minCount 1 ;
-        sh:datatype xsd:string ;
-        sh:description "Broker host to connect to"
-    ].
-
-rdfc:KafkaProducerShape a sh:NodeShape ;
-    sh:targetClass rdfc:KafkaProducer .
