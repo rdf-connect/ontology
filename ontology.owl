@@ -1,0 +1,416 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/rdf-connect/ontology#"
+     xml:base="https://w3id.org/rdf-connect/ontology"
+     xmlns:ns="http://creativecommons.org/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="https://w3id.org/rdf-connect/ontology">
+        <ns:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+        <terms:author rdf:nodeID="genid1"/>
+        <terms:contributor rdf:resource="https://julianrojas.org/#me"/>
+        <terms:contributor rdf:resource="https://pietercolpaert.be/#me"/>
+        <terms:contributor rdf:resource="https://smessaert.be/#me"/>
+        <terms:contributor rdf:nodeID="genid2"/>
+        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-07-29</terms:issued>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-09-02</terms:modified>
+        <rdfs:comment xml:lang="en">An ontology for describing programming language-specific runners, processors and pipelines in RDF-based data processing frameworks.</rdfs:comment>
+        <rdfs:label xml:lang="en">RDF Connect Ontology</rdfs:label>
+        <owl:versionInfo>0.2.1</owl:versionInfo>
+    </owl:Ontology>
+    <rdf:Description rdf:nodeID="genid1">
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <foaf:name>Arthur Vercruysse</foaf:name>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid2">
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <foaf:name>Jens Pots</foaf:name>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://creativecommons.org/ns#license -->
+
+
+    <owl:AnnotationProperty rdf:about="http://creativecommons.org/ns#license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/author -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/author"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/contributor -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/contributor"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/issued -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/issued"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/modified -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/modified"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/name -->
+
+
+    <owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/name"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#subClassOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+    
+
+
+    <!-- https://w3id.org/rdf-connect#consistsOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/rdf-connect#consistsOf">
+        <rdfs:domain rdf:resource="https://w3id.org/rdf-connect#Pipeline"/>
+        <rdfs:range rdf:resource="https://w3id.org/rdf-connect#ExecutionContext"/>
+        <rdfs:comment xml:lang="en">Relates a pipeline to an execution context (runner and processors) it uses.</rdfs:comment>
+        <rdfs:label xml:lang="en">consists of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/rdf-connect#handlesSubjectsOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/rdf-connect#handlesSubjectsOf">
+        <rdfs:domain rdf:resource="https://w3id.org/rdf-connect#Runner"/>
+        <rdfs:comment xml:lang="en">The property that defines which type of processors a runner can handle, typically linked to a specific implementation property.</rdfs:comment>
+        <rdfs:label xml:lang="en">handle subjects of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/rdf-connect#implementationOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/rdf-connect#implementationOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/rdf-connect#Processor"/>
+        <rdfs:range rdf:resource="https://w3id.org/rdf-connect#Processor"/>
+        <rdfs:comment xml:lang="en">Abstract property that conveys the implementation language of a processor.</rdfs:comment>
+        <rdfs:label xml:lang="en">implementation of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/rdf-connect#instantiates -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/rdf-connect#instantiates">
+        <rdfs:domain rdf:resource="https://w3id.org/rdf-connect#ExecutionContext"/>
+        <rdfs:range rdf:resource="https://w3id.org/rdf-connect#Runner"/>
+        <rdfs:comment xml:lang="en">Declares the runner instance used in an execution context.</rdfs:comment>
+        <rdfs:label xml:lang="en">instantiates</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/rdf-connect#javaImplementationOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/rdf-connect#javaImplementationOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/rdf-connect#implementationOf"/>
+        <rdfs:comment xml:lang="en">Indicates that a processor is implemented in Java and is a specialization of implementationOf.</rdfs:comment>
+        <rdfs:label xml:lang="en">Java Implementation Of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/rdf-connect#jsImplementationOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/rdf-connect#jsImplementationOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/rdf-connect#implementationOf"/>
+        <rdfs:comment xml:lang="en">Indicates that a processor is implemented in JavaScript and is a specialization of implementationOf.</rdfs:comment>
+        <rdfs:label xml:lang="en">JavaScript Implementation Of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/rdf-connect#processor -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/rdf-connect#processor">
+        <rdfs:domain rdf:resource="https://w3id.org/rdf-connect#ExecutionContext"/>
+        <rdfs:range rdf:resource="https://w3id.org/rdf-connect#Processor"/>
+        <rdfs:comment xml:lang="en">Declares a processor instance used in an execution context, part of a pipeline.</rdfs:comment>
+        <rdfs:label xml:lang="en">processor</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/rdf-connect#pyImplementationOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/rdf-connect#pyImplementationOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/rdf-connect#implementationOf"/>
+        <rdfs:comment xml:lang="en">Indicates that a processor is implemented in Python and is a specialization of implementationOf.</rdfs:comment>
+        <rdfs:label xml:lang="en">Python Implementation Of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/rdf-connect#class -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/rdf-connect#class">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The class name of a processor. Applicable for any object-oriented programming language.</rdfs:comment>
+        <rdfs:label xml:lang="en">class</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/rdf-connect#command -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/rdf-connect#command">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Shell command used by an orchestrator to execute a runner instance.</rdfs:comment>
+        <rdfs:label xml:lang="en">command</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/rdf-connect#entrypoint -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/rdf-connect#entrypoint">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment xml:lang="en">The folder location of the main script or module entry point of a JavaScript processor.</rdfs:comment>
+        <rdfs:label xml:lang="en">entrypoint</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/rdf-connect#file -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/rdf-connect#file">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment xml:lang="en">The file name containing the processor logic of a JavaScript processor.</rdfs:comment>
+        <rdfs:label xml:lang="en">file</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/rdf-connect#jar -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/rdf-connect#jar">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment xml:lang="en">Path to the JAR file containing the processor logic of a Java processor.</rdfs:comment>
+        <rdfs:label xml:lang="en">jar</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/rdf-connect#module_path -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/rdf-connect#module_path">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The module path of a processor implemented in Python.</rdfs:comment>
+        <rdfs:label xml:lang="en">module path</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Activity -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Activity"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Entity -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Entity"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#SoftwareAgent -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#SoftwareAgent"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+    
+
+
+    <!-- https://w3id.org/rdf-connect#CommandRunner -->
+
+
+    <owl:Class rdf:about="https://w3id.org/rdf-connect#CommandRunner">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/rdf-connect#Runner"/>
+        <rdfs:comment xml:lang="en">A runner that executes processors via shell commands.</rdfs:comment>
+        <rdfs:label xml:lang="en">Command Runner</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/rdf-connect#ExecutionContext -->
+
+
+    <owl:Class rdf:about="https://w3id.org/rdf-connect#ExecutionContext">
+        <rdfs:comment xml:lang="en">Entity that defines an execution context used by a pipeline, which is composed by a runner and a set of processor instances.</rdfs:comment>
+        <rdfs:label xml:lang="en">Execution Context</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/rdf-connect#Pipeline -->
+
+
+    <owl:Class rdf:about="https://w3id.org/rdf-connect#Pipeline">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:comment xml:lang="en">A sequence of processors and runners forming a data processing workflow.</rdfs:comment>
+        <rdfs:label xml:lang="en">Pipeline</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/rdf-connect#Processor -->
+
+
+    <owl:Class rdf:about="https://w3id.org/rdf-connect#Processor">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:comment xml:lang="en">A processing unit that performs an action within a pipeline.</rdfs:comment>
+        <rdfs:label xml:lang="en">Processor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/rdf-connect#Reader -->
+
+
+    <owl:Class rdf:about="https://w3id.org/rdf-connect#Reader">
+        <rdfs:comment xml:lang="en">A component that provides input data to a processor.</rdfs:comment>
+        <rdfs:label xml:lang="en">Reader</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/rdf-connect#Runner -->
+
+
+    <owl:Class rdf:about="https://w3id.org/rdf-connect#Runner">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#SoftwareAgent"/>
+        <rdfs:comment xml:lang="en">An agent responsible for executing processors based on specific implementations.</rdfs:comment>
+        <rdfs:label xml:lang="en">Runner</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/rdf-connect#Writer -->
+
+
+    <owl:Class rdf:about="https://w3id.org/rdf-connect#Writer">
+        <rdfs:comment xml:lang="en">A component that handles output data from a processor.</rdfs:comment>
+        <rdfs:label xml:lang="en">Writer</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/ -->
+
+

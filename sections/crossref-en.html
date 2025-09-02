@@ -1,0 +1,448 @@
+<h2 id="crossreference" class="list">Cross-reference for RDF Connect Ontology classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by RDF Connect Ontology.
+<div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
+ <h3 id="classes-headline" class="list">Classes</h3>
+ <ul class="hlist">
+  <li><a href="#https://w3id.org/rdf-connect#CommandRunner" title="https://w3id.org/rdf-connect#CommandRunner">Command Runner</a></li>
+  <li><a href="#https://w3id.org/rdf-connect#ExecutionContext" title="https://w3id.org/rdf-connect#ExecutionContext">Execution Context</a></li>
+  <li><a href="#https://w3id.org/rdf-connect#Pipeline" title="https://w3id.org/rdf-connect#Pipeline">Pipeline</a></li>
+  <li><a href="#https://w3id.org/rdf-connect#Processor" title="https://w3id.org/rdf-connect#Processor">Processor</a></li>
+  <li><a href="#https://w3id.org/rdf-connect#Reader" title="https://w3id.org/rdf-connect#Reader">Reader</a></li>
+  <li><a href="#https://w3id.org/rdf-connect#Runner" title="https://w3id.org/rdf-connect#Runner">Runner</a></li>
+  <li><a href="#https://w3id.org/rdf-connect#Writer" title="https://w3id.org/rdf-connect#Writer">Writer</a></li>
+ </ul>
+ <div class="entity" id="https://w3id.org/rdf-connect#CommandRunner">
+  <h3>Command Runner<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#CommandRunner</p>
+  <div class="comment">
+   <span class="markdown">A runner that executes processors via shell commands.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/rdf-connect#Runner" title="https://w3id.org/rdf-connect#Runner">Runner</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/rdf-connect#ExecutionContext">
+  <h3>Execution Context<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#ExecutionContext</p>
+  <div class="comment">
+   <span class="markdown">Entity that defines an execution context used by a pipeline, which is composed by a runner and a set of processor instances.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/rdf-connect#instantiates" title="https://w3id.org/rdf-connect#instantiates">instantiates</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://w3id.org/rdf-connect#processor" title="https://w3id.org/rdf-connect#processor">processor</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/rdf-connect#consistsOf" title="https://w3id.org/rdf-connect#consistsOf">consists of</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/rdf-connect#Pipeline">
+  <h3>Pipeline<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#Pipeline</p>
+  <div class="comment">
+   <span class="markdown">A sequence of processors and runners forming a data processing workflow.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/ns/prov#Entity" target="_blank" title="http://www.w3.org/ns/prov#Entity">Entity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/rdf-connect#consistsOf" title="https://w3id.org/rdf-connect#consistsOf">consists of</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/rdf-connect#Processor">
+  <h3>Processor<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#Processor</p>
+  <div class="comment">
+   <span class="markdown">A processing unit that performs an action within a pipeline.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/ns/prov#Activity" target="_blank" title="http://www.w3.org/ns/prov#Activity">Activity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/rdf-connect#implementationOf" title="https://w3id.org/rdf-connect#implementationOf">implementation of</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/rdf-connect#implementationOf" title="https://w3id.org/rdf-connect#implementationOf">implementation of</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://w3id.org/rdf-connect#processor" title="https://w3id.org/rdf-connect#processor">processor</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/rdf-connect#Reader">
+  <h3>Reader<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#Reader</p>
+  <div class="comment">
+   <span class="markdown">A component that provides input data to a processor.</span>
+  </div>
+ </div>
+ <div class="entity" id="https://w3id.org/rdf-connect#Runner">
+  <h3>Runner<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#Runner</p>
+  <div class="comment">
+   <span class="markdown">An agent responsible for executing processors based on specific implementations.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/ns/prov#SoftwareAgent" target="_blank" title="http://www.w3.org/ns/prov#SoftwareAgent">Software Agent</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/rdf-connect#CommandRunner" title="https://w3id.org/rdf-connect#CommandRunner">Command Runner</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/rdf-connect#handlesSubjectsOf" title="https://w3id.org/rdf-connect#handlesSubjectsOf">handle subjects of</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/rdf-connect#instantiates" title="https://w3id.org/rdf-connect#instantiates">instantiates</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/rdf-connect#Writer">
+  <h3>Writer<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#Writer</p>
+  <div class="comment">
+   <span class="markdown">A component that handles output data from a processor.</span>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
+ <h3 id="properties" class="list">Object Properties</h3>
+ <ul class="hlist">
+  <li><a href="#https://w3id.org/rdf-connect#consistsOf" title="https://w3id.org/rdf-connect#consistsOf">consists of</a></li>
+  <li><a href="#https://w3id.org/rdf-connect#handlesSubjectsOf" title="https://w3id.org/rdf-connect#handlesSubjectsOf">handle subjects of</a></li>
+  <li><a href="#https://w3id.org/rdf-connect#implementationOf" title="https://w3id.org/rdf-connect#implementationOf">implementation of</a></li>
+  <li><a href="#https://w3id.org/rdf-connect#instantiates" title="https://w3id.org/rdf-connect#instantiates">instantiates</a></li>
+  <li><a href="#https://w3id.org/rdf-connect#javaImplementationOf" title="https://w3id.org/rdf-connect#javaImplementationOf">Java Implementation Of</a></li>
+  <li><a href="#https://w3id.org/rdf-connect#jsImplementationOf" title="https://w3id.org/rdf-connect#jsImplementationOf">JavaScript Implementation Of</a></li>
+  <li><a href="#https://w3id.org/rdf-connect#processor" title="https://w3id.org/rdf-connect#processor">processor</a></li>
+  <li><a href="#https://w3id.org/rdf-connect#pyImplementationOf" title="https://w3id.org/rdf-connect#pyImplementationOf">Python Implementation Of</a></li>
+ </ul>
+ <div class="entity" id="https://w3id.org/rdf-connect#consistsOf">
+  <h3>consists of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#consistsOf</p>
+  <div class="comment">
+   <span class="markdown">Relates a pipeline to an execution context (runner and processors) it uses.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/rdf-connect#Pipeline" title="https://w3id.org/rdf-connect#Pipeline">Pipeline</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/rdf-connect#ExecutionContext" title="https://w3id.org/rdf-connect#ExecutionContext">Execution Context</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://w3id.org/rdf-connect#handlesSubjectsOf">
+  <h3>handle subjects of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#handlesSubjectsOf</p>
+  <div class="comment">
+   <span class="markdown">The property that defines which type of processors a runner can handle, typically linked to a specific implementation property.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/rdf-connect#Runner" title="https://w3id.org/rdf-connect#Runner">Runner</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://w3id.org/rdf-connect#implementationOf">
+  <h3>implementation of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#implementationOf</p>
+  <div class="comment">
+   <span class="markdown">Abstract property that conveys the implementation language of a processor.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2000/01/rdf-schema#subClassOf" target="_blank" title="http://www.w3.org/2000/01/rdf-schema#subClassOf">sub Class Of</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has sub-properties
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/rdf-connect#javaImplementationOf" title="https://w3id.org/rdf-connect#javaImplementationOf">Java Implementation Of</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://w3id.org/rdf-connect#jsImplementationOf" title="https://w3id.org/rdf-connect#jsImplementationOf">JavaScript Implementation Of</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://w3id.org/rdf-connect#pyImplementationOf" title="https://w3id.org/rdf-connect#pyImplementationOf">Python Implementation Of</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/rdf-connect#Processor" title="https://w3id.org/rdf-connect#Processor">Processor</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/rdf-connect#Processor" title="https://w3id.org/rdf-connect#Processor">Processor</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://w3id.org/rdf-connect#instantiates">
+  <h3>instantiates<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#instantiates</p>
+  <div class="comment">
+   <span class="markdown">Declares the runner instance used in an execution context.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/rdf-connect#ExecutionContext" title="https://w3id.org/rdf-connect#ExecutionContext">Execution Context</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/rdf-connect#Runner" title="https://w3id.org/rdf-connect#Runner">Runner</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://w3id.org/rdf-connect#javaImplementationOf">
+  <h3>Java Implementation Of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#javaImplementationOf</p>
+  <div class="comment">
+   <span class="markdown">Indicates that a processor is implemented in Java and is a specialization of implementationOf.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/rdf-connect#implementationOf" title="https://w3id.org/rdf-connect#implementationOf">implementation of</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://w3id.org/rdf-connect#jsImplementationOf">
+  <h3>JavaScript Implementation Of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#jsImplementationOf</p>
+  <div class="comment">
+   <span class="markdown">Indicates that a processor is implemented in JavaScript and is a specialization of implementationOf.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/rdf-connect#implementationOf" title="https://w3id.org/rdf-connect#implementationOf">implementation of</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://w3id.org/rdf-connect#processor">
+  <h3>processor<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#processor</p>
+  <div class="comment">
+   <span class="markdown">Declares a processor instance used in an execution context, part of a pipeline.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/rdf-connect#ExecutionContext" title="https://w3id.org/rdf-connect#ExecutionContext">Execution Context</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/rdf-connect#Processor" title="https://w3id.org/rdf-connect#Processor">Processor</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://w3id.org/rdf-connect#pyImplementationOf">
+  <h3>Python Implementation Of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#pyImplementationOf</p>
+  <div class="comment">
+   <span class="markdown">Indicates that a processor is implemented in Python and is a specialization of implementationOf.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/rdf-connect#implementationOf" title="https://w3id.org/rdf-connect#implementationOf">implementation of</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="dataproperties">
+ <h3 id="dataproperties-headline" class="list">Data Properties</h3>
+ <ul class="hlist">
+  <li><a href="#https://w3id.org/rdf-connect#class" title="https://w3id.org/rdf-connect#class">class</a></li>
+  <li><a href="#https://w3id.org/rdf-connect#command" title="https://w3id.org/rdf-connect#command">command</a></li>
+  <li><a href="#https://w3id.org/rdf-connect#entrypoint" title="https://w3id.org/rdf-connect#entrypoint">entrypoint</a></li>
+  <li><a href="#https://w3id.org/rdf-connect#file" title="https://w3id.org/rdf-connect#file">file</a></li>
+  <li><a href="#https://w3id.org/rdf-connect#jar" title="https://w3id.org/rdf-connect#jar">jar</a></li>
+  <li><a href="#https://w3id.org/rdf-connect#module_path" title="https://w3id.org/rdf-connect#module_path">module path</a></li>
+ </ul>
+ <div class="entity" id="https://w3id.org/rdf-connect#class">
+  <h3>class<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#class</p>
+  <div class="comment">
+   <span class="markdown">The class name of a processor. Applicable for any object-oriented programming language.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://w3id.org/rdf-connect#command">
+  <h3>command<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#command</p>
+  <div class="comment">
+   <span class="markdown">Shell command used by an orchestrator to execute a runner instance.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://w3id.org/rdf-connect#entrypoint">
+  <h3>entrypoint<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#entrypoint</p>
+  <div class="comment">
+   <span class="markdown">The folder location of the main script or module entry point of a JavaScript processor.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank" title="http://www.w3.org/2001/XMLSchema#anyURI">any U R I</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://w3id.org/rdf-connect#file">
+  <h3>file<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#file</p>
+  <div class="comment">
+   <span class="markdown">The file name containing the processor logic of a JavaScript processor.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank" title="http://www.w3.org/2001/XMLSchema#anyURI">any U R I</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://w3id.org/rdf-connect#jar">
+  <h3>jar<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#jar</p>
+  <div class="comment">
+   <span class="markdown">Path to the JAR file containing the processor logic of a Java processor.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank" title="http://www.w3.org/2001/XMLSchema#anyURI">any U R I</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://w3id.org/rdf-connect#module_path">
+  <h3>module path<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#module_path</p>
+  <div class="comment">
+   <span class="markdown">The module path of a processor implemented in Python.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br/>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+<sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br/>
+</div>
+</div>
