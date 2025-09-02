@@ -1,0 +1,226 @@
+<https://w3id.org/rdf-connect/ontology> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://w3id.org/rdf-connect/ontology> <http://creativecommons.org/ns#license> <https://creativecommons.org/licenses/by/4.0/> .
+<https://w3id.org/rdf-connect/ontology> <http://purl.org/dc/terms/author> _:genid1 .
+_:genid1 <http://xmlns.com/foaf/0.1/name> "Arthur Vercruysse" .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://xmlns.com/foaf/0.1/Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/rdf-connect/ontology> <http://purl.org/dc/terms/contributor> <https://julianrojas.org/#me> .
+<https://w3id.org/rdf-connect/ontology> <http://purl.org/dc/terms/contributor> <https://pietercolpaert.be/#me> .
+<https://w3id.org/rdf-connect/ontology> <http://purl.org/dc/terms/contributor> <https://smessaert.be/#me> .
+<https://w3id.org/rdf-connect/ontology> <http://purl.org/dc/terms/contributor> _:genid2 .
+_:genid2 <http://xmlns.com/foaf/0.1/name> "Jens Pots" .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<https://w3id.org/rdf-connect/ontology> <http://purl.org/dc/terms/issued> "2024-07-29"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://w3id.org/rdf-connect/ontology> <http://purl.org/dc/terms/modified> "2025-09-02"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://w3id.org/rdf-connect/ontology> <http://www.w3.org/2000/01/rdf-schema#comment> "An ontology for describing programming language-specific runners, processors and pipelines in RDF-based data processing frameworks."@en .
+<https://w3id.org/rdf-connect/ontology> <http://www.w3.org/2000/01/rdf-schema#label> "RDF Connect Ontology"@en .
+<https://w3id.org/rdf-connect/ontology> <http://www.w3.org/2002/07/owl#versionInfo> "0.2.1" .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://creativecommons.org/ns#license
+<http://creativecommons.org/ns#license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/author
+<http://purl.org/dc/terms/author> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/contributor
+<http://purl.org/dc/terms/contributor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/issued
+<http://purl.org/dc/terms/issued> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/modified
+<http://purl.org/dc/terms/modified> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://xmlns.com/foaf/0.1/name
+<http://xmlns.com/foaf/0.1/name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Datatypes
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/2001/XMLSchema#date
+<http://www.w3.org/2001/XMLSchema#date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/2000/01/rdf-schema#subClassOf
+<http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# https://w3id.org/rdf-connect#consistsOf
+<https://w3id.org/rdf-connect#consistsOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdf-connect#consistsOf> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdf-connect#Pipeline> .
+<https://w3id.org/rdf-connect#consistsOf> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/rdf-connect#ExecutionContext> .
+<https://w3id.org/rdf-connect#consistsOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a pipeline to an execution context (runner and processors) it uses."@en .
+<https://w3id.org/rdf-connect#consistsOf> <http://www.w3.org/2000/01/rdf-schema#label> "consists of"@en .
+# 
+# https://w3id.org/rdf-connect#handlesSubjectsOf
+<https://w3id.org/rdf-connect#handlesSubjectsOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdf-connect#handlesSubjectsOf> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdf-connect#Runner> .
+<https://w3id.org/rdf-connect#handlesSubjectsOf> <http://www.w3.org/2000/01/rdf-schema#comment> "The property that defines which type of processors a runner can handle, typically linked to a specific implementation property."@en .
+<https://w3id.org/rdf-connect#handlesSubjectsOf> <http://www.w3.org/2000/01/rdf-schema#label> "handle subjects of"@en .
+# 
+# https://w3id.org/rdf-connect#implementationOf
+<https://w3id.org/rdf-connect#implementationOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdf-connect#implementationOf> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2000/01/rdf-schema#subClassOf> .
+<https://w3id.org/rdf-connect#implementationOf> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdf-connect#Processor> .
+<https://w3id.org/rdf-connect#implementationOf> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/rdf-connect#Processor> .
+<https://w3id.org/rdf-connect#implementationOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Abstract property that conveys the implementation language of a processor."@en .
+<https://w3id.org/rdf-connect#implementationOf> <http://www.w3.org/2000/01/rdf-schema#label> "implementation of"@en .
+# 
+# https://w3id.org/rdf-connect#instantiates
+<https://w3id.org/rdf-connect#instantiates> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdf-connect#instantiates> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdf-connect#ExecutionContext> .
+<https://w3id.org/rdf-connect#instantiates> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/rdf-connect#Runner> .
+<https://w3id.org/rdf-connect#instantiates> <http://www.w3.org/2000/01/rdf-schema#comment> "Declares the runner instance used in an execution context."@en .
+<https://w3id.org/rdf-connect#instantiates> <http://www.w3.org/2000/01/rdf-schema#label> "instantiates"@en .
+# 
+# https://w3id.org/rdf-connect#javaImplementationOf
+<https://w3id.org/rdf-connect#javaImplementationOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdf-connect#javaImplementationOf> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/rdf-connect#implementationOf> .
+<https://w3id.org/rdf-connect#javaImplementationOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a processor is implemented in Java and is a specialization of implementationOf."@en .
+<https://w3id.org/rdf-connect#javaImplementationOf> <http://www.w3.org/2000/01/rdf-schema#label> "Java Implementation Of"@en .
+# 
+# https://w3id.org/rdf-connect#jsImplementationOf
+<https://w3id.org/rdf-connect#jsImplementationOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdf-connect#jsImplementationOf> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/rdf-connect#implementationOf> .
+<https://w3id.org/rdf-connect#jsImplementationOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a processor is implemented in JavaScript and is a specialization of implementationOf."@en .
+<https://w3id.org/rdf-connect#jsImplementationOf> <http://www.w3.org/2000/01/rdf-schema#label> "JavaScript Implementation Of"@en .
+# 
+# https://w3id.org/rdf-connect#processor
+<https://w3id.org/rdf-connect#processor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdf-connect#processor> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdf-connect#ExecutionContext> .
+<https://w3id.org/rdf-connect#processor> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/rdf-connect#Processor> .
+<https://w3id.org/rdf-connect#processor> <http://www.w3.org/2000/01/rdf-schema#comment> "Declares a processor instance used in an execution context, part of a pipeline."@en .
+<https://w3id.org/rdf-connect#processor> <http://www.w3.org/2000/01/rdf-schema#label> "processor"@en .
+# 
+# https://w3id.org/rdf-connect#pyImplementationOf
+<https://w3id.org/rdf-connect#pyImplementationOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdf-connect#pyImplementationOf> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/rdf-connect#implementationOf> .
+<https://w3id.org/rdf-connect#pyImplementationOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a processor is implemented in Python and is a specialization of implementationOf."@en .
+<https://w3id.org/rdf-connect#pyImplementationOf> <http://www.w3.org/2000/01/rdf-schema#label> "Python Implementation Of"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# https://w3id.org/rdf-connect#class
+<https://w3id.org/rdf-connect#class> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdf-connect#class> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/rdf-connect#class> <http://www.w3.org/2000/01/rdf-schema#comment> "The class name of a processor. Applicable for any object-oriented programming language."@en .
+<https://w3id.org/rdf-connect#class> <http://www.w3.org/2000/01/rdf-schema#label> "class"@en .
+# 
+# https://w3id.org/rdf-connect#command
+<https://w3id.org/rdf-connect#command> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdf-connect#command> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/rdf-connect#command> <http://www.w3.org/2000/01/rdf-schema#comment> "Shell command used by an orchestrator to execute a runner instance."@en .
+<https://w3id.org/rdf-connect#command> <http://www.w3.org/2000/01/rdf-schema#label> "command"@en .
+# 
+# https://w3id.org/rdf-connect#entrypoint
+<https://w3id.org/rdf-connect#entrypoint> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdf-connect#entrypoint> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
+<https://w3id.org/rdf-connect#entrypoint> <http://www.w3.org/2000/01/rdf-schema#comment> "The folder location of the main script or module entry point of a JavaScript processor."@en .
+<https://w3id.org/rdf-connect#entrypoint> <http://www.w3.org/2000/01/rdf-schema#label> "entrypoint"@en .
+# 
+# https://w3id.org/rdf-connect#file
+<https://w3id.org/rdf-connect#file> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdf-connect#file> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
+<https://w3id.org/rdf-connect#file> <http://www.w3.org/2000/01/rdf-schema#comment> "The file name containing the processor logic of a JavaScript processor."@en .
+<https://w3id.org/rdf-connect#file> <http://www.w3.org/2000/01/rdf-schema#label> "file"@en .
+# 
+# https://w3id.org/rdf-connect#jar
+<https://w3id.org/rdf-connect#jar> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdf-connect#jar> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
+<https://w3id.org/rdf-connect#jar> <http://www.w3.org/2000/01/rdf-schema#comment> "Path to the JAR file containing the processor logic of a Java processor."@en .
+<https://w3id.org/rdf-connect#jar> <http://www.w3.org/2000/01/rdf-schema#label> "jar"@en .
+# 
+# https://w3id.org/rdf-connect#module_path
+<https://w3id.org/rdf-connect#module_path> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdf-connect#module_path> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/rdf-connect#module_path> <http://www.w3.org/2000/01/rdf-schema#comment> "The module path of a processor implemented in Python."@en .
+<https://w3id.org/rdf-connect#module_path> <http://www.w3.org/2000/01/rdf-schema#label> "module path"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/ns/prov#Activity
+<http://www.w3.org/ns/prov#Activity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://www.w3.org/ns/prov#Entity
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://www.w3.org/ns/prov#SoftwareAgent
+<http://www.w3.org/ns/prov#SoftwareAgent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://xmlns.com/foaf/0.1/Person
+# 
+# https://w3id.org/rdf-connect#CommandRunner
+<https://w3id.org/rdf-connect#CommandRunner> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/rdf-connect#CommandRunner> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/rdf-connect#Runner> .
+<https://w3id.org/rdf-connect#CommandRunner> <http://www.w3.org/2000/01/rdf-schema#comment> "A runner that executes processors via shell commands."@en .
+<https://w3id.org/rdf-connect#CommandRunner> <http://www.w3.org/2000/01/rdf-schema#label> "Command Runner"@en .
+# 
+# https://w3id.org/rdf-connect#ExecutionContext
+<https://w3id.org/rdf-connect#ExecutionContext> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/rdf-connect#ExecutionContext> <http://www.w3.org/2000/01/rdf-schema#comment> "Entity that defines an execution context used by a pipeline, which is composed by a runner and a set of processor instances."@en .
+<https://w3id.org/rdf-connect#ExecutionContext> <http://www.w3.org/2000/01/rdf-schema#label> "Execution Context"@en .
+# 
+# https://w3id.org/rdf-connect#Pipeline
+<https://w3id.org/rdf-connect#Pipeline> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/rdf-connect#Pipeline> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<https://w3id.org/rdf-connect#Pipeline> <http://www.w3.org/2000/01/rdf-schema#comment> "A sequence of processors and runners forming a data processing workflow."@en .
+<https://w3id.org/rdf-connect#Pipeline> <http://www.w3.org/2000/01/rdf-schema#label> "Pipeline"@en .
+# 
+# https://w3id.org/rdf-connect#Processor
+<https://w3id.org/rdf-connect#Processor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/rdf-connect#Processor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Activity> .
+<https://w3id.org/rdf-connect#Processor> <http://www.w3.org/2000/01/rdf-schema#comment> "A processing unit that performs an action within a pipeline."@en .
+<https://w3id.org/rdf-connect#Processor> <http://www.w3.org/2000/01/rdf-schema#label> "Processor"@en .
+# 
+# https://w3id.org/rdf-connect#Reader
+<https://w3id.org/rdf-connect#Reader> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/rdf-connect#Reader> <http://www.w3.org/2000/01/rdf-schema#comment> "A component that provides input data to a processor."@en .
+<https://w3id.org/rdf-connect#Reader> <http://www.w3.org/2000/01/rdf-schema#label> "Reader"@en .
+# 
+# https://w3id.org/rdf-connect#Runner
+<https://w3id.org/rdf-connect#Runner> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/rdf-connect#Runner> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#SoftwareAgent> .
+<https://w3id.org/rdf-connect#Runner> <http://www.w3.org/2000/01/rdf-schema#comment> "An agent responsible for executing processors based on specific implementations."@en .
+<https://w3id.org/rdf-connect#Runner> <http://www.w3.org/2000/01/rdf-schema#label> "Runner"@en .
+# 
+# https://w3id.org/rdf-connect#Writer
+<https://w3id.org/rdf-connect#Writer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/rdf-connect#Writer> <http://www.w3.org/2000/01/rdf-schema#comment> "A component that handles output data from a processor."@en .
+<https://w3id.org/rdf-connect#Writer> <http://www.w3.org/2000/01/rdf-schema#label> "Writer"@en .
+# 
+# Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
