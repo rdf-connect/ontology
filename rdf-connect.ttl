@@ -33,49 +33,35 @@
 # Classes
 #################################################################
 
-# rdfc:Processor is a prov:Activity: it is a concrete data processing action that occurs over time,
-# consuming input entities and producing output entities, in line with the PROV-O definition of prov:Activity.
 rdfc:Processor a owl:Class;
   rdfs:subClassOf prov:Activity;
   rdfs:label "Processor"@en;
-  rdfs:comment "A processing unit that performs an action within a pipeline."@en.
+  rdfs:comment "A processing unit that performs an action within a pipeline. As a subclass of prov:Activity, a processor is a concrete data processing action occurring over time, consuming input entities and producing output entities."@en.
 
-# rdfc:Runner is a prov:SoftwareAgent: it bears responsibility for the execution of processor activities,
-# matching the PROV-O definition of prov:SoftwareAgent as a non-human agent implemented in software.
 rdfc:Runner a owl:Class;
   rdfs:subClassOf prov:SoftwareAgent;
   rdfs:label "Runner"@en;
-  rdfs:comment "An agent responsible for executing processors based on specific implementations."@en.
+  rdfs:comment "An agent responsible for executing processors based on specific implementations. As a subclass of prov:SoftwareAgent, a runner is a non-human agent implemented in software that bears responsibility for executing processor activities."@en.
 
-# rdfc:Pipeline is a prov:Plan: a pipeline is a specification of a set of processing steps (processors and runners)
-# intended by agents to achieve data processing goals, which matches the PROV-O definition of prov:Plan
-# ("an entity that represents a set of actions or steps intended by one or more agents to achieve some goals").
-# prov:Plan is itself a subclass of prov:Entity.
 rdfc:Pipeline a owl:Class;
   rdfs:subClassOf prov:Plan;
   rdfs:label "Pipeline"@en;
-  rdfs:comment "A plan specifying a sequence of processors and runners forming a data processing workflow."@en.
+  rdfs:comment "A plan specifying a sequence of processors and runners forming a data processing workflow. As a subclass of prov:Plan, a pipeline represents the set of steps intended by agents and executed to achieve data processing goals."@en.
 
-# rdfc:ExecutionContext is a prov:Association: it qualifies the relationship between a pipeline execution and
-# a runner (agent), specifying which processor instances (activities) that runner is responsible for executing.
 rdfc:ExecutionContext a owl:Class;
   rdfs:subClassOf prov:Association;
   rdfs:label "Execution Context"@en;
-  rdfs:comment "A qualified association that binds a runner (agent) to the set of processor instances (activities) it executes within a pipeline, and to the pipeline plan itself."@en.
+  rdfs:comment "A qualified association that binds a runner (agent) to the set of processor instances (activities) it executes within a pipeline, and to the pipeline plan itself. As a subclass of prov:Association, it qualifies the relationship between a pipeline execution and the runner responsible for its processors."@en.
 
-# rdfc:Reader is a prov:Entity: a reader channel is a data artifact with fixed aspects (the data stream it carries)
-# that is consumed (prov:used) by a processor activity.
 rdfc:Reader a owl:Class;
   rdfs:subClassOf prov:Entity;
   rdfs:label "Reader"@en;
-  rdfs:comment "A data channel entity that provides input data to a processor."@en.
+  rdfs:comment "A data channel entity that provides input data to a processor. As a subclass of prov:Entity, a reader is a data artifact that is consumed (prov:used) by a processor activity."@en.
 
-# rdfc:Writer is a prov:Entity: a writer channel is a data artifact generated (prov:wasGeneratedBy) by a processor
-# activity and subsequently consumed by downstream processors.
 rdfc:Writer a owl:Class;
   rdfs:subClassOf prov:Entity;
   rdfs:label "Writer"@en;
-  rdfs:comment "A data channel entity that handles output data from a processor."@en.
+  rdfs:comment "A data channel entity that handles output data from a processor. As a subclass of prov:Entity, a writer is a data artifact generated (prov:wasGeneratedBy) by a processor activity and consumed by downstream processors."@en.
 
 rdfc:CommandRunner a owl:Class;
   rdfs:subClassOf rdfc:Runner;
@@ -86,12 +72,10 @@ rdfc:CommandRunner a owl:Class;
 # Properties
 #################################################################
 
-# rdfc:implementationOf is a subproperty of rdfs:subClassOf because declaring that a concrete processor
-# "is an implementation of" an abstract processor makes the concrete class a specialisation in the RDFS class hierarchy.
 rdfc:implementationOf a owl:ObjectProperty;
   rdfs:subPropertyOf rdfs:subClassOf;
   rdfs:label "implementation of"@en;
-  rdfs:comment "Abstract property that conveys the implementation language of a processor."@en;
+  rdfs:comment "Abstract property that conveys the implementation language of a processor. As a subproperty of rdfs:subClassOf, any processor definition declared with rdfc:implementationOf rdfc:Processor is itself a subclass of rdfc:Processor."@en;
   rdfs:domain rdfc:Processor;
   rdfs:range rdfc:Processor.
 
@@ -100,38 +84,24 @@ rdfc:handlesSubjectsOf a owl:ObjectProperty;
   rdfs:comment "The property that defines which type of processors a runner can handle, typically linked to a specific implementation property."@en;
   rdfs:domain rdfc:Runner.
 
-# rdfc:consistsOf is the owl:inverseOf prov:hadPlan: in PROV-O, prov:hadPlan goes from a prov:Association to the
-# prov:Plan it follows. rdfc:consistsOf goes in the opposite direction (Pipeline/Plan → ExecutionContext/Association),
-# so declaring it the inverse of prov:hadPlan makes every
-#   <pipeline> rdfc:consistsOf [ec]
-# triple entail
-#   [ec] prov:hadPlan <pipeline>
-# which is exactly the PROV-O qualified-association pattern: the execution
-# context (Association) records which plan (Pipeline) it executes.
 rdfc:consistsOf a owl:ObjectProperty;
   owl:inverseOf prov:hadPlan;
   rdfs:label "consists of"@en;
-  rdfs:comment "Relates a pipeline plan to the execution contexts (qualified runner–processor associations) it is composed of. Inverse of prov:hadPlan: each execution context thereby records the pipeline plan it follows."@en;
+  rdfs:comment "Relates a pipeline plan to the execution contexts (qualified runner–processor associations), and is declared as the inverse of prov:hadPlan. Because prov:hadPlan goes from a prov:Association to the prov:Plan it follows, each execution context (Association) thereby records the pipeline plan (Plan) it follows, matching the PROV-O qualified-association pattern."@en;
   rdfs:domain rdfc:Pipeline;
   rdfs:range rdfc:ExecutionContext.
 
-# rdfc:instantiates is a subproperty of prov:agent: within an ExecutionContext (prov:Association), rdfc:instantiates
-# points to the Runner (prov:SoftwareAgent) that is responsible for executing the pipeline's processors, exactly as
-# prov:agent identifies the agent involved in a qualified association.
 rdfc:instantiates a owl:ObjectProperty;
   rdfs:subPropertyOf prov:agent;
   rdfs:label "instantiates"@en;
-  rdfs:comment "Declares the runner instance (agent) used in an execution context."@en;
+  rdfs:comment "Declares the runner instance (agent) used in an execution context. As a subproperty of prov:agent, it identifies the Runner (prov:SoftwareAgent) responsible for executing the pipeline's processors within an ExecutionContext (prov:Association)."@en;
   rdfs:domain rdfc:ExecutionContext;
   rdfs:range rdfc:Runner.
 
-# rdfc:processor is a subproperty of prov:activity: within an ExecutionContext (prov:Association), rdfc:processor points
-# to the Processor instances (prov:Activity) the runner is responsible for executing, mirroring the use of prov:activity
-# to identify the activity involved in a qualified association.
 rdfc:processor a owl:ObjectProperty;
   rdfs:subPropertyOf prov:activity;
   rdfs:label "processor"@en;
-  rdfs:comment "Declares a processor instance (activity) used in an execution context, part of a pipeline."@en;
+  rdfs:comment "Declares a processor instance (activity) used in an execution context, part of a pipeline. As a subproperty of prov:activity, it identifies the Processor instances (prov:Activity) the runner is responsible for executing within an ExecutionContext (prov:Association)."@en;
   rdfs:domain rdfc:ExecutionContext;
   rdfs:range rdfc:Processor.
 
