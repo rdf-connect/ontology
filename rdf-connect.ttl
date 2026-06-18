@@ -24,40 +24,44 @@
     <https://pietercolpaert.be/#me>,
     <https://smessaert.be/#me>;
   dct:issued "2024-07-29"^^xsd:date;
-  dct:modified "2025-09-02"^^xsd:date;
-  rdfs:label "RDF Connect Ontology"@en;
+  dct:modified "2026-06-15"^^xsd:date;
+  rdfs:label "RDF-Connect Ontology"@en;
   rdfs:comment "An ontology for describing programming language-specific runners, processors and pipelines in RDF-based data processing frameworks."@en;
-  owl:versionInfo "0.2.1".
+  owl:versionInfo "0.3.0".
 
 #################################################################
 # Classes
 #################################################################
+
 rdfc:Processor a owl:Class;
   rdfs:subClassOf prov:Activity;
   rdfs:label "Processor"@en;
-  rdfs:comment "A processing unit that performs an action within a pipeline."@en.
+  rdfs:comment "A processing unit that performs an action within a pipeline. As a subclass of prov:Activity, a processor is a concrete data processing action occurring over time, consuming input entities and producing output entities."@en.
 
 rdfc:Runner a owl:Class;
   rdfs:subClassOf prov:SoftwareAgent;
   rdfs:label "Runner"@en;
-  rdfs:comment "An agent responsible for executing processors based on specific implementations."@en.
+  rdfs:comment "An agent responsible for executing processors based on specific implementations. As a subclass of prov:SoftwareAgent, a runner is a non-human agent implemented in software that bears responsibility for executing processor activities."@en.
 
 rdfc:Pipeline a owl:Class;
-  rdfs:subClassOf prov:Entity;
+  rdfs:subClassOf prov:Plan;
   rdfs:label "Pipeline"@en;
-  rdfs:comment "A sequence of processors and runners forming a data processing workflow."@en.
+  rdfs:comment "A plan specifying a sequence of processors and runners forming a data processing workflow. As a subclass of prov:Plan, a pipeline represents the set of steps intended by agents and executed to achieve data processing goals."@en.
 
 rdfc:ExecutionContext a owl:Class;
+  rdfs:subClassOf prov:Association;
   rdfs:label "Execution Context"@en;
-  rdfs:comment "Entity that defines an execution context used by a pipeline, which is composed by a runner and a set of processor instances."@en.
+  rdfs:comment "A qualified association that binds a runner (agent) to the set of processor instances (activities) it executes within a pipeline, and to the pipeline plan itself. As a subclass of prov:Association, it qualifies the relationship between a pipeline execution and the runner responsible for its processors."@en.
 
 rdfc:Reader a owl:Class;
+  rdfs:subClassOf prov:Entity;
   rdfs:label "Reader"@en;
-  rdfs:comment "A component that provides input data to a processor."@en.
+  rdfs:comment "A data channel entity that provides input data to a processor. As a subclass of prov:Entity, a reader is a data artifact that is consumed (prov:used) by a processor activity."@en.
 
 rdfc:Writer a owl:Class;
+  rdfs:subClassOf prov:Entity;
   rdfs:label "Writer"@en;
-  rdfs:comment "A component that handles output data from a processor."@en.
+  rdfs:comment "A data channel entity that handles output data from a processor. As a subclass of prov:Entity, a writer is a data artifact generated (prov:wasGeneratedBy) by a processor activity and consumed by downstream processors."@en.
 
 rdfc:CommandRunner a owl:Class;
   rdfs:subClassOf rdfc:Runner;
@@ -67,10 +71,11 @@ rdfc:CommandRunner a owl:Class;
 #################################################################
 # Properties
 #################################################################
+
 rdfc:implementationOf a owl:ObjectProperty;
   rdfs:subPropertyOf rdfs:subClassOf;
   rdfs:label "implementation of"@en;
-  rdfs:comment "Abstract property that conveys the implementation language of a processor."@en;
+  rdfs:comment "Abstract property that conveys the implementation language of a processor. As a subproperty of rdfs:subClassOf, any processor definition declared with rdfc:implementationOf rdfc:Processor is itself a subclass of rdfc:Processor."@en;
   rdfs:domain rdfc:Processor;
   rdfs:range rdfc:Processor.
 
@@ -80,20 +85,23 @@ rdfc:handlesSubjectsOf a owl:ObjectProperty;
   rdfs:domain rdfc:Runner.
 
 rdfc:consistsOf a owl:ObjectProperty;
+  owl:inverseOf prov:hadPlan;
   rdfs:label "consists of"@en;
-  rdfs:comment "Relates a pipeline to an execution context (runner and processors) it uses."@en;
+  rdfs:comment "Relates a pipeline plan to the execution contexts (qualified runner–processor associations), and is declared as the inverse of prov:hadPlan. Because prov:hadPlan goes from a prov:Association to the prov:Plan it follows, each execution context (Association) thereby records the pipeline plan (Plan) it follows, matching the PROV-O qualified-association pattern."@en;
   rdfs:domain rdfc:Pipeline;
   rdfs:range rdfc:ExecutionContext.
 
 rdfc:instantiates a owl:ObjectProperty;
+  rdfs:subPropertyOf prov:agent;
   rdfs:label "instantiates"@en;
-  rdfs:comment "Declares the runner instance used in an execution context."@en;
+  rdfs:comment "Declares the runner instance (agent) used in an execution context. As a subproperty of prov:agent, it identifies the Runner (prov:SoftwareAgent) responsible for executing the pipeline's processors within an ExecutionContext (prov:Association)."@en;
   rdfs:domain rdfc:ExecutionContext;
   rdfs:range rdfc:Runner.
 
 rdfc:processor a owl:ObjectProperty;
+  rdfs:subPropertyOf prov:activity;
   rdfs:label "processor"@en;
-  rdfs:comment "Declares a processor instance used in an execution context, part of a pipeline."@en;
+  rdfs:comment "Declares a processor instance (activity) used in an execution context, part of a pipeline. As a subproperty of prov:activity, it identifies the Processor instances (prov:Activity) the runner is responsible for executing within an ExecutionContext (prov:Association)."@en;
   rdfs:domain rdfc:ExecutionContext;
   rdfs:range rdfc:Processor.
 
