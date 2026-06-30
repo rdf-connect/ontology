@@ -1,3 +1,4 @@
+@prefix vann: <http://purl.org/vocab/vann/>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
@@ -10,7 +11,7 @@
 #################################################################
 # Ontology metadata
 #################################################################
-<https://w3id.org/rdf-connect/ontology> a owl:Ontology;
+rdfc: a owl:Ontology;
   cc:license <https://creativecommons.org/licenses/by/4.0/>;
   dct:author [
     a foaf:Person;
@@ -25,6 +26,8 @@
     <https://smessaert.be/#me>;
   dct:issued "2024-07-29"^^xsd:date;
   dct:modified "2026-06-15"^^xsd:date;
+  vann:preferredNamespacePrefix "rdfc";
+  vann:preferredNamespaceUri "https://w3id.org/rdf-connect#";
   rdfs:label "RDF-Connect Ontology"@en;
   rdfs:comment "An ontology for describing programming language-specific runners, processors and pipelines in RDF-based data processing frameworks."@en;
   owl:versionInfo "0.3.0".
