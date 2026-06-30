@@ -1,0 +1,44 @@
+@prefix vann: <http://purl.org/vocab/vann/>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix prov: <http://www.w3.org/ns/prov#>.
+@prefix cc: <http://creativecommons.org/ns#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix rdfc: <https://w3id.org/rdf-connect#>.
+@prefix rdfcp: <https://w3id.org/rdf-connect/processors#>.
+
+#################################################################
+# Ontology metadata
+#################################################################
+rdfcp: a owl:Ontology;
+  cc:license <https://creativecommons.org/licenses/by/4.0/>;
+  dct:author <https://smessaert.be/#me>;
+  dct:contributor [
+      a foaf:Person;
+      foaf:name "Arthur Vercruysse";
+    ],
+    <https://julianrojas.org/#me>;
+  dct:issued "2026-06-23"^^xsd:date;
+  dct:modified "2026-06-23"^^xsd:date;
+  vann:preferredNamespacePrefix "rdfcp";
+  vann:preferredNamespaceUri "https://w3id.org/rdf-connect/processors#";
+  rdfs:label "RDF-Connect Processors Ontology"@en;
+  rdfs:comment "An ontology for describing processor definitions and their commonly used properties in RDF-Connect. Functions as a placeholder namespace for processor definitions."@en;
+  owl:versionInfo "0.3.0".
+
+
+rdfcp:input a owl:ObjectProperty;
+  rdfs:label "input"@en;
+  rdfs:comment "Relates a processor to its input data channel(s), typically a Reader."@en;
+  rdfs:domain rdfc:Processor;
+  rdfs:range rdfc:Reader;
+  rdfs:subPropertyOf prov:used.
+
+rdfcp:output a owl:ObjectProperty;
+  rdfs:label "output"@en;
+  rdfs:comment "Relates a processor to its output data channel(s), typically a Writer."@en;
+  rdfs:domain rdfc:Processor;
+  rdfs:range rdfc:Writer;
+  rdfs:subPropertyOf prov:generated.
