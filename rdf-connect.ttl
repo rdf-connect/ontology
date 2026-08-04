@@ -25,12 +25,12 @@ rdfc: a owl:Ontology;
     <https://pietercolpaert.be/#me>,
     <https://smessaert.be/#me>;
   dct:issued "2024-07-29"^^xsd:date;
-  dct:modified "2026-06-15"^^xsd:date;
+  dct:modified "2026-08-03"^^xsd:date;
   vann:preferredNamespacePrefix "rdfc";
   vann:preferredNamespaceUri "https://w3id.org/rdf-connect#";
   rdfs:label "RDF-Connect Ontology"@en;
   rdfs:comment "An ontology for describing programming language-specific runners, processors and pipelines in RDF-based data processing frameworks."@en;
-  owl:versionInfo "0.3.0".
+  owl:versionInfo "0.3.1".
 
 #################################################################
 # Classes
@@ -52,9 +52,9 @@ rdfc:Pipeline a owl:Class;
   rdfs:comment "A plan specifying a sequence of processors and runners forming a data processing workflow. As a subclass of prov:Plan, a pipeline represents the set of steps intended by agents and executed to achieve data processing goals."@en.
 
 rdfc:ExecutionContext a owl:Class;
-  rdfs:subClassOf prov:Association;
+  rdfs:subClassOf prov:Association, prov:ActivityInfluence;
   rdfs:label "Execution Context"@en;
-  rdfs:comment "A qualified association that binds a runner (agent) to the set of processor instances (activities) it executes within a pipeline, and to the pipeline plan itself. As a subclass of prov:Association, it qualifies the relationship between a pipeline execution and the runner responsible for its processors."@en.
+  rdfs:comment "A qualified association that binds a runner (agent) to the processor instances (activities) it executes within a pipeline, and to the pipeline plan itself. As a subclass of prov:Association it qualifies the assignment of responsibility for those processors to their runner, and as a subclass of prov:ActivityInfluence it cites those processors directly with prov:activity."@en.
 
 rdfc:Reader a owl:Class;
   rdfs:subClassOf prov:Entity;
@@ -104,7 +104,7 @@ rdfc:instantiates a owl:ObjectProperty;
 rdfc:processor a owl:ObjectProperty;
   rdfs:subPropertyOf prov:activity;
   rdfs:label "processor"@en;
-  rdfs:comment "Declares a processor instance (activity) used in an execution context, part of a pipeline. As a subproperty of prov:activity, it identifies the Processor instances (prov:Activity) the runner is responsible for executing within an ExecutionContext (prov:Association)."@en;
+  rdfs:comment "Declares a processor instance (activity) used in an execution context, part of a pipeline. As a subproperty of prov:activity, it identifies the Processor instances (prov:Activity) the runner is responsible for executing within an ExecutionContext (prov:Association, prov:ActivityInfluence)."@en;
   rdfs:domain rdfc:ExecutionContext;
   rdfs:range rdfc:Processor.
 
