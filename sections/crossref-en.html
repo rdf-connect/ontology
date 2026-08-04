@@ -1,17 +1,17 @@
-<h2 id="crossreference" class="list">Cross-reference for RDF Connect Ontology classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
-This section provides details for each class and property defined by RDF Connect Ontology.
+<h2 id="crossreference" class="list">Cross-reference for RDF-Connect Ontology classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by RDF-Connect Ontology.
 <div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
  <h3 id="classes-headline" class="list">Classes</h3>
  <ul class="hlist">
-  <li><a href="#https://w3id.org/rdf-connect#CommandRunner" title="https://w3id.org/rdf-connect#CommandRunner">Command Runner</a></li>
-  <li><a href="#https://w3id.org/rdf-connect#ExecutionContext" title="https://w3id.org/rdf-connect#ExecutionContext">Execution Context</a></li>
-  <li><a href="#https://w3id.org/rdf-connect#Pipeline" title="https://w3id.org/rdf-connect#Pipeline">Pipeline</a></li>
-  <li><a href="#https://w3id.org/rdf-connect#Processor" title="https://w3id.org/rdf-connect#Processor">Processor</a></li>
-  <li><a href="#https://w3id.org/rdf-connect#Reader" title="https://w3id.org/rdf-connect#Reader">Reader</a></li>
-  <li><a href="#https://w3id.org/rdf-connect#Runner" title="https://w3id.org/rdf-connect#Runner">Runner</a></li>
-  <li><a href="#https://w3id.org/rdf-connect#Writer" title="https://w3id.org/rdf-connect#Writer">Writer</a></li>
+  <li><a href="#CommandRunner" title="https://w3id.org/rdf-connect#CommandRunner">Command Runner</a></li>
+  <li><a href="#ExecutionContext" title="https://w3id.org/rdf-connect#ExecutionContext">Execution Context</a></li>
+  <li><a href="#Pipeline" title="https://w3id.org/rdf-connect#Pipeline">Pipeline</a></li>
+  <li><a href="#Processor" title="https://w3id.org/rdf-connect#Processor">Processor</a></li>
+  <li><a href="#Reader" title="https://w3id.org/rdf-connect#Reader">Reader</a></li>
+  <li><a href="#Runner" title="https://w3id.org/rdf-connect#Runner">Runner</a></li>
+  <li><a href="#Writer" title="https://w3id.org/rdf-connect#Writer">Writer</a></li>
  </ul>
- <div class="entity" id="https://w3id.org/rdf-connect#CommandRunner">
+ <div class="entity" id="CommandRunner">
   <h3>Command Runner<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/rdf-connect#CommandRunner</p>
   <div class="comment">
@@ -22,57 +22,63 @@ This section provides details for each class and property defined by RDF Connect
     has super-classes
    </dt>
    <dd>
-    <a href="#https://w3id.org/rdf-connect#Runner" title="https://w3id.org/rdf-connect#Runner">Runner</a> <sup class="type-c" title="class">c</sup>
+    <a href="#Runner" title="https://w3id.org/rdf-connect#Runner">Runner</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
- <div class="entity" id="https://w3id.org/rdf-connect#ExecutionContext">
+ <div class="entity" id="ExecutionContext">
   <h3>Execution Context<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/rdf-connect#ExecutionContext</p>
   <div class="comment">
-   <span class="markdown">Entity that defines an execution context used by a pipeline, which is composed by a runner and a set of processor instances.</span>
-  </div>
-  <dl class="description">
-   <dt>
-    is in domain of
-   </dt>
-   <dd>
-    <a href="#https://w3id.org/rdf-connect#instantiates" title="https://w3id.org/rdf-connect#instantiates">instantiates</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://w3id.org/rdf-connect#processor" title="https://w3id.org/rdf-connect#processor">processor</a> <sup class="type-op" title="object property">op</sup>
-   </dd>
-   <dt>
-    is in range of
-   </dt>
-   <dd>
-    <a href="#https://w3id.org/rdf-connect#consistsOf" title="https://w3id.org/rdf-connect#consistsOf">consists of</a> <sup class="type-op" title="object property">op</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="https://w3id.org/rdf-connect#Pipeline">
-  <h3>Pipeline<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#Pipeline</p>
-  <div class="comment">
-   <span class="markdown">A sequence of processors and runners forming a data processing workflow.</span>
+   <span class="markdown">A qualified association that binds a runner (agent) to the processor instances (activities) it executes within a pipeline, and to the pipeline plan itself. As a subclass of prov:Association it qualifies the assignment of responsibility for those processors to their runner, and as a subclass of prov:ActivityInfluence it cites those processors directly with prov:activity.</span>
   </div>
   <dl class="description">
    <dt>
     has super-classes
    </dt>
    <dd>
-    <a href="http://www.w3.org/ns/prov#Entity" target="_blank" title="http://www.w3.org/ns/prov#Entity">Entity</a> <sup class="type-c" title="class">c</sup>
+    <a href="http://www.w3.org/ns/prov#ActivityInfluence" target="_blank" title="http://www.w3.org/ns/prov#ActivityInfluence">Activity Influence</a> <sup class="type-c" title="class">c</sup>, <a href="http://www.w3.org/ns/prov#Association" target="_blank" title="http://www.w3.org/ns/prov#Association">Association</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     is in domain of
    </dt>
    <dd>
-    <a href="#https://w3id.org/rdf-connect#consistsOf" title="https://w3id.org/rdf-connect#consistsOf">consists of</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#instantiates" title="https://w3id.org/rdf-connect#instantiates">instantiates</a> <sup class="type-op" title="object property">op</sup>, <a href="#processor" title="https://w3id.org/rdf-connect#processor">processor</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#consistsOf" title="https://w3id.org/rdf-connect#consistsOf">consists of</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
- <div class="entity" id="https://w3id.org/rdf-connect#Processor">
+ <div class="entity" id="Pipeline">
+  <h3>Pipeline<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#Pipeline</p>
+  <div class="comment">
+   <span class="markdown">A plan specifying a sequence of processors and runners forming a data processing workflow. As a subclass of prov:Plan, a pipeline represents the set of steps intended by agents and executed to achieve data processing goals.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/ns/prov#Plan" target="_blank" title="http://www.w3.org/ns/prov#Plan">Plan</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#consistsOf" title="https://w3id.org/rdf-connect#consistsOf">consists of</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Processor">
   <h3>Processor<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/rdf-connect#Processor</p>
   <div class="comment">
-   <span class="markdown">A processing unit that performs an action within a pipeline.</span>
+   <span class="markdown">A processing unit that performs an action within a pipeline. As a subclass of prov:Activity, a processor is a concrete data processing action occurring over time, consuming input entities and producing output entities.</span>
   </div>
   <dl class="description">
    <dt>
@@ -85,28 +91,36 @@ This section provides details for each class and property defined by RDF Connect
     is in domain of
    </dt>
    <dd>
-    <a href="#https://w3id.org/rdf-connect#implementationOf" title="https://w3id.org/rdf-connect#implementationOf">implementation of</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#implementationOf" title="https://w3id.org/rdf-connect#implementationOf">implementation of</a> <sup class="type-op" title="object property">op</sup>
    </dd>
    <dt>
     is in range of
    </dt>
    <dd>
-    <a href="#https://w3id.org/rdf-connect#implementationOf" title="https://w3id.org/rdf-connect#implementationOf">implementation of</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://w3id.org/rdf-connect#processor" title="https://w3id.org/rdf-connect#processor">processor</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#implementationOf" title="https://w3id.org/rdf-connect#implementationOf">implementation of</a> <sup class="type-op" title="object property">op</sup>, <a href="#processor" title="https://w3id.org/rdf-connect#processor">processor</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
- <div class="entity" id="https://w3id.org/rdf-connect#Reader">
+ <div class="entity" id="Reader">
   <h3>Reader<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/rdf-connect#Reader</p>
   <div class="comment">
-   <span class="markdown">A component that provides input data to a processor.</span>
+   <span class="markdown">A data channel entity that provides input data to a processor. As a subclass of prov:Entity, a reader is a data artifact that is consumed (prov:used) by a processor activity.</span>
   </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/ns/prov#Entity" target="_blank" title="http://www.w3.org/ns/prov#Entity">Entity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
  </div>
- <div class="entity" id="https://w3id.org/rdf-connect#Runner">
+ <div class="entity" id="Runner">
   <h3>Runner<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/rdf-connect#Runner</p>
   <div class="comment">
-   <span class="markdown">An agent responsible for executing processors based on specific implementations.</span>
+   <span class="markdown">An agent responsible for executing processors based on specific implementations. As a subclass of prov:SoftwareAgent, a runner is a non-human agent implemented in software that bears responsibility for executing processor activities.</span>
   </div>
   <dl class="description">
    <dt>
@@ -119,46 +133,54 @@ This section provides details for each class and property defined by RDF Connect
     has sub-classes
    </dt>
    <dd>
-    <a href="#https://w3id.org/rdf-connect#CommandRunner" title="https://w3id.org/rdf-connect#CommandRunner">Command Runner</a> <sup class="type-c" title="class">c</sup>
+    <a href="#CommandRunner" title="https://w3id.org/rdf-connect#CommandRunner">Command Runner</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     is in domain of
    </dt>
    <dd>
-    <a href="#https://w3id.org/rdf-connect#handlesSubjectsOf" title="https://w3id.org/rdf-connect#handlesSubjectsOf">handle subjects of</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#handlesSubjectsOf" title="https://w3id.org/rdf-connect#handlesSubjectsOf">handle subjects of</a> <sup class="type-op" title="object property">op</sup>
    </dd>
    <dt>
     is in range of
    </dt>
    <dd>
-    <a href="#https://w3id.org/rdf-connect#instantiates" title="https://w3id.org/rdf-connect#instantiates">instantiates</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#instantiates" title="https://w3id.org/rdf-connect#instantiates">instantiates</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
- <div class="entity" id="https://w3id.org/rdf-connect#Writer">
+ <div class="entity" id="Writer">
   <h3>Writer<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/rdf-connect#Writer</p>
   <div class="comment">
-   <span class="markdown">A component that handles output data from a processor.</span>
+   <span class="markdown">A data channel entity that handles output data from a processor. As a subclass of prov:Entity, a writer is a data artifact generated (prov:wasGeneratedBy) by a processor activity and consumed by downstream processors.</span>
   </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/ns/prov#Entity" target="_blank" title="http://www.w3.org/ns/prov#Entity">Entity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
  </div>
 </div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
  <h3 id="properties" class="list">Object Properties</h3>
  <ul class="hlist">
-  <li><a href="#https://w3id.org/rdf-connect#consistsOf" title="https://w3id.org/rdf-connect#consistsOf">consists of</a></li>
-  <li><a href="#https://w3id.org/rdf-connect#handlesSubjectsOf" title="https://w3id.org/rdf-connect#handlesSubjectsOf">handle subjects of</a></li>
-  <li><a href="#https://w3id.org/rdf-connect#implementationOf" title="https://w3id.org/rdf-connect#implementationOf">implementation of</a></li>
-  <li><a href="#https://w3id.org/rdf-connect#instantiates" title="https://w3id.org/rdf-connect#instantiates">instantiates</a></li>
-  <li><a href="#https://w3id.org/rdf-connect#javaImplementationOf" title="https://w3id.org/rdf-connect#javaImplementationOf">Java Implementation Of</a></li>
-  <li><a href="#https://w3id.org/rdf-connect#jsImplementationOf" title="https://w3id.org/rdf-connect#jsImplementationOf">JavaScript Implementation Of</a></li>
-  <li><a href="#https://w3id.org/rdf-connect#processor" title="https://w3id.org/rdf-connect#processor">processor</a></li>
-  <li><a href="#https://w3id.org/rdf-connect#pyImplementationOf" title="https://w3id.org/rdf-connect#pyImplementationOf">Python Implementation Of</a></li>
+  <li><a href="#consistsOf" title="https://w3id.org/rdf-connect#consistsOf">consists of</a></li>
+  <li><a href="#handlesSubjectsOf" title="https://w3id.org/rdf-connect#handlesSubjectsOf">handle subjects of</a></li>
+  <li><a href="#implementationOf" title="https://w3id.org/rdf-connect#implementationOf">implementation of</a></li>
+  <li><a href="#instantiates" title="https://w3id.org/rdf-connect#instantiates">instantiates</a></li>
+  <li><a href="#javaImplementationOf" title="https://w3id.org/rdf-connect#javaImplementationOf">Java Implementation Of</a></li>
+  <li><a href="#jsImplementationOf" title="https://w3id.org/rdf-connect#jsImplementationOf">JavaScript Implementation Of</a></li>
+  <li><a href="#processor" title="https://w3id.org/rdf-connect#processor">processor</a></li>
+  <li><a href="#pyImplementationOf" title="https://w3id.org/rdf-connect#pyImplementationOf">Python Implementation Of</a></li>
  </ul>
- <div class="entity" id="https://w3id.org/rdf-connect#consistsOf">
+ <div class="entity" id="consistsOf">
   <h3>consists of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/rdf-connect#consistsOf</p>
   <div class="comment">
-   <span class="markdown">Relates a pipeline to an execution context (runner and processors) it uses.</span>
+   <span class="markdown">Relates a pipeline plan to the execution contexts (qualified runner–processor associations), and is declared as the inverse of prov:hadPlan. Because prov:hadPlan goes from a prov:Association to the prov:Plan it follows, each execution context (Association) thereby records the pipeline plan (Plan) it follows, matching the PROV-O qualified-association pattern.</span>
   </div>
   <div class="description">
    <dl>
@@ -166,18 +188,24 @@ This section provides details for each class and property defined by RDF Connect
      has domain
     </dt>
     <dd>
-     <a href="#https://w3id.org/rdf-connect#Pipeline" title="https://w3id.org/rdf-connect#Pipeline">Pipeline</a> <sup class="type-c" title="class">c</sup>
+     <a href="#Pipeline" title="https://w3id.org/rdf-connect#Pipeline">Pipeline</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      has range
     </dt>
     <dd>
-     <a href="#https://w3id.org/rdf-connect#ExecutionContext" title="https://w3id.org/rdf-connect#ExecutionContext">Execution Context</a> <sup class="type-c" title="class">c</sup>
+     <a href="#ExecutionContext" title="https://w3id.org/rdf-connect#ExecutionContext">Execution Context</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/ns/prov#hadPlan" target="_blank" title="http://www.w3.org/ns/prov#hadPlan">had Plan</a> <sup class="type-op" title="object property">op</sup>
     </dd>
    </dl>
   </div>
  </div>
- <div class="entity" id="https://w3id.org/rdf-connect#handlesSubjectsOf">
+ <div class="entity" id="handlesSubjectsOf">
   <h3>handle subjects of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/rdf-connect#handlesSubjectsOf</p>
   <div class="comment">
@@ -189,16 +217,16 @@ This section provides details for each class and property defined by RDF Connect
      has domain
     </dt>
     <dd>
-     <a href="#https://w3id.org/rdf-connect#Runner" title="https://w3id.org/rdf-connect#Runner">Runner</a> <sup class="type-c" title="class">c</sup>
+     <a href="#Runner" title="https://w3id.org/rdf-connect#Runner">Runner</a> <sup class="type-c" title="class">c</sup>
     </dd>
    </dl>
   </div>
  </div>
- <div class="entity" id="https://w3id.org/rdf-connect#implementationOf">
+ <div class="entity" id="implementationOf">
   <h3>implementation of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/rdf-connect#implementationOf</p>
   <div class="comment">
-   <span class="markdown">Abstract property that conveys the implementation language of a processor.</span>
+   <span class="markdown">Abstract property that conveys the implementation language of a processor. As a subproperty of rdfs:subClassOf, any processor definition declared with rdfc:implementationOf rdfc:Processor is itself a subclass of rdfc:Processor.</span>
   </div>
   <div class="description">
    <dl>
@@ -212,47 +240,53 @@ This section provides details for each class and property defined by RDF Connect
      has sub-properties
     </dt>
     <dd>
-     <a href="#https://w3id.org/rdf-connect#javaImplementationOf" title="https://w3id.org/rdf-connect#javaImplementationOf">Java Implementation Of</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://w3id.org/rdf-connect#jsImplementationOf" title="https://w3id.org/rdf-connect#jsImplementationOf">JavaScript Implementation Of</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://w3id.org/rdf-connect#pyImplementationOf" title="https://w3id.org/rdf-connect#pyImplementationOf">Python Implementation Of</a> <sup class="type-op" title="object property">op</sup>
+     <a href="#javaImplementationOf" title="https://w3id.org/rdf-connect#javaImplementationOf">Java Implementation Of</a> <sup class="type-op" title="object property">op</sup>, <a href="#jsImplementationOf" title="https://w3id.org/rdf-connect#jsImplementationOf">JavaScript Implementation Of</a> <sup class="type-op" title="object property">op</sup>, <a href="#pyImplementationOf" title="https://w3id.org/rdf-connect#pyImplementationOf">Python Implementation Of</a> <sup class="type-op" title="object property">op</sup>
     </dd>
     <dt>
      has domain
     </dt>
     <dd>
-     <a href="#https://w3id.org/rdf-connect#Processor" title="https://w3id.org/rdf-connect#Processor">Processor</a> <sup class="type-c" title="class">c</sup>
+     <a href="#Processor" title="https://w3id.org/rdf-connect#Processor">Processor</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      has range
     </dt>
     <dd>
-     <a href="#https://w3id.org/rdf-connect#Processor" title="https://w3id.org/rdf-connect#Processor">Processor</a> <sup class="type-c" title="class">c</sup>
+     <a href="#Processor" title="https://w3id.org/rdf-connect#Processor">Processor</a> <sup class="type-c" title="class">c</sup>
     </dd>
    </dl>
   </div>
  </div>
- <div class="entity" id="https://w3id.org/rdf-connect#instantiates">
+ <div class="entity" id="instantiates">
   <h3>instantiates<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/rdf-connect#instantiates</p>
   <div class="comment">
-   <span class="markdown">Declares the runner instance used in an execution context.</span>
+   <span class="markdown">Declares the runner instance (agent) used in an execution context. As a subproperty of prov:agent, it identifies the Runner (prov:SoftwareAgent) responsible for executing the pipeline's processors within an ExecutionContext (prov:Association).</span>
   </div>
   <div class="description">
    <dl>
     <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/ns/prov#agent" target="_blank" title="http://www.w3.org/ns/prov#agent">agent</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
      has domain
     </dt>
     <dd>
-     <a href="#https://w3id.org/rdf-connect#ExecutionContext" title="https://w3id.org/rdf-connect#ExecutionContext">Execution Context</a> <sup class="type-c" title="class">c</sup>
+     <a href="#ExecutionContext" title="https://w3id.org/rdf-connect#ExecutionContext">Execution Context</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      has range
     </dt>
     <dd>
-     <a href="#https://w3id.org/rdf-connect#Runner" title="https://w3id.org/rdf-connect#Runner">Runner</a> <sup class="type-c" title="class">c</sup>
+     <a href="#Runner" title="https://w3id.org/rdf-connect#Runner">Runner</a> <sup class="type-c" title="class">c</sup>
     </dd>
    </dl>
   </div>
  </div>
- <div class="entity" id="https://w3id.org/rdf-connect#javaImplementationOf">
+ <div class="entity" id="javaImplementationOf">
   <h3>Java Implementation Of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/rdf-connect#javaImplementationOf</p>
   <div class="comment">
@@ -264,12 +298,12 @@ This section provides details for each class and property defined by RDF Connect
      has super-properties
     </dt>
     <dd>
-     <a href="#https://w3id.org/rdf-connect#implementationOf" title="https://w3id.org/rdf-connect#implementationOf">implementation of</a> <sup class="type-op" title="object property">op</sup>
+     <a href="#implementationOf" title="https://w3id.org/rdf-connect#implementationOf">implementation of</a> <sup class="type-op" title="object property">op</sup>
     </dd>
    </dl>
   </div>
  </div>
- <div class="entity" id="https://w3id.org/rdf-connect#jsImplementationOf">
+ <div class="entity" id="jsImplementationOf">
   <h3>JavaScript Implementation Of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/rdf-connect#jsImplementationOf</p>
   <div class="comment">
@@ -281,35 +315,41 @@ This section provides details for each class and property defined by RDF Connect
      has super-properties
     </dt>
     <dd>
-     <a href="#https://w3id.org/rdf-connect#implementationOf" title="https://w3id.org/rdf-connect#implementationOf">implementation of</a> <sup class="type-op" title="object property">op</sup>
+     <a href="#implementationOf" title="https://w3id.org/rdf-connect#implementationOf">implementation of</a> <sup class="type-op" title="object property">op</sup>
     </dd>
    </dl>
   </div>
  </div>
- <div class="entity" id="https://w3id.org/rdf-connect#processor">
+ <div class="entity" id="processor">
   <h3>processor<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/rdf-connect#processor</p>
   <div class="comment">
-   <span class="markdown">Declares a processor instance used in an execution context, part of a pipeline.</span>
+   <span class="markdown">Declares a processor instance (activity) used in an execution context, part of a pipeline. As a subproperty of prov:activity, it identifies the Processor instances (prov:Activity) the runner is responsible for executing within an ExecutionContext (prov:Association, prov:ActivityInfluence).</span>
   </div>
   <div class="description">
    <dl>
     <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/ns/prov#activity" target="_blank" title="http://www.w3.org/ns/prov#activity">activity</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
      has domain
     </dt>
     <dd>
-     <a href="#https://w3id.org/rdf-connect#ExecutionContext" title="https://w3id.org/rdf-connect#ExecutionContext">Execution Context</a> <sup class="type-c" title="class">c</sup>
+     <a href="#ExecutionContext" title="https://w3id.org/rdf-connect#ExecutionContext">Execution Context</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      has range
     </dt>
     <dd>
-     <a href="#https://w3id.org/rdf-connect#Processor" title="https://w3id.org/rdf-connect#Processor">Processor</a> <sup class="type-c" title="class">c</sup>
+     <a href="#Processor" title="https://w3id.org/rdf-connect#Processor">Processor</a> <sup class="type-c" title="class">c</sup>
     </dd>
    </dl>
   </div>
  </div>
- <div class="entity" id="https://w3id.org/rdf-connect#pyImplementationOf">
+ <div class="entity" id="pyImplementationOf">
   <h3>Python Implementation Of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/rdf-connect#pyImplementationOf</p>
   <div class="comment">
@@ -321,7 +361,7 @@ This section provides details for each class and property defined by RDF Connect
      has super-properties
     </dt>
     <dd>
-     <a href="#https://w3id.org/rdf-connect#implementationOf" title="https://w3id.org/rdf-connect#implementationOf">implementation of</a> <sup class="type-op" title="object property">op</sup>
+     <a href="#implementationOf" title="https://w3id.org/rdf-connect#implementationOf">implementation of</a> <sup class="type-op" title="object property">op</sup>
     </dd>
    </dl>
   </div>
@@ -329,14 +369,14 @@ This section provides details for each class and property defined by RDF Connect
 </div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="dataproperties">
  <h3 id="dataproperties-headline" class="list">Data Properties</h3>
  <ul class="hlist">
-  <li><a href="#https://w3id.org/rdf-connect#class" title="https://w3id.org/rdf-connect#class">class</a></li>
-  <li><a href="#https://w3id.org/rdf-connect#command" title="https://w3id.org/rdf-connect#command">command</a></li>
-  <li><a href="#https://w3id.org/rdf-connect#entrypoint" title="https://w3id.org/rdf-connect#entrypoint">entrypoint</a></li>
-  <li><a href="#https://w3id.org/rdf-connect#file" title="https://w3id.org/rdf-connect#file">file</a></li>
-  <li><a href="#https://w3id.org/rdf-connect#jar" title="https://w3id.org/rdf-connect#jar">jar</a></li>
-  <li><a href="#https://w3id.org/rdf-connect#module_path" title="https://w3id.org/rdf-connect#module_path">module path</a></li>
+  <li><a href="#class" title="https://w3id.org/rdf-connect#class">class</a></li>
+  <li><a href="#command" title="https://w3id.org/rdf-connect#command">command</a></li>
+  <li><a href="#entrypoint" title="https://w3id.org/rdf-connect#entrypoint">entrypoint</a></li>
+  <li><a href="#file" title="https://w3id.org/rdf-connect#file">file</a></li>
+  <li><a href="#jar" title="https://w3id.org/rdf-connect#jar">jar</a></li>
+  <li><a href="#module_path" title="https://w3id.org/rdf-connect#module_path">module path</a></li>
  </ul>
- <div class="entity" id="https://w3id.org/rdf-connect#class">
+ <div class="entity" id="class">
   <h3>class<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/rdf-connect#class</p>
   <div class="comment">
@@ -353,7 +393,7 @@ This section provides details for each class and property defined by RDF Connect
    </dl>
   </div>
  </div>
- <div class="entity" id="https://w3id.org/rdf-connect#command">
+ <div class="entity" id="command">
   <h3>command<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/rdf-connect#command</p>
   <div class="comment">
@@ -370,7 +410,7 @@ This section provides details for each class and property defined by RDF Connect
    </dl>
   </div>
  </div>
- <div class="entity" id="https://w3id.org/rdf-connect#entrypoint">
+ <div class="entity" id="entrypoint">
   <h3>entrypoint<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/rdf-connect#entrypoint</p>
   <div class="comment">
@@ -387,7 +427,7 @@ This section provides details for each class and property defined by RDF Connect
    </dl>
   </div>
  </div>
- <div class="entity" id="https://w3id.org/rdf-connect#file">
+ <div class="entity" id="file">
   <h3>file<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/rdf-connect#file</p>
   <div class="comment">
@@ -404,7 +444,7 @@ This section provides details for each class and property defined by RDF Connect
    </dl>
   </div>
  </div>
- <div class="entity" id="https://w3id.org/rdf-connect#jar">
+ <div class="entity" id="jar">
   <h3>jar<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/rdf-connect#jar</p>
   <div class="comment">
@@ -421,7 +461,7 @@ This section provides details for each class and property defined by RDF Connect
    </dl>
   </div>
  </div>
- <div class="entity" id="https://w3id.org/rdf-connect#module_path">
+ <div class="entity" id="module_path">
   <h3>module path<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/rdf-connect#module_path</p>
   <div class="comment">
