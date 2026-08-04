@@ -1,0 +1,286 @@
+@prefix : <https://w3id.org/rdf-connect#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/rdf-connect#> .
+
+<https://w3id.org/rdf-connect#> rdf:type owl:Ontology ;
+                                 <http://creativecommons.org/ns#license> <https://creativecommons.org/licenses/by/4.0/> ;
+                                 <http://purl.org/dc/terms/author> _:genid1 ;
+                                 <http://purl.org/dc/terms/contributor> <https://julianrojas.org/#me> ,
+                                                                        <https://pietercolpaert.be/#me> ,
+                                                                        <https://smessaert.be/#me> ,
+                                                                        _:genid2 ;
+                                 <http://purl.org/dc/terms/issued> "2024-07-29"^^xsd:date ;
+                                 <http://purl.org/dc/terms/modified> "2026-08-03"^^xsd:date ;
+                                 <http://purl.org/vocab/vann/preferredNamespacePrefix> "rdfc" ;
+                                 <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/rdf-connect#" ;
+                                 rdfs:comment "An ontology for describing programming language-specific runners, processors and pipelines in RDF-based data processing frameworks."@en ;
+                                 rdfs:label "RDF-Connect Ontology"@en ;
+                                 owl:versionInfo "0.3.1" .
+
+_:genid1 rdf:type <http://xmlns.com/foaf/0.1/Person> ;
+          <http://xmlns.com/foaf/0.1/name> "Arthur Vercruysse" .
+
+_:genid2 rdf:type <http://xmlns.com/foaf/0.1/Person> ;
+          <http://xmlns.com/foaf/0.1/name> "Jens Pots" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://creativecommons.org/ns#license
+<http://creativecommons.org/ns#license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/author
+<http://purl.org/dc/terms/author> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/contributor
+<http://purl.org/dc/terms/contributor> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/issued
+<http://purl.org/dc/terms/issued> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+<http://purl.org/dc/terms/modified> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/name
+<http://xmlns.com/foaf/0.1/name> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.w3.org/2000/01/rdf-schema#subClassOf
+rdfs:subClassOf rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/prov#activity
+<http://www.w3.org/ns/prov#activity> rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/prov#agent
+<http://www.w3.org/ns/prov#agent> rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/prov#hadPlan
+<http://www.w3.org/ns/prov#hadPlan> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/rdf-connect#consistsOf
+:consistsOf rdf:type owl:ObjectProperty ;
+            owl:inverseOf <http://www.w3.org/ns/prov#hadPlan> ;
+            rdfs:domain :Pipeline ;
+            rdfs:range :ExecutionContext ;
+            rdfs:comment "Relates a pipeline plan to the execution contexts (qualified runner–processor associations), and is declared as the inverse of prov:hadPlan. Because prov:hadPlan goes from a prov:Association to the prov:Plan it follows, each execution context (Association) thereby records the pipeline plan (Plan) it follows, matching the PROV-O qualified-association pattern."@en ;
+            rdfs:label "consists of"@en .
+
+
+###  https://w3id.org/rdf-connect#handlesSubjectsOf
+:handlesSubjectsOf rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Runner ;
+                   rdfs:comment "The property that defines which type of processors a runner can handle, typically linked to a specific implementation property."@en ;
+                   rdfs:label "handle subjects of"@en .
+
+
+###  https://w3id.org/rdf-connect#implementationOf
+:implementationOf rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf rdfs:subClassOf ;
+                  rdfs:domain :Processor ;
+                  rdfs:range :Processor ;
+                  rdfs:comment "Abstract property that conveys the implementation language of a processor. As a subproperty of rdfs:subClassOf, any processor definition declared with rdfc:implementationOf rdfc:Processor is itself a subclass of rdfc:Processor."@en ;
+                  rdfs:label "implementation of"@en .
+
+
+###  https://w3id.org/rdf-connect#instantiates
+:instantiates rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf <http://www.w3.org/ns/prov#agent> ;
+              rdfs:domain :ExecutionContext ;
+              rdfs:range :Runner ;
+              rdfs:comment "Declares the runner instance (agent) used in an execution context. As a subproperty of prov:agent, it identifies the Runner (prov:SoftwareAgent) responsible for executing the pipeline's processors within an ExecutionContext (prov:Association)."@en ;
+              rdfs:label "instantiates"@en .
+
+
+###  https://w3id.org/rdf-connect#javaImplementationOf
+:javaImplementationOf rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf :implementationOf ;
+                      rdfs:comment "Indicates that a processor is implemented in Java and is a specialization of implementationOf."@en ;
+                      rdfs:label "Java Implementation Of"@en .
+
+
+###  https://w3id.org/rdf-connect#jsImplementationOf
+:jsImplementationOf rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf :implementationOf ;
+                    rdfs:comment "Indicates that a processor is implemented in JavaScript and is a specialization of implementationOf."@en ;
+                    rdfs:label "JavaScript Implementation Of"@en .
+
+
+###  https://w3id.org/rdf-connect#processor
+:processor rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf <http://www.w3.org/ns/prov#activity> ;
+           rdfs:domain :ExecutionContext ;
+           rdfs:range :Processor ;
+           rdfs:comment "Declares a processor instance (activity) used in an execution context, part of a pipeline. As a subproperty of prov:activity, it identifies the Processor instances (prov:Activity) the runner is responsible for executing within an ExecutionContext (prov:Association, prov:ActivityInfluence)."@en ;
+           rdfs:label "processor"@en .
+
+
+###  https://w3id.org/rdf-connect#pyImplementationOf
+:pyImplementationOf rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf :implementationOf ;
+                    rdfs:comment "Indicates that a processor is implemented in Python and is a specialization of implementationOf."@en ;
+                    rdfs:label "Python Implementation Of"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/rdf-connect#class
+:class rdf:type owl:DatatypeProperty ;
+       rdfs:range xsd:string ;
+       rdfs:comment "The class name of a processor. Applicable for any object-oriented programming language."@en ;
+       rdfs:label "class"@en .
+
+
+###  https://w3id.org/rdf-connect#command
+:command rdf:type owl:DatatypeProperty ;
+         rdfs:range xsd:string ;
+         rdfs:comment "Shell command used by an orchestrator to execute a runner instance."@en ;
+         rdfs:label "command"@en .
+
+
+###  https://w3id.org/rdf-connect#entrypoint
+:entrypoint rdf:type owl:DatatypeProperty ;
+            rdfs:range xsd:anyURI ;
+            rdfs:comment "The folder location of the main script or module entry point of a JavaScript processor."@en ;
+            rdfs:label "entrypoint"@en .
+
+
+###  https://w3id.org/rdf-connect#file
+:file rdf:type owl:DatatypeProperty ;
+      rdfs:range xsd:anyURI ;
+      rdfs:comment "The file name containing the processor logic of a JavaScript processor."@en ;
+      rdfs:label "file"@en .
+
+
+###  https://w3id.org/rdf-connect#jar
+:jar rdf:type owl:DatatypeProperty ;
+     rdfs:range xsd:anyURI ;
+     rdfs:comment "Path to the JAR file containing the processor logic of a Java processor."@en ;
+     rdfs:label "jar"@en .
+
+
+###  https://w3id.org/rdf-connect#module_path
+:module_path rdf:type owl:DatatypeProperty ;
+             rdfs:range xsd:string ;
+             rdfs:comment "The module path of a processor implemented in Python."@en ;
+             rdfs:label "module path"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.w3.org/ns/prov#Activity
+<http://www.w3.org/ns/prov#Activity> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/prov#ActivityInfluence
+<http://www.w3.org/ns/prov#ActivityInfluence> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/prov#Association
+<http://www.w3.org/ns/prov#Association> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/prov#Entity
+<http://www.w3.org/ns/prov#Entity> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/prov#Plan
+<http://www.w3.org/ns/prov#Plan> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/prov#SoftwareAgent
+<http://www.w3.org/ns/prov#SoftwareAgent> rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/Person
+<http://xmlns.com/foaf/0.1/Person> rdf:type owl:Class .
+
+
+###  https://w3id.org/rdf-connect#CommandRunner
+:CommandRunner rdf:type owl:Class ;
+               rdfs:subClassOf :Runner ;
+               rdfs:comment "A runner that executes processors via shell commands."@en ;
+               rdfs:label "Command Runner"@en .
+
+
+###  https://w3id.org/rdf-connect#ExecutionContext
+:ExecutionContext rdf:type owl:Class ;
+                  rdfs:subClassOf <http://www.w3.org/ns/prov#ActivityInfluence> ,
+                                  <http://www.w3.org/ns/prov#Association> ;
+                  rdfs:comment "A qualified association that binds a runner (agent) to the processor instances (activities) it executes within a pipeline, and to the pipeline plan itself. As a subclass of prov:Association it qualifies the assignment of responsibility for those processors to their runner, and as a subclass of prov:ActivityInfluence it cites those processors directly with prov:activity."@en ;
+                  rdfs:label "Execution Context"@en .
+
+
+###  https://w3id.org/rdf-connect#Pipeline
+:Pipeline rdf:type owl:Class ;
+          rdfs:subClassOf <http://www.w3.org/ns/prov#Plan> ;
+          rdfs:comment "A plan specifying a sequence of processors and runners forming a data processing workflow. As a subclass of prov:Plan, a pipeline represents the set of steps intended by agents and executed to achieve data processing goals."@en ;
+          rdfs:label "Pipeline"@en .
+
+
+###  https://w3id.org/rdf-connect#Processor
+:Processor rdf:type owl:Class ;
+           rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> ;
+           rdfs:comment "A processing unit that performs an action within a pipeline. As a subclass of prov:Activity, a processor is a concrete data processing action occurring over time, consuming input entities and producing output entities."@en ;
+           rdfs:label "Processor"@en .
+
+
+###  https://w3id.org/rdf-connect#Reader
+:Reader rdf:type owl:Class ;
+        rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
+        rdfs:comment "A data channel entity that provides input data to a processor. As a subclass of prov:Entity, a reader is a data artifact that is consumed (prov:used) by a processor activity."@en ;
+        rdfs:label "Reader"@en .
+
+
+###  https://w3id.org/rdf-connect#Runner
+:Runner rdf:type owl:Class ;
+        rdfs:subClassOf <http://www.w3.org/ns/prov#SoftwareAgent> ;
+        rdfs:comment "An agent responsible for executing processors based on specific implementations. As a subclass of prov:SoftwareAgent, a runner is a non-human agent implemented in software that bears responsibility for executing processor activities."@en ;
+        rdfs:label "Runner"@en .
+
+
+###  https://w3id.org/rdf-connect#Writer
+:Writer rdf:type owl:Class ;
+        rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
+        rdfs:comment "A data channel entity that handles output data from a processor. As a subclass of prov:Entity, a writer is a data artifact generated (prov:wasGeneratedBy) by a processor activity and consumed by downstream processors."@en ;
+        rdfs:label "Writer"@en .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
