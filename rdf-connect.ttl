@@ -25,12 +25,12 @@ rdfc: a owl:Ontology;
     <https://pietercolpaert.be/#me>,
     <https://smessaert.be/#me>;
   dct:issued "2024-07-29"^^xsd:date;
-  dct:modified "2026-08-03"^^xsd:date;
+  dct:modified "2026-08-17"^^xsd:date;
   vann:preferredNamespacePrefix "rdfc";
   vann:preferredNamespaceUri "https://w3id.org/rdf-connect#";
   rdfs:label "RDF-Connect Ontology"@en;
   rdfs:comment "An ontology for describing programming language-specific runners, processors and pipelines in RDF-based data processing frameworks."@en;
-  owl:versionInfo "0.3.1".
+  owl:versionInfo "0.4.0".
 
 #################################################################
 # Classes
@@ -116,6 +116,15 @@ rdfc:command a owl:DatatypeProperty;
 rdfc:class a owl:DatatypeProperty;
   rdfs:label "class"@en;
   rdfs:comment "The class name of a processor. Applicable for any object-oriented programming language."@en;
+  rdfs:range xsd:string.
+
+rdfc:logLevel a owl:DatatypeProperty;
+  rdfs:label "log level"@en;
+  rdfs:comment "Optional level at which an orchestrator logs the data crossing a channel, such as info or debug. It is an aid while developing or inspecting a pipeline and has no effect on how messages are routed or delivered. Its domain is the union of rdfc:Reader and rdfc:Writer, since either end of a channel may declare it."@en;
+  rdfs:domain [
+    a owl:Class;
+    owl:unionOf (rdfc:Reader rdfc:Writer)
+  ];
   rdfs:range xsd:string.
 
 #################################################################
