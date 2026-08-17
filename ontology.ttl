@@ -14,12 +14,12 @@
                                                                         <https://smessaert.be/#me> ,
                                                                         _:genid2 ;
                                  <http://purl.org/dc/terms/issued> "2024-07-29"^^xsd:date ;
-                                 <http://purl.org/dc/terms/modified> "2026-08-03"^^xsd:date ;
+                                 <http://purl.org/dc/terms/modified> "2026-08-17"^^xsd:date ;
                                  <http://purl.org/vocab/vann/preferredNamespacePrefix> "rdfc" ;
                                  <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/rdf-connect#" ;
                                  rdfs:comment "An ontology for describing programming language-specific runners, processors and pipelines in RDF-based data processing frameworks."@en ;
                                  rdfs:label "RDF-Connect Ontology"@en ;
-                                 owl:versionInfo "0.3.1" .
+                                 owl:versionInfo "0.4.0" .
 
 _:genid1 rdf:type <http://xmlns.com/foaf/0.1/Person> ;
           <http://xmlns.com/foaf/0.1/name> "Arthur Vercruysse" .
@@ -192,6 +192,18 @@ rdfs:subClassOf rdf:type owl:ObjectProperty .
      rdfs:range xsd:anyURI ;
      rdfs:comment "Path to the JAR file containing the processor logic of a Java processor."@en ;
      rdfs:label "jar"@en .
+
+
+###  https://w3id.org/rdf-connect#logLevel
+:logLevel rdf:type owl:DatatypeProperty ;
+          rdfs:domain [ rdf:type owl:Class ;
+                        owl:unionOf ( :Reader
+                                      :Writer
+                                    )
+                      ] ;
+          rdfs:range xsd:string ;
+          rdfs:comment "Optional level at which an orchestrator logs the data crossing a channel, such as info or debug. It is an aid while developing or inspecting a pipeline and has no effect on how messages are routed or delivered. Its domain is the union of rdfc:Reader and rdfc:Writer, since either end of a channel may declare it."@en ;
+          rdfs:label "log level"@en .
 
 
 ###  https://w3id.org/rdf-connect#module_path

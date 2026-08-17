@@ -18,12 +18,12 @@
         <terms:contributor rdf:resource="https://smessaert.be/#me"/>
         <terms:contributor rdf:nodeID="genid2"/>
         <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-07-29</terms:issued>
-        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-08-03</terms:modified>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-08-17</terms:modified>
         <vann:preferredNamespacePrefix>rdfc</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>https://w3id.org/rdf-connect#</vann:preferredNamespaceUri>
         <rdfs:comment xml:lang="en">An ontology for describing programming language-specific runners, processors and pipelines in RDF-based data processing frameworks.</rdfs:comment>
         <rdfs:label xml:lang="en">RDF-Connect Ontology</rdfs:label>
-        <owl:versionInfo>0.3.1</owl:versionInfo>
+        <owl:versionInfo>0.4.0</owl:versionInfo>
     </owl:Ontology>
     <rdf:Description rdf:nodeID="genid1">
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
@@ -322,6 +322,25 @@
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
         <rdfs:comment xml:lang="en">Path to the JAR file containing the processor logic of a Java processor.</rdfs:comment>
         <rdfs:label xml:lang="en">jar</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/rdf-connect#logLevel -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/rdf-connect#logLevel">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/rdf-connect#Reader"/>
+                    <rdf:Description rdf:about="https://w3id.org/rdf-connect#Writer"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Optional level at which an orchestrator logs the data crossing a channel, such as info or debug. It is an aid while developing or inspecting a pipeline and has no effect on how messages are routed or delivered. Its domain is the union of rdfc:Reader and rdfc:Writer, since either end of a channel may declare it.</rdfs:comment>
+        <rdfs:label xml:lang="en">log level</rdfs:label>
     </owl:DatatypeProperty>
     
 
