@@ -11,12 +11,12 @@ _:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foa
 _:genid2 <http://xmlns.com/foaf/0.1/name> "Jens Pots" .
 _:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
 <https://w3id.org/rdf-connect#> <http://purl.org/dc/terms/issued> "2024-07-29"^^<http://www.w3.org/2001/XMLSchema#date> .
-<https://w3id.org/rdf-connect#> <http://purl.org/dc/terms/modified> "2026-08-03"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://w3id.org/rdf-connect#> <http://purl.org/dc/terms/modified> "2026-08-17"^^<http://www.w3.org/2001/XMLSchema#date> .
 <https://w3id.org/rdf-connect#> <http://purl.org/vocab/vann/preferredNamespacePrefix> "rdfc" .
 <https://w3id.org/rdf-connect#> <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/rdf-connect#" .
 <https://w3id.org/rdf-connect#> <http://www.w3.org/2000/01/rdf-schema#comment> "An ontology for describing programming language-specific runners, processors and pipelines in RDF-based data processing frameworks."@en .
 <https://w3id.org/rdf-connect#> <http://www.w3.org/2000/01/rdf-schema#label> "RDF-Connect Ontology"@en .
-<https://w3id.org/rdf-connect#> <http://www.w3.org/2002/07/owl#versionInfo> "0.3.1" .
+<https://w3id.org/rdf-connect#> <http://www.w3.org/2002/07/owl#versionInfo> "0.4.0" .
 # 
 # 
 # #################################################################
@@ -177,6 +177,13 @@ _:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foa
 <https://w3id.org/rdf-connect#jar> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
 <https://w3id.org/rdf-connect#jar> <http://www.w3.org/2000/01/rdf-schema#comment> "Path to the JAR file containing the processor logic of a Java processor."@en .
 <https://w3id.org/rdf-connect#jar> <http://www.w3.org/2000/01/rdf-schema#label> "jar"@en .
+# 
+# https://w3id.org/rdf-connect#logLevel
+<https://w3id.org/rdf-connect#logLevel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdf-connect#logLevel> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdf-connect#Writer> .
+<https://w3id.org/rdf-connect#logLevel> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/rdf-connect#logLevel> <http://www.w3.org/2000/01/rdf-schema#comment> "Optional level at which an orchestrator logs the data written to a channel, such as info or debug. It is an aid while developing or inspecting a pipeline and has no effect on how messages are routed or delivered. Its domain is rdfc:Writer because an orchestrator logs each payload once, as the payload is submitted to the channel."@en .
+<https://w3id.org/rdf-connect#logLevel> <http://www.w3.org/2000/01/rdf-schema#label> "log level"@en .
 # 
 # https://w3id.org/rdf-connect#module_path
 <https://w3id.org/rdf-connect#module_path> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
