@@ -330,16 +330,9 @@
 
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/rdf-connect#logLevel">
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/rdf-connect#Reader"/>
-                    <rdf:Description rdf:about="https://w3id.org/rdf-connect#Writer"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
+        <rdfs:domain rdf:resource="https://w3id.org/rdf-connect#Writer"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="en">Optional level at which an orchestrator logs the data crossing a channel, such as info or debug. It is an aid while developing or inspecting a pipeline and has no effect on how messages are routed or delivered. Its domain is the union of rdfc:Reader and rdfc:Writer, since either end of a channel may declare it.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Optional level at which an orchestrator logs the data written to a channel, such as info or debug. It is an aid while developing or inspecting a pipeline and has no effect on how messages are routed or delivered. Its domain is rdfc:Writer because an orchestrator logs each payload once, as the payload is submitted to the channel.</rdfs:comment>
         <rdfs:label xml:lang="en">log level</rdfs:label>
     </owl:DatatypeProperty>
     

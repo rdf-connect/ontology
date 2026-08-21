@@ -196,13 +196,9 @@ rdfs:subClassOf rdf:type owl:ObjectProperty .
 
 ###  https://w3id.org/rdf-connect#logLevel
 :logLevel rdf:type owl:DatatypeProperty ;
-          rdfs:domain [ rdf:type owl:Class ;
-                        owl:unionOf ( :Reader
-                                      :Writer
-                                    )
-                      ] ;
+          rdfs:domain :Writer ;
           rdfs:range xsd:string ;
-          rdfs:comment "Optional level at which an orchestrator logs the data crossing a channel, such as info or debug. It is an aid while developing or inspecting a pipeline and has no effect on how messages are routed or delivered. Its domain is the union of rdfc:Reader and rdfc:Writer, since either end of a channel may declare it."@en ;
+          rdfs:comment "Optional level at which an orchestrator logs the data written to a channel, such as info or debug. It is an aid while developing or inspecting a pipeline and has no effect on how messages are routed or delivered. Its domain is rdfc:Writer because an orchestrator logs each payload once, as the payload is submitted to the channel."@en ;
           rdfs:label "log level"@en .
 
 
