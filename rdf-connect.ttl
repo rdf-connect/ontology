@@ -120,11 +120,8 @@ rdfc:class a owl:DatatypeProperty;
 
 rdfc:logLevel a owl:DatatypeProperty;
   rdfs:label "log level"@en;
-  rdfs:comment "Optional level at which an orchestrator logs the data crossing a channel, such as info or debug. It is an aid while developing or inspecting a pipeline and has no effect on how messages are routed or delivered. Its domain is the union of rdfc:Reader and rdfc:Writer, since either end of a channel may declare it."@en;
-  rdfs:domain [
-    a owl:Class;
-    owl:unionOf (rdfc:Reader rdfc:Writer)
-  ];
+  rdfs:comment "Optional level at which an orchestrator logs the data written to a channel, such as info or debug. It is an aid while developing or inspecting a pipeline and has no effect on how messages are routed or delivered. Its domain is rdfc:Writer because an orchestrator logs each payload once, as the payload is submitted to the channel."@en;
+  rdfs:domain rdfc:Writer;
   rdfs:range xsd:string.
 
 #################################################################
