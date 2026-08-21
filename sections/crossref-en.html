@@ -114,12 +114,6 @@ This section provides details for each class and property defined by RDF-Connect
    <dd>
     <a href="http://www.w3.org/ns/prov#Entity" target="_blank" title="http://www.w3.org/ns/prov#Entity">Entity</a> <sup class="type-c" title="class">c</sup>
    </dd>
-   <dt>
-    is in domain of
-   </dt>
-   <dd>
-    <a href="#logLevel" title="https://w3id.org/rdf-connect#logLevel">log level</a> <sup class="type-dp" title="data property">dp</sup>
-   </dd>
   </dl>
  </div>
  <div class="entity" id="Runner">
@@ -478,7 +472,7 @@ This section provides details for each class and property defined by RDF-Connect
   <h3>log level<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/rdf-connect#logLevel</p>
   <div class="comment">
-   <span class="markdown">Optional level at which an orchestrator logs the data crossing a channel, such as info or debug. It is an aid while developing or inspecting a pipeline and has no effect on how messages are routed or delivered. Its domain is the union of rdfc:Reader and rdfc:Writer, since either end of a channel may declare it.</span>
+   <span class="markdown">Optional level at which an orchestrator logs the data written to a channel, such as info or debug. It is an aid while developing or inspecting a pipeline and has no effect on how messages are routed or delivered. Its domain is rdfc:Writer because an orchestrator logs each payload once, as the payload is submitted to the channel.</span>
   </div>
   <div class="description">
    <dl>
@@ -486,7 +480,7 @@ This section provides details for each class and property defined by RDF-Connect
      has domain
     </dt>
     <dd>
-     <a href="#Reader" title="https://w3id.org/rdf-connect#Reader">Reader</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Writer" title="https://w3id.org/rdf-connect#Writer">Writer</a> <sup class="type-c" title="class">c</sup>
+     <a href="#Writer" title="https://w3id.org/rdf-connect#Writer">Writer</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      has range

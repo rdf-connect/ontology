@@ -21,23 +21,23 @@
       "contributor" : [ {
         "identifier" : "contributor",
         "language" : "undefined",
-        "value" : "https://julianrojas.org/#me",
+        "value" : "https://smessaert.be/#me",
         "type" : "iri"
       }, {
         "identifier" : "contributor",
         "language" : "undefined",
-        "value" : "_:genid2147483649",
-        "type" : "label"
-      }, {
-        "identifier" : "contributor",
-        "language" : "undefined",
-        "value" : "https://smessaert.be/#me",
+        "value" : "https://julianrojas.org/#me",
         "type" : "iri"
       }, {
         "identifier" : "contributor",
         "language" : "undefined",
         "value" : "https://pietercolpaert.be/#me",
         "type" : "iri"
+      }, {
+        "identifier" : "contributor",
+        "language" : "undefined",
+        "value" : "_:genid2147483649",
+        "type" : "label"
       } ],
       "author" : [ {
         "identifier" : "author",
@@ -57,16 +57,16 @@
         "value" : "2026-08-17",
         "type" : "label"
       } ],
-      "versionInfo" : [ {
-        "identifier" : "versionInfo",
-        "language" : "undefined",
-        "value" : "0.4.0",
-        "type" : "label"
-      } ],
       "preferredNamespaceUri" : [ {
         "identifier" : "preferredNamespaceUri",
         "language" : "undefined",
         "value" : "https://w3id.org/rdf-connect#",
+        "type" : "label"
+      } ],
+      "versionInfo" : [ {
+        "identifier" : "versionInfo",
+        "language" : "undefined",
+        "value" : "0.4.0",
         "type" : "label"
       } ],
       "issued" : [ {
@@ -100,34 +100,31 @@
     "id" : "14",
     "type" : "owl:Class"
   }, {
-    "id" : "29",
+    "id" : "31",
     "type" : "owl:Class"
   }, {
-    "id" : "37",
+    "id" : "35",
     "type" : "owl:Class"
   }, {
     "id" : "17",
     "type" : "owl:Class"
   }, {
-    "id" : "43",
+    "id" : "41",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "13",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "31",
+    "id" : "29",
     "type" : "owl:Class"
   }, {
-    "id" : "41",
+    "id" : "39",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "24",
-    "type" : "owl:unionOf"
-  }, {
-    "id" : "25",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "44",
+    "id" : "42",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "3",
@@ -136,19 +133,19 @@
     "id" : "22",
     "type" : "owl:Thing"
   }, {
-    "id" : "27",
+    "id" : "26",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "6",
     "type" : "owl:Class"
   }, {
-    "id" : "48",
+    "id" : "47",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "21",
     "type" : "owl:Class"
   }, {
-    "id" : "34",
+    "id" : "33",
     "type" : "owl:Class"
   } ],
   "classAttribute" : [ {
@@ -239,7 +236,7 @@
     },
     "subClasses" : [ "21" ],
     "attributes" : [ "external" ],
-    "id" : "29"
+    "id" : "31"
   }, {
     "iri" : "http://xmlns.com/foaf/0.1/Person",
     "baseIri" : "http://xmlns.com/foaf/0.1",
@@ -248,7 +245,7 @@
       "IRI-based" : "Person"
     },
     "attributes" : [ "external" ],
-    "id" : "37"
+    "id" : "35"
   }, {
     "iri" : "https://w3id.org/rdf-connect#Writer",
     "baseIri" : "https://w3id.org/rdf-connect",
@@ -265,7 +262,7 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#anyURI",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "43",
+    "id" : "41",
     "label" : {
       "IRI-based" : "anyURI"
     }
@@ -287,31 +284,26 @@
     "comment" : {
       "en" : "A runner that executes processors via shell commands."
     },
-    "id" : "31",
+    "id" : "29",
     "superClasses" : [ "21" ]
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#anyURI",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "41",
+    "id" : "39",
     "label" : {
       "IRI-based" : "anyURI"
     }
   }, {
-    "instances" : 0,
-    "union" : [ "16", "17" ],
-    "attributes" : [ "anonymous", "union" ],
-    "id" : "24"
-  }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "25",
+    "id" : "24",
     "label" : {
       "IRI-based" : "string"
     }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "44",
+    "id" : "42",
     "label" : {
       "IRI-based" : "string"
     }
@@ -332,7 +324,7 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "27",
+    "id" : "26",
     "label" : {
       "IRI-based" : "string"
     }
@@ -348,11 +340,11 @@
       "en" : "A plan specifying a sequence of processors and runners forming a data processing workflow. As a subclass of prov:Plan, a pipeline represents the set of steps intended by agents and executed to achieve data processing goals."
     },
     "id" : "6",
-    "superClasses" : [ "34" ]
+    "superClasses" : [ "33" ]
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "48",
+    "id" : "47",
     "label" : {
       "IRI-based" : "string"
     }
@@ -364,12 +356,12 @@
       "IRI-based" : "Runner",
       "en" : "Runner"
     },
-    "subClasses" : [ "31" ],
+    "subClasses" : [ "29" ],
     "comment" : {
       "en" : "An agent responsible for executing processors based on specific implementations. As a subclass of prov:SoftwareAgent, a runner is a non-human agent implemented in software that bears responsibility for executing processor activities."
     },
     "id" : "21",
-    "superClasses" : [ "29" ]
+    "superClasses" : [ "31" ]
   }, {
     "iri" : "http://www.w3.org/ns/prov#Plan",
     "baseIri" : "http://www.w3.org/ns/prov",
@@ -379,7 +371,7 @@
     },
     "subClasses" : [ "6" ],
     "attributes" : [ "external" ],
-    "id" : "34"
+    "id" : "33"
   } ],
   "property" : [ {
     "id" : "2",
@@ -412,8 +404,11 @@
     "id" : "23",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "26",
+    "id" : "25",
     "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "27",
+    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "28",
     "type" : "rdfs:SubClassOf"
@@ -424,43 +419,40 @@
     "id" : "32",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "33",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "35",
+    "id" : "34",
     "type" : "rdfs:SubClassOf"
   }, {
     "id" : "36",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "38",
+    "id" : "37",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "39",
-    "type" : "rdfs:SubClassOf"
+    "id" : "38",
+    "type" : "owl:datatypeProperty"
   }, {
     "id" : "40",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "42",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "45",
+    "id" : "43",
     "type" : "owl:objectProperty"
   }, {
+    "id" : "45",
+    "type" : "rdfs:SubClassOf"
+  }, {
     "id" : "4",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "48",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "46",
     "type" : "owl:objectProperty"
   }, {
     "id" : "49",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "47",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "50",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "46",
+    "id" : "44",
     "type" : "owl:objectProperty"
   } ],
   "propertyAttribute" : [ {
@@ -502,7 +494,7 @@
     },
     "domain" : "3",
     "subproperty" : [ "11" ],
-    "attributes" : [ "object", "external" ],
+    "attributes" : [ "external", "object" ],
     "id" : "10"
   }, {
     "iri" : "https://w3id.org/rdf-connect#file",
@@ -541,7 +533,7 @@
       "IRI-based" : "hadPlan"
     },
     "domain" : "3",
-    "attributes" : [ "object", "external" ],
+    "attributes" : [ "external", "object" ],
     "id" : "8"
   }, {
     "iri" : "https://w3id.org/rdf-connect#jsImplementationOf",
@@ -590,21 +582,21 @@
   }, {
     "iri" : "https://w3id.org/rdf-connect#logLevel",
     "baseIri" : "https://w3id.org/rdf-connect",
-    "range" : "25",
+    "range" : "24",
     "label" : {
       "IRI-based" : "logLevel",
       "en" : "log level"
     },
-    "domain" : "24",
+    "domain" : "17",
     "comment" : {
-      "en" : "Optional level at which an orchestrator logs the data crossing a channel, such as info or debug. It is an aid while developing or inspecting a pipeline and has no effect on how messages are routed or delivered. Its domain is the union of rdfc:Reader and rdfc:Writer, since either end of a channel may declare it."
+      "en" : "Optional level at which an orchestrator logs the data written to a channel, such as info or debug. It is an aid while developing or inspecting a pipeline and has no effect on how messages are routed or delivered. Its domain is rdfc:Writer because an orchestrator logs each payload once, as the payload is submitted to the channel."
     },
     "attributes" : [ "datatype" ],
     "id" : "23"
   }, {
     "iri" : "https://w3id.org/rdf-connect#class",
     "baseIri" : "https://w3id.org/rdf-connect",
-    "range" : "27",
+    "range" : "26",
     "label" : {
       "IRI-based" : "class",
       "en" : "class"
@@ -614,51 +606,46 @@
       "en" : "The class name of a processor. Applicable for any object-oriented programming language."
     },
     "attributes" : [ "datatype" ],
-    "id" : "26"
-  }, {
-    "range" : "29",
-    "domain" : "21",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "28"
-  }, {
-    "range" : "21",
-    "domain" : "31",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "30"
-  }, {
-    "range" : "15",
-    "domain" : "17",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "32"
-  }, {
-    "range" : "34",
-    "domain" : "6",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "33"
+    "id" : "25"
   }, {
     "range" : "14",
     "domain" : "7",
     "attributes" : [ "anonymous", "object" ],
-    "id" : "35"
+    "id" : "27"
   }, {
-    "range" : "0",
-    "domain" : "1",
+    "range" : "21",
+    "domain" : "29",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "28"
+  }, {
+    "range" : "31",
+    "domain" : "21",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "30"
+  }, {
+    "range" : "33",
+    "domain" : "6",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "32"
+  }, {
+    "range" : "9",
+    "domain" : "7",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "34"
+  }, {
+    "range" : "15",
+    "domain" : "17",
     "attributes" : [ "anonymous", "object" ],
     "id" : "36"
   }, {
     "range" : "15",
     "domain" : "16",
     "attributes" : [ "anonymous", "object" ],
-    "id" : "38"
-  }, {
-    "range" : "9",
-    "domain" : "7",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "39"
+    "id" : "37"
   }, {
     "iri" : "https://w3id.org/rdf-connect#jar",
     "baseIri" : "https://w3id.org/rdf-connect",
-    "range" : "41",
+    "range" : "39",
     "label" : {
       "IRI-based" : "jar",
       "en" : "jar"
@@ -668,11 +655,11 @@
       "en" : "Path to the JAR file containing the processor logic of a Java processor."
     },
     "attributes" : [ "datatype" ],
-    "id" : "40"
+    "id" : "38"
   }, {
     "iri" : "https://w3id.org/rdf-connect#entrypoint",
     "baseIri" : "https://w3id.org/rdf-connect",
-    "range" : "43",
+    "range" : "41",
     "label" : {
       "IRI-based" : "entrypoint",
       "en" : "entrypoint"
@@ -682,7 +669,7 @@
       "en" : "The folder location of the main script or module entry point of a JavaScript processor."
     },
     "attributes" : [ "datatype" ],
-    "id" : "42"
+    "id" : "40"
   }, {
     "iri" : "http://www.w3.org/ns/prov#activity",
     "baseIri" : "http://www.w3.org/ns/prov",
@@ -691,8 +678,13 @@
       "IRI-based" : "activity"
     },
     "domain" : "3",
-    "subproperty" : [ "46" ],
-    "attributes" : [ "object", "external" ],
+    "subproperty" : [ "44" ],
+    "attributes" : [ "external", "object" ],
+    "id" : "43"
+  }, {
+    "range" : "0",
+    "domain" : "1",
+    "attributes" : [ "anonymous", "object" ],
     "id" : "45"
   }, {
     "iri" : "https://w3id.org/rdf-connect#implementationOf",
@@ -702,7 +694,7 @@
       "IRI-based" : "implementationOf",
       "en" : "implementation of"
     },
-    "superproperty" : [ "47" ],
+    "superproperty" : [ "46" ],
     "domain" : "1",
     "subproperty" : [ "19", "2", "18" ],
     "comment" : {
@@ -713,7 +705,7 @@
   }, {
     "iri" : "https://w3id.org/rdf-connect#command",
     "baseIri" : "https://w3id.org/rdf-connect",
-    "range" : "48",
+    "range" : "47",
     "label" : {
       "IRI-based" : "command",
       "en" : "command"
@@ -723,7 +715,7 @@
       "en" : "Shell command used by an orchestrator to execute a runner instance."
     },
     "attributes" : [ "datatype" ],
-    "id" : "49"
+    "id" : "48"
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#subClassOf",
     "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
@@ -733,12 +725,12 @@
     },
     "domain" : "3",
     "subproperty" : [ "4" ],
-    "attributes" : [ "object", "external" ],
-    "id" : "47"
+    "attributes" : [ "external", "object" ],
+    "id" : "46"
   }, {
     "iri" : "https://w3id.org/rdf-connect#module_path",
     "baseIri" : "https://w3id.org/rdf-connect",
-    "range" : "44",
+    "range" : "42",
     "label" : {
       "IRI-based" : "module_path",
       "en" : "module path"
@@ -748,7 +740,7 @@
       "en" : "The module path of a processor implemented in Python."
     },
     "attributes" : [ "datatype" ],
-    "id" : "50"
+    "id" : "49"
   }, {
     "iri" : "https://w3id.org/rdf-connect#processor",
     "baseIri" : "https://w3id.org/rdf-connect",
@@ -757,12 +749,12 @@
       "IRI-based" : "processor",
       "en" : "processor"
     },
-    "superproperty" : [ "45" ],
+    "superproperty" : [ "43" ],
     "domain" : "7",
     "comment" : {
       "en" : "Declares a processor instance (activity) used in an execution context, part of a pipeline. As a subproperty of prov:activity, it identifies the Processor instances (prov:Activity) the runner is responsible for executing within an ExecutionContext (prov:Association, prov:ActivityInfluence)."
     },
     "attributes" : [ "object" ],
-    "id" : "46"
+    "id" : "44"
   } ]
 }

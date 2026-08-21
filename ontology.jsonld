@@ -15,16 +15,6 @@
     "@value" : "Jens Pots"
   } ]
 }, {
-  "@id" : "_:genid3",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#unionOf" : [ {
-    "@list" : [ {
-      "@id" : "https://w3id.org/rdf-connect#Reader"
-    }, {
-      "@id" : "https://w3id.org/rdf-connect#Writer"
-    } ]
-  } ]
-}, {
   "@id" : "http://creativecommons.org/ns#license",
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
@@ -404,10 +394,10 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Optional level at which an orchestrator logs the data crossing a channel, such as info or debug. It is an aid while developing or inspecting a pipeline and has no effect on how messages are routed or delivered. Its domain is the union of rdfc:Reader and rdfc:Writer, since either end of a channel may declare it."
+    "@value" : "Optional level at which an orchestrator logs the data written to a channel, such as info or debug. It is an aid while developing or inspecting a pipeline and has no effect on how messages are routed or delivered. Its domain is rdfc:Writer because an orchestrator logs each payload once, as the payload is submitted to the channel."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "_:genid3"
+    "@id" : "https://w3id.org/rdf-connect#Writer"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
