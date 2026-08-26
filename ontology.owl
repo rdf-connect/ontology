@@ -192,9 +192,9 @@
 
     <owl:ObjectProperty rdf:about="https://w3id.org/rdf-connect#implementationOf">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <rdfs:domain rdf:resource="https://w3id.org/rdf-connect#Processor"/>
-        <rdfs:range rdf:resource="https://w3id.org/rdf-connect#Processor"/>
-        <rdfs:comment xml:lang="en">Abstract property that conveys the implementation language of a processor. As a subproperty of rdfs:subClassOf, any processor definition declared with rdfc:implementationOf rdfc:Processor is itself a subclass of rdfc:Processor.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+        <rdfs:comment xml:lang="en">Abstract property that conveys the implementation language of a processor. As a subproperty of rdfs:subClassOf, any processor definition declared with rdfc:implementationOf rdfc:Processor is itself a subclass of rdfc:Processor, and therefore a class that a pipeline can instantiate. Its subjects and objects are classes rather than processor instances, which is why its domain and range are rdfs:Class.</rdfs:comment>
         <rdfs:label xml:lang="en">implementation of</rdfs:label>
     </owl:ObjectProperty>
     
@@ -346,6 +346,13 @@
      -->
 
 
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#Class -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/2000/01/rdf-schema#Class"/>
     
 
 

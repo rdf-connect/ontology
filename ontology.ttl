@@ -110,9 +110,9 @@ rdfs:subClassOf rdf:type owl:ObjectProperty .
 ###  https://w3id.org/rdf-connect#implementationOf
 :implementationOf rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf rdfs:subClassOf ;
-                  rdfs:domain :Processor ;
-                  rdfs:range :Processor ;
-                  rdfs:comment "Abstract property that conveys the implementation language of a processor. As a subproperty of rdfs:subClassOf, any processor definition declared with rdfc:implementationOf rdfc:Processor is itself a subclass of rdfc:Processor."@en ;
+                  rdfs:domain rdfs:Class ;
+                  rdfs:range rdfs:Class ;
+                  rdfs:comment "Abstract property that conveys the implementation language of a processor. As a subproperty of rdfs:subClassOf, any processor definition declared with rdfc:implementationOf rdfc:Processor is itself a subclass of rdfc:Processor, and therefore a class that a pipeline can instantiate. Its subjects and objects are classes rather than processor instances, which is why its domain and range are rdfs:Class."@en ;
                   rdfs:label "implementation of"@en .
 
 
@@ -204,6 +204,10 @@ rdfs:subClassOf rdf:type owl:ObjectProperty .
 #################################################################
 #    Classes
 #################################################################
+
+###  http://www.w3.org/2000/01/rdf-schema#Class
+rdfs:Class rdf:type owl:Class .
+
 
 ###  http://www.w3.org/ns/prov#Activity
 <http://www.w3.org/ns/prov#Activity> rdf:type owl:Class .
