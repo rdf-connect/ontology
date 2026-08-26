@@ -21,17 +21,17 @@
       "contributor" : [ {
         "identifier" : "contributor",
         "language" : "undefined",
+        "value" : "https://smessaert.be/#me",
+        "type" : "iri"
+      }, {
+        "identifier" : "contributor",
+        "language" : "undefined",
         "value" : "https://julianrojas.org/#me",
         "type" : "iri"
       }, {
         "identifier" : "contributor",
         "language" : "undefined",
         "value" : "https://pietercolpaert.be/#me",
-        "type" : "iri"
-      }, {
-        "identifier" : "contributor",
-        "language" : "undefined",
-        "value" : "https://smessaert.be/#me",
         "type" : "iri"
       }, {
         "identifier" : "contributor",
@@ -57,16 +57,16 @@
         "value" : "2026-08-03",
         "type" : "label"
       } ],
-      "versionInfo" : [ {
-        "identifier" : "versionInfo",
-        "language" : "undefined",
-        "value" : "0.3.1",
-        "type" : "label"
-      } ],
       "preferredNamespaceUri" : [ {
         "identifier" : "preferredNamespaceUri",
         "language" : "undefined",
         "value" : "https://w3id.org/rdf-connect#",
+        "type" : "label"
+      } ],
+      "versionInfo" : [ {
+        "identifier" : "versionInfo",
+        "language" : "undefined",
+        "value" : "0.3.1",
         "type" : "label"
       } ],
       "issued" : [ {
@@ -136,10 +136,13 @@
     "id" : "6",
     "type" : "owl:Class"
   }, {
-    "id" : "45",
+    "id" : "46",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "21",
+    "type" : "owl:Class"
+  }, {
+    "id" : "44",
     "type" : "owl:Class"
   }, {
     "id" : "26",
@@ -334,7 +337,7 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "45",
+    "id" : "46",
     "label" : {
       "IRI-based" : "string"
     }
@@ -352,6 +355,15 @@
     },
     "id" : "21",
     "superClasses" : [ "29" ]
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Class",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Class"
+    },
+    "attributes" : [ "external" ],
+    "id" : "44"
   }, {
     "iri" : "http://www.w3.org/ns/prov#Plan",
     "baseIri" : "http://www.w3.org/ns/prov",
@@ -430,13 +442,13 @@
     "id" : "4",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "46",
+    "id" : "47",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "44",
+    "id" : "45",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "47",
+    "id" : "48",
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "41",
@@ -583,32 +595,32 @@
   }, {
     "range" : "26",
     "domain" : "6",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "25"
   }, {
     "range" : "14",
     "domain" : "7",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "27"
   }, {
     "range" : "29",
     "domain" : "21",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "28"
   }, {
     "range" : "15",
     "domain" : "16",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "30"
   }, {
     "range" : "21",
     "domain" : "33",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "32"
   }, {
     "range" : "15",
     "domain" : "17",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "34"
   }, {
     "iri" : "https://w3id.org/rdf-connect#jar",
@@ -652,33 +664,33 @@
   }, {
     "range" : "0",
     "domain" : "1",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "42"
   }, {
     "range" : "9",
     "domain" : "7",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "43"
   }, {
     "iri" : "https://w3id.org/rdf-connect#implementationOf",
     "baseIri" : "https://w3id.org/rdf-connect",
-    "range" : "1",
+    "range" : "44",
     "label" : {
       "IRI-based" : "implementationOf",
       "en" : "implementation of"
     },
-    "superproperty" : [ "44" ],
-    "domain" : "1",
+    "superproperty" : [ "45" ],
+    "domain" : "44",
     "subproperty" : [ "19", "2", "18" ],
     "comment" : {
-      "en" : "Abstract property that conveys the implementation language of a processor. As a subproperty of rdfs:subClassOf, any processor definition declared with rdfc:implementationOf rdfc:Processor is itself a subclass of rdfc:Processor."
+      "en" : "Abstract property that conveys the implementation language of a processor. As a subproperty of rdfs:subClassOf, any processor definition declared with rdfc:implementationOf rdfc:Processor is itself a subclass of rdfc:Processor, and therefore a class that a pipeline can instantiate. Its subjects and objects are classes rather than processor instances, which is why its domain and range are rdfs:Class."
     },
     "attributes" : [ "object" ],
     "id" : "4"
   }, {
     "iri" : "https://w3id.org/rdf-connect#command",
     "baseIri" : "https://w3id.org/rdf-connect",
-    "range" : "45",
+    "range" : "46",
     "label" : {
       "IRI-based" : "command",
       "en" : "command"
@@ -688,7 +700,7 @@
       "en" : "Shell command used by an orchestrator to execute a runner instance."
     },
     "attributes" : [ "datatype" ],
-    "id" : "46"
+    "id" : "47"
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#subClassOf",
     "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
@@ -699,7 +711,7 @@
     "domain" : "3",
     "subproperty" : [ "4" ],
     "attributes" : [ "object", "external" ],
-    "id" : "44"
+    "id" : "45"
   }, {
     "iri" : "https://w3id.org/rdf-connect#module_path",
     "baseIri" : "https://w3id.org/rdf-connect",
@@ -713,7 +725,7 @@
       "en" : "The module path of a processor implemented in Python."
     },
     "attributes" : [ "datatype" ],
-    "id" : "47"
+    "id" : "48"
   }, {
     "iri" : "https://w3id.org/rdf-connect#processor",
     "baseIri" : "https://w3id.org/rdf-connect",

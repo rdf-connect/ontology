@@ -88,16 +88,10 @@ This section provides details for each class and property defined by RDF-Connect
     <a href="http://www.w3.org/ns/prov#Activity" target="_blank" title="http://www.w3.org/ns/prov#Activity">Activity</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
-    is in domain of
-   </dt>
-   <dd>
-    <a href="#implementationOf" title="https://w3id.org/rdf-connect#implementationOf">implementation of</a> <sup class="type-op" title="object property">op</sup>
-   </dd>
-   <dt>
     is in range of
    </dt>
    <dd>
-    <a href="#implementationOf" title="https://w3id.org/rdf-connect#implementationOf">implementation of</a> <sup class="type-op" title="object property">op</sup>, <a href="#processor" title="https://w3id.org/rdf-connect#processor">processor</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#processor" title="https://w3id.org/rdf-connect#processor">processor</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
@@ -226,7 +220,7 @@ This section provides details for each class and property defined by RDF-Connect
   <h3>implementation of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/rdf-connect#implementationOf</p>
   <div class="comment">
-   <span class="markdown">Abstract property that conveys the implementation language of a processor. As a subproperty of rdfs:subClassOf, any processor definition declared with rdfc:implementationOf rdfc:Processor is itself a subclass of rdfc:Processor.</span>
+   <span class="markdown">Abstract property that conveys the implementation language of a processor. As a subproperty of rdfs:subClassOf, any processor definition declared with rdfc:implementationOf rdfc:Processor is itself a subclass of rdfc:Processor, and therefore a class that a pipeline can instantiate. Its subjects and objects are classes rather than processor instances, which is why its domain and range are rdfs:Class.</span>
   </div>
   <div class="description">
    <dl>
@@ -246,13 +240,13 @@ This section provides details for each class and property defined by RDF-Connect
      has domain
     </dt>
     <dd>
-     <a href="#Processor" title="https://w3id.org/rdf-connect#Processor">Processor</a> <sup class="type-c" title="class">c</sup>
+     <a href="http://www.w3.org/2000/01/rdf-schema#Class" target="_blank" title="http://www.w3.org/2000/01/rdf-schema#Class">Class</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      has range
     </dt>
     <dd>
-     <a href="#Processor" title="https://w3id.org/rdf-connect#Processor">Processor</a> <sup class="type-c" title="class">c</sup>
+     <a href="http://www.w3.org/2000/01/rdf-schema#Class" target="_blank" title="http://www.w3.org/2000/01/rdf-schema#Class">Class</a> <sup class="type-c" title="class">c</sup>
     </dd>
    </dl>
   </div>

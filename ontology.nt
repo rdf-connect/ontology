@@ -100,9 +100,10 @@ _:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foa
 # https://w3id.org/rdf-connect#implementationOf
 <https://w3id.org/rdf-connect#implementationOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <https://w3id.org/rdf-connect#implementationOf> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2000/01/rdf-schema#subClassOf> .
-<https://w3id.org/rdf-connect#implementationOf> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdf-connect#Processor> .
-<https://w3id.org/rdf-connect#implementationOf> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/rdf-connect#Processor> .
-<https://w3id.org/rdf-connect#implementationOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Abstract property that conveys the implementation language of a processor. As a subproperty of rdfs:subClassOf, any processor definition declared with rdfc:implementationOf rdfc:Processor is itself a subclass of rdfc:Processor."@en .
+<https://w3id.org/rdf-connect#implementationOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.w3.org/2000/01/rdf-schema#Class> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/rdf-connect#implementationOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<https://w3id.org/rdf-connect#implementationOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Abstract property that conveys the implementation language of a processor. As a subproperty of rdfs:subClassOf, any processor definition declared with rdfc:implementationOf rdfc:Processor is itself a subclass of rdfc:Processor, and therefore a class that a pipeline can instantiate. Its subjects and objects are classes rather than processor instances, which is why its domain and range are rdfs:Class."@en .
 <https://w3id.org/rdf-connect#implementationOf> <http://www.w3.org/2000/01/rdf-schema#label> "implementation of"@en .
 # 
 # https://w3id.org/rdf-connect#instantiates
@@ -192,6 +193,8 @@ _:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foa
 # #
 # #################################################################
 # 
+# 
+# http://www.w3.org/2000/01/rdf-schema#Class
 # 
 # http://www.w3.org/ns/prov#Activity
 <http://www.w3.org/ns/prov#Activity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
