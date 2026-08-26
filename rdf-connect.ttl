@@ -78,9 +78,9 @@ rdfc:CommandRunner a owl:Class;
 rdfc:implementationOf a owl:ObjectProperty;
   rdfs:subPropertyOf rdfs:subClassOf;
   rdfs:label "implementation of"@en;
-  rdfs:comment "Abstract property that conveys the implementation language of a processor. As a subproperty of rdfs:subClassOf, any processor definition declared with rdfc:implementationOf rdfc:Processor is itself a subclass of rdfc:Processor."@en;
-  rdfs:domain rdfc:Processor;
-  rdfs:range rdfc:Processor.
+  rdfs:comment "Abstract property that conveys the implementation language of a processor. As a subproperty of rdfs:subClassOf, any processor definition declared with rdfc:implementationOf rdfc:Processor is itself a subclass of rdfc:Processor, and therefore a class that a pipeline can instantiate. Its subjects and objects are classes rather than processor instances, which is why its domain and range are rdfs:Class."@en;
+  rdfs:domain rdfs:Class;
+  rdfs:range rdfs:Class.
 
 rdfc:handlesSubjectsOf a owl:ObjectProperty;
   rdfs:label "handle subjects of"@en;
