@@ -168,9 +168,12 @@ This section provides details for each class and property defined by RDF-Connect
  <h3 id="properties" class="list">Object Properties</h3>
  <ul class="hlist">
   <li><a href="#consistsOf" title="https://w3id.org/rdf-connect#consistsOf">consists of</a></li>
+  <li><a href="#entrypoint" title="https://w3id.org/rdf-connect#entrypoint">entrypoint</a></li>
+  <li><a href="#file" title="https://w3id.org/rdf-connect#file">file</a></li>
   <li><a href="#handlesSubjectsOf" title="https://w3id.org/rdf-connect#handlesSubjectsOf">handle subjects of</a></li>
   <li><a href="#implementationOf" title="https://w3id.org/rdf-connect#implementationOf">implementation of</a></li>
   <li><a href="#instantiates" title="https://w3id.org/rdf-connect#instantiates">instantiates</a></li>
+  <li><a href="#jar" title="https://w3id.org/rdf-connect#jar">jar</a></li>
   <li><a href="#javaImplementationOf" title="https://w3id.org/rdf-connect#javaImplementationOf">Java Implementation Of</a></li>
   <li><a href="#jsImplementationOf" title="https://w3id.org/rdf-connect#jsImplementationOf">JavaScript Implementation Of</a></li>
   <li><a href="#processor" title="https://w3id.org/rdf-connect#processor">processor</a></li>
@@ -203,6 +206,20 @@ This section provides details for each class and property defined by RDF-Connect
      <a href="http://www.w3.org/ns/prov#hadPlan" target="_blank" title="http://www.w3.org/ns/prov#hadPlan">had Plan</a> <sup class="type-op" title="object property">op</sup>
     </dd>
    </dl>
+  </div>
+ </div>
+ <div class="entity" id="entrypoint">
+  <h3>entrypoint<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#entrypoint</p>
+  <div class="comment">
+   <span class="markdown">The folder location of the main script or module entry point of a JavaScript processor. The location is usually given as an IRI, resolved against the document that declares it, and can also be given as a string literal.</span>
+  </div>
+ </div>
+ <div class="entity" id="file">
+  <h3>file<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#file</p>
+  <div class="comment">
+   <span class="markdown">The file name containing the processor logic of a JavaScript processor. The location is usually given as an IRI, resolved against the document that declares it, and can also be given as a string literal.</span>
   </div>
  </div>
  <div class="entity" id="handlesSubjectsOf">
@@ -284,6 +301,13 @@ This section provides details for each class and property defined by RDF-Connect
      <a href="#Runner" title="https://w3id.org/rdf-connect#Runner">Runner</a> <sup class="type-c" title="class">c</sup>
     </dd>
    </dl>
+  </div>
+ </div>
+ <div class="entity" id="jar">
+  <h3>jar<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#jar</p>
+  <div class="comment">
+   <span class="markdown">Path to the JAR file containing the processor logic of a Java processor. The location is usually given as an IRI, resolved against the document that declares it, and can also be given as a string literal.</span>
   </div>
  </div>
  <div class="entity" id="javaImplementationOf">
@@ -371,9 +395,6 @@ This section provides details for each class and property defined by RDF-Connect
  <ul class="hlist">
   <li><a href="#class" title="https://w3id.org/rdf-connect#class">class</a></li>
   <li><a href="#command" title="https://w3id.org/rdf-connect#command">command</a></li>
-  <li><a href="#entrypoint" title="https://w3id.org/rdf-connect#entrypoint">entrypoint</a></li>
-  <li><a href="#file" title="https://w3id.org/rdf-connect#file">file</a></li>
-  <li><a href="#jar" title="https://w3id.org/rdf-connect#jar">jar</a></li>
   <li><a href="#logLevel" title="https://w3id.org/rdf-connect#logLevel">log level</a></li>
   <li><a href="#module_path" title="https://w3id.org/rdf-connect#module_path">module path</a></li>
  </ul>
@@ -407,57 +428,6 @@ This section provides details for each class and property defined by RDF-Connect
     </dt>
     <dd>
      <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
-    </dd>
-   </dl>
-  </div>
- </div>
- <div class="entity" id="entrypoint">
-  <h3>entrypoint<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#entrypoint</p>
-  <div class="comment">
-   <span class="markdown">The folder location of the main script or module entry point of a JavaScript processor.</span>
-  </div>
-  <div class="description">
-   <dl>
-    <dt>
-     has range
-    </dt>
-    <dd>
-     <a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank" title="http://www.w3.org/2001/XMLSchema#anyURI">any U R I</a>
-    </dd>
-   </dl>
-  </div>
- </div>
- <div class="entity" id="file">
-  <h3>file<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#file</p>
-  <div class="comment">
-   <span class="markdown">The file name containing the processor logic of a JavaScript processor.</span>
-  </div>
-  <div class="description">
-   <dl>
-    <dt>
-     has range
-    </dt>
-    <dd>
-     <a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank" title="http://www.w3.org/2001/XMLSchema#anyURI">any U R I</a>
-    </dd>
-   </dl>
-  </div>
- </div>
- <div class="entity" id="jar">
-  <h3>jar<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#jar</p>
-  <div class="comment">
-   <span class="markdown">Path to the JAR file containing the processor logic of a Java processor.</span>
-  </div>
-  <div class="description">
-   <dl>
-    <dt>
-     has range
-    </dt>
-    <dd>
-     <a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank" title="http://www.w3.org/2001/XMLSchema#anyURI">any U R I</a>
     </dd>
    </dl>
   </div>

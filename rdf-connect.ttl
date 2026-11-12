@@ -133,15 +133,15 @@ rdfc:jsImplementationOf a owl:ObjectProperty;
   rdfs:comment "Indicates that a processor is implemented in JavaScript and is a specialization of implementationOf."@en;
   rdfs:subPropertyOf rdfc:implementationOf.
 
-rdfc:entrypoint a owl:DatatypeProperty;
+rdfc:entrypoint a owl:ObjectProperty;
+  # range: rdfs:Resource or xsd:string
   rdfs:label "entrypoint"@en;
-  rdfs:comment "The folder location of the main script or module entry point of a JavaScript processor."@en;
-  rdfs:range xsd:anyURI.
+  rdfs:comment "The folder location of the main script or module entry point of a JavaScript processor. The location is usually given as an IRI, resolved against the document that declares it, and can also be given as a string literal."@en.
 
-rdfc:file a owl:DatatypeProperty;
+rdfc:file a owl:ObjectProperty;
+  # range: rdfs:Resource or xsd:string
   rdfs:label "file"@en;
-  rdfs:comment "The file name containing the processor logic of a JavaScript processor."@en;
-  rdfs:range xsd:anyURI.
+  rdfs:comment "The file name containing the processor logic of a JavaScript processor. The location is usually given as an IRI, resolved against the document that declares it, and can also be given as a string literal."@en.
 
 #################################################################
 # Java-specific Properties
@@ -152,10 +152,10 @@ rdfc:javaImplementationOf a owl:ObjectProperty;
   rdfs:comment "Indicates that a processor is implemented in Java and is a specialization of implementationOf."@en;
   rdfs:subPropertyOf rdfc:implementationOf.
 
-rdfc:jar a owl:DatatypeProperty;
+rdfc:jar a owl:ObjectProperty;
+  # range: rdfs:Resource or xsd:string
   rdfs:label "jar"@en;
-  rdfs:comment "Path to the JAR file containing the processor logic of a Java processor."@en;
-  rdfs:range xsd:anyURI.
+  rdfs:comment "Path to the JAR file containing the processor logic of a Java processor. The location is usually given as an IRI, resolved against the document that declares it, and can also be given as a string literal."@en.
 
 #################################################################
 # Python-specific Properties
