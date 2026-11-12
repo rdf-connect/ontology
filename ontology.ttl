@@ -100,6 +100,18 @@ rdfs:subClassOf rdf:type owl:ObjectProperty .
             rdfs:label "consists of"@en .
 
 
+###  https://w3id.org/rdf-connect#entrypoint
+:entrypoint rdf:type owl:ObjectProperty ;
+            rdfs:comment "The folder location of the main script or module entry point of a JavaScript processor. The location is usually given as an IRI, resolved against the document that declares it, and can also be given as a string literal."@en ;
+            rdfs:label "entrypoint"@en .
+
+
+###  https://w3id.org/rdf-connect#file
+:file rdf:type owl:ObjectProperty ;
+      rdfs:comment "The file name containing the processor logic of a JavaScript processor. The location is usually given as an IRI, resolved against the document that declares it, and can also be given as a string literal."@en ;
+      rdfs:label "file"@en .
+
+
 ###  https://w3id.org/rdf-connect#handlesSubjectsOf
 :handlesSubjectsOf rdf:type owl:ObjectProperty ;
                    rdfs:domain :Runner ;
@@ -123,6 +135,12 @@ rdfs:subClassOf rdf:type owl:ObjectProperty .
               rdfs:range :Runner ;
               rdfs:comment "Declares the runner instance (agent) used in an execution context. As a subproperty of prov:agent, it identifies the Runner (prov:SoftwareAgent) responsible for executing the pipeline's processors within an ExecutionContext (prov:Association)."@en ;
               rdfs:label "instantiates"@en .
+
+
+###  https://w3id.org/rdf-connect#jar
+:jar rdf:type owl:ObjectProperty ;
+     rdfs:comment "Path to the JAR file containing the processor logic of a Java processor. The location is usually given as an IRI, resolved against the document that declares it, and can also be given as a string literal."@en ;
+     rdfs:label "jar"@en .
 
 
 ###  https://w3id.org/rdf-connect#javaImplementationOf
@@ -171,27 +189,6 @@ rdfs:subClassOf rdf:type owl:ObjectProperty .
          rdfs:range xsd:string ;
          rdfs:comment "Shell command used by an orchestrator to execute a runner instance."@en ;
          rdfs:label "command"@en .
-
-
-###  https://w3id.org/rdf-connect#entrypoint
-:entrypoint rdf:type owl:DatatypeProperty ;
-            rdfs:range xsd:anyURI ;
-            rdfs:comment "The folder location of the main script or module entry point of a JavaScript processor."@en ;
-            rdfs:label "entrypoint"@en .
-
-
-###  https://w3id.org/rdf-connect#file
-:file rdf:type owl:DatatypeProperty ;
-      rdfs:range xsd:anyURI ;
-      rdfs:comment "The file name containing the processor logic of a JavaScript processor."@en ;
-      rdfs:label "file"@en .
-
-
-###  https://w3id.org/rdf-connect#jar
-:jar rdf:type owl:DatatypeProperty ;
-     rdfs:range xsd:anyURI ;
-     rdfs:comment "Path to the JAR file containing the processor logic of a Java processor."@en ;
-     rdfs:label "jar"@en .
 
 
 ###  https://w3id.org/rdf-connect#logLevel
