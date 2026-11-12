@@ -270,31 +270,25 @@
   } ]
 }, {
   "@id" : "https://w3id.org/rdf-connect#entrypoint",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "The folder location of the main script or module entry point of a JavaScript processor."
+    "@value" : "The folder location of the main script or module entry point of a JavaScript processor. The location is usually given as an IRI, resolved against the document that declares it, and can also be given as a string literal."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
     "@value" : "entrypoint"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#anyURI"
   } ]
 }, {
   "@id" : "https://w3id.org/rdf-connect#file",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "The file name containing the processor logic of a JavaScript processor."
+    "@value" : "The file name containing the processor logic of a JavaScript processor. The location is usually given as an IRI, resolved against the document that declares it, and can also be given as a string literal."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
     "@value" : "file"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#anyURI"
   } ]
 }, {
   "@id" : "https://w3id.org/rdf-connect#handlesSubjectsOf",
@@ -352,17 +346,14 @@
   } ]
 }, {
   "@id" : "https://w3id.org/rdf-connect#jar",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Path to the JAR file containing the processor logic of a Java processor."
+    "@value" : "Path to the JAR file containing the processor logic of a Java processor. The location is usually given as an IRI, resolved against the document that declares it, and can also be given as a string literal."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
     "@value" : "jar"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#anyURI"
   } ]
 }, {
   "@id" : "https://w3id.org/rdf-connect#javaImplementationOf",

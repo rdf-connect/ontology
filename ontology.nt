@@ -91,6 +91,16 @@ _:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foa
 <https://w3id.org/rdf-connect#consistsOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a pipeline plan to the execution contexts (qualified runner–processor associations), and is declared as the inverse of prov:hadPlan. Because prov:hadPlan goes from a prov:Association to the prov:Plan it follows, each execution context (Association) thereby records the pipeline plan (Plan) it follows, matching the PROV-O qualified-association pattern."@en .
 <https://w3id.org/rdf-connect#consistsOf> <http://www.w3.org/2000/01/rdf-schema#label> "consists of"@en .
 # 
+# https://w3id.org/rdf-connect#entrypoint
+<https://w3id.org/rdf-connect#entrypoint> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdf-connect#entrypoint> <http://www.w3.org/2000/01/rdf-schema#comment> "The folder location of the main script or module entry point of a JavaScript processor. The location is usually given as an IRI, resolved against the document that declares it, and can also be given as a string literal."@en .
+<https://w3id.org/rdf-connect#entrypoint> <http://www.w3.org/2000/01/rdf-schema#label> "entrypoint"@en .
+# 
+# https://w3id.org/rdf-connect#file
+<https://w3id.org/rdf-connect#file> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdf-connect#file> <http://www.w3.org/2000/01/rdf-schema#comment> "The file name containing the processor logic of a JavaScript processor. The location is usually given as an IRI, resolved against the document that declares it, and can also be given as a string literal."@en .
+<https://w3id.org/rdf-connect#file> <http://www.w3.org/2000/01/rdf-schema#label> "file"@en .
+# 
 # https://w3id.org/rdf-connect#handlesSubjectsOf
 <https://w3id.org/rdf-connect#handlesSubjectsOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <https://w3id.org/rdf-connect#handlesSubjectsOf> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdf-connect#Runner> .
@@ -113,6 +123,11 @@ _:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foa
 <https://w3id.org/rdf-connect#instantiates> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/rdf-connect#Runner> .
 <https://w3id.org/rdf-connect#instantiates> <http://www.w3.org/2000/01/rdf-schema#comment> "Declares the runner instance (agent) used in an execution context. As a subproperty of prov:agent, it identifies the Runner (prov:SoftwareAgent) responsible for executing the pipeline's processors within an ExecutionContext (prov:Association)."@en .
 <https://w3id.org/rdf-connect#instantiates> <http://www.w3.org/2000/01/rdf-schema#label> "instantiates"@en .
+# 
+# https://w3id.org/rdf-connect#jar
+<https://w3id.org/rdf-connect#jar> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdf-connect#jar> <http://www.w3.org/2000/01/rdf-schema#comment> "Path to the JAR file containing the processor logic of a Java processor. The location is usually given as an IRI, resolved against the document that declares it, and can also be given as a string literal."@en .
+<https://w3id.org/rdf-connect#jar> <http://www.w3.org/2000/01/rdf-schema#label> "jar"@en .
 # 
 # https://w3id.org/rdf-connect#javaImplementationOf
 <https://w3id.org/rdf-connect#javaImplementationOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
@@ -160,24 +175,6 @@ _:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foa
 <https://w3id.org/rdf-connect#command> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <https://w3id.org/rdf-connect#command> <http://www.w3.org/2000/01/rdf-schema#comment> "Shell command used by an orchestrator to execute a runner instance."@en .
 <https://w3id.org/rdf-connect#command> <http://www.w3.org/2000/01/rdf-schema#label> "command"@en .
-# 
-# https://w3id.org/rdf-connect#entrypoint
-<https://w3id.org/rdf-connect#entrypoint> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<https://w3id.org/rdf-connect#entrypoint> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
-<https://w3id.org/rdf-connect#entrypoint> <http://www.w3.org/2000/01/rdf-schema#comment> "The folder location of the main script or module entry point of a JavaScript processor."@en .
-<https://w3id.org/rdf-connect#entrypoint> <http://www.w3.org/2000/01/rdf-schema#label> "entrypoint"@en .
-# 
-# https://w3id.org/rdf-connect#file
-<https://w3id.org/rdf-connect#file> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<https://w3id.org/rdf-connect#file> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
-<https://w3id.org/rdf-connect#file> <http://www.w3.org/2000/01/rdf-schema#comment> "The file name containing the processor logic of a JavaScript processor."@en .
-<https://w3id.org/rdf-connect#file> <http://www.w3.org/2000/01/rdf-schema#label> "file"@en .
-# 
-# https://w3id.org/rdf-connect#jar
-<https://w3id.org/rdf-connect#jar> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<https://w3id.org/rdf-connect#jar> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
-<https://w3id.org/rdf-connect#jar> <http://www.w3.org/2000/01/rdf-schema#comment> "Path to the JAR file containing the processor logic of a Java processor."@en .
-<https://w3id.org/rdf-connect#jar> <http://www.w3.org/2000/01/rdf-schema#label> "jar"@en .
 # 
 # https://w3id.org/rdf-connect#logLevel
 <https://w3id.org/rdf-connect#logLevel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
