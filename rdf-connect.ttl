@@ -71,6 +71,15 @@ rdfc:CommandRunner a owl:Class;
   rdfs:label "Command Runner"@en;
   rdfs:comment "A runner that executes processors via shell commands."@en.
 
+rdfc:TcpRunner a owl:Class;
+  rdfs:subClassOf rdfc:Runner;
+  rdfs:label "TCP Runner"@en;
+  rdfs:comment "A runner that is already running as a runner server, and that an orchestrator connects to at its rdfc:grpc address instead of starting it with a command."@en.
+
+rdfc:RunnerServer a owl:Class;
+  rdfs:label "Runner Server"@en;
+  rdfs:comment "A server that hosts a runner and the processors it can execute, so that orchestrators connect to that runner as a TCP runner instead of starting it. Each runner implementation that offers such a server declares its own subclass."@en.
+
 #################################################################
 # Properties
 #################################################################
@@ -111,6 +120,12 @@ rdfc:processor a owl:ObjectProperty;
 rdfc:command a owl:DatatypeProperty;
   rdfs:label "command"@en;
   rdfs:comment "Shell command used by an orchestrator to execute a runner instance."@en;
+  rdfs:range xsd:string.
+
+rdfc:grpc a owl:DatatypeProperty;
+  rdfs:label "gRPC address"@en;
+  rdfs:comment "The host:port address at which an orchestrator reaches a TCP runner, written as [::1]:port for an IPv6 literal."@en;
+  rdfs:domain rdfc:TcpRunner;
   rdfs:range xsd:string.
 
 rdfc:class a owl:DatatypeProperty;
@@ -166,7 +181,41 @@ rdfc:pyImplementationOf a owl:ObjectProperty;
   rdfs:comment "Indicates that a processor is implemented in Python and is a specialization of implementationOf."@en;
   rdfs:subPropertyOf rdfc:implementationOf.
 
-rdfc:module_path a owl:DatatypeProperty;
+rdfc:modulePath a owl:DatatypeProperty;
   rdfs:label "module path"@en;
   rdfs:comment "The module path of a processor implemented in Python."@en;
   rdfs:range xsd:string.
+
+#################################################################
+# Runner Server Properties
+#################################################################
+
+rdfc:processorConfig a owl:ObjectProperty;
+  # range: rdfs:Resource or xsd:string
+  rdfs:label "processor configuration"@en;
+  rdfs:comment "A file with processor definitions that a runner server hosts, so that pipelines connecting to the server can use those processors. The location is usually given as an IRI, resolved against the document that declares it, and can also be given as a string literal."@en;
+  rdfs:domain rdfc:RunnerServer.
+
+rdfc:httpPort a owl:DatatypeProperty;
+  rdfs:label "HTTP port"@en;
+  rdfs:comment "The port at which a runner server serves its runner definition and processor configurations over HTTP."@en;
+  rdfs:domain rdfc:RunnerServer;
+  rdfs:range xsd:integer.
+
+rdfc:grpcPort a owl:DatatypeProperty;
+  rdfs:label "gRPC port"@en;
+  rdfs:comment "The port at which a runner server accepts the connection of an orchestrator."@en;
+  rdfs:domain rdfc:RunnerServer;
+  rdfs:range xsd:integer.
+
+rdfc:hostname a owl:DatatypeProperty;
+  rdfs:label "hostname"@en;
+  rdfs:comment "The host name at which orchestrators reach a runner server. Together with rdfc:grpcPort, it forms the rdfc:grpc address of the TCP runner that the server describes."@en;
+  rdfs:domain rdfc:RunnerServer;
+  rdfs:range xsd:string.
+
+rdfc:historySize a owl:DatatypeProperty;
+  rdfs:label "history size"@en;
+  rdfs:comment "The number of disconnected runners a runner server keeps for its dashboard, or -1 to keep all of them."@en;
+  rdfs:domain rdfc:RunnerServer;
+  rdfs:range xsd:integer.
