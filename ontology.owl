@@ -278,6 +278,17 @@
     
 
 
+    <!-- https://w3id.org/rdf-connect#processorConfig -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/rdf-connect#processorConfig">
+        <rdfs:domain rdf:resource="https://w3id.org/rdf-connect#RunnerServer"/>
+        <rdfs:comment xml:lang="en">A file with processor definitions that a runner server hosts, so that pipelines connecting to the server can use those processors. The location is usually given as an IRI, resolved against the document that declares it, and can also be given as a string literal.</rdfs:comment>
+        <rdfs:label xml:lang="en">processor configuration</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/rdf-connect#pyImplementationOf -->
 
 
@@ -323,6 +334,66 @@
     
 
 
+    <!-- https://w3id.org/rdf-connect#grpc -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/rdf-connect#grpc">
+        <rdfs:domain rdf:resource="https://w3id.org/rdf-connect#TcpRunner"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The host:port address at which an orchestrator reaches a TCP runner, written as [::1]:port for an IPv6 literal.</rdfs:comment>
+        <rdfs:label xml:lang="en">gRPC address</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/rdf-connect#grpcPort -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/rdf-connect#grpcPort">
+        <rdfs:domain rdf:resource="https://w3id.org/rdf-connect#RunnerServer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment xml:lang="en">The port at which a runner server accepts the connection of an orchestrator.</rdfs:comment>
+        <rdfs:label xml:lang="en">gRPC port</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/rdf-connect#historySize -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/rdf-connect#historySize">
+        <rdfs:domain rdf:resource="https://w3id.org/rdf-connect#RunnerServer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment xml:lang="en">The number of disconnected runners a runner server keeps for its dashboard, or -1 to keep all of them.</rdfs:comment>
+        <rdfs:label xml:lang="en">history size</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/rdf-connect#hostname -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/rdf-connect#hostname">
+        <rdfs:domain rdf:resource="https://w3id.org/rdf-connect#RunnerServer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The host name at which orchestrators reach a runner server. Together with rdfc:grpcPort, it forms the rdfc:grpc address of the TCP runner that the server describes.</rdfs:comment>
+        <rdfs:label xml:lang="en">hostname</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/rdf-connect#httpPort -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/rdf-connect#httpPort">
+        <rdfs:domain rdf:resource="https://w3id.org/rdf-connect#RunnerServer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment xml:lang="en">The port at which a runner server serves its runner definition and processor configurations over HTTP.</rdfs:comment>
+        <rdfs:label xml:lang="en">HTTP port</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- https://w3id.org/rdf-connect#logLevel -->
 
 
@@ -335,10 +406,10 @@
     
 
 
-    <!-- https://w3id.org/rdf-connect#module_path -->
+    <!-- https://w3id.org/rdf-connect#modulePath -->
 
 
-    <owl:DatatypeProperty rdf:about="https://w3id.org/rdf-connect#module_path">
+    <owl:DatatypeProperty rdf:about="https://w3id.org/rdf-connect#modulePath">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment xml:lang="en">The module path of a processor implemented in Python.</rdfs:comment>
         <rdfs:label xml:lang="en">module path</rdfs:label>
@@ -477,6 +548,27 @@
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#SoftwareAgent"/>
         <rdfs:comment xml:lang="en">An agent responsible for executing processors based on specific implementations. As a subclass of prov:SoftwareAgent, a runner is a non-human agent implemented in software that bears responsibility for executing processor activities.</rdfs:comment>
         <rdfs:label xml:lang="en">Runner</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/rdf-connect#RunnerServer -->
+
+
+    <owl:Class rdf:about="https://w3id.org/rdf-connect#RunnerServer">
+        <rdfs:comment xml:lang="en">A server that hosts a runner and the processors it can execute, so that orchestrators connect to that runner as a TCP runner instead of starting it. Each runner implementation that offers such a server declares its own subclass.</rdfs:comment>
+        <rdfs:label xml:lang="en">Runner Server</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/rdf-connect#TcpRunner -->
+
+
+    <owl:Class rdf:about="https://w3id.org/rdf-connect#TcpRunner">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/rdf-connect#Runner"/>
+        <rdfs:comment xml:lang="en">A runner that is already running as a runner server, and that an orchestrator connects to at its rdfc:grpc address instead of starting it with a command.</rdfs:comment>
+        <rdfs:label xml:lang="en">TCP Runner</rdfs:label>
     </owl:Class>
     
 

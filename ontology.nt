@@ -149,6 +149,12 @@ _:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foa
 <https://w3id.org/rdf-connect#processor> <http://www.w3.org/2000/01/rdf-schema#comment> "Declares a processor instance (activity) used in an execution context, part of a pipeline. As a subproperty of prov:activity, it identifies the Processor instances (prov:Activity) the runner is responsible for executing within an ExecutionContext (prov:Association, prov:ActivityInfluence)."@en .
 <https://w3id.org/rdf-connect#processor> <http://www.w3.org/2000/01/rdf-schema#label> "processor"@en .
 # 
+# https://w3id.org/rdf-connect#processorConfig
+<https://w3id.org/rdf-connect#processorConfig> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdf-connect#processorConfig> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdf-connect#RunnerServer> .
+<https://w3id.org/rdf-connect#processorConfig> <http://www.w3.org/2000/01/rdf-schema#comment> "A file with processor definitions that a runner server hosts, so that pipelines connecting to the server can use those processors. The location is usually given as an IRI, resolved against the document that declares it, and can also be given as a string literal."@en .
+<https://w3id.org/rdf-connect#processorConfig> <http://www.w3.org/2000/01/rdf-schema#label> "processor configuration"@en .
+# 
 # https://w3id.org/rdf-connect#pyImplementationOf
 <https://w3id.org/rdf-connect#pyImplementationOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <https://w3id.org/rdf-connect#pyImplementationOf> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/rdf-connect#implementationOf> .
@@ -176,6 +182,41 @@ _:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foa
 <https://w3id.org/rdf-connect#command> <http://www.w3.org/2000/01/rdf-schema#comment> "Shell command used by an orchestrator to execute a runner instance."@en .
 <https://w3id.org/rdf-connect#command> <http://www.w3.org/2000/01/rdf-schema#label> "command"@en .
 # 
+# https://w3id.org/rdf-connect#grpc
+<https://w3id.org/rdf-connect#grpc> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdf-connect#grpc> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdf-connect#TcpRunner> .
+<https://w3id.org/rdf-connect#grpc> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/rdf-connect#grpc> <http://www.w3.org/2000/01/rdf-schema#comment> "The host:port address at which an orchestrator reaches a TCP runner, written as [::1]:port for an IPv6 literal."@en .
+<https://w3id.org/rdf-connect#grpc> <http://www.w3.org/2000/01/rdf-schema#label> "gRPC address"@en .
+# 
+# https://w3id.org/rdf-connect#grpcPort
+<https://w3id.org/rdf-connect#grpcPort> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdf-connect#grpcPort> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdf-connect#RunnerServer> .
+<https://w3id.org/rdf-connect#grpcPort> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/rdf-connect#grpcPort> <http://www.w3.org/2000/01/rdf-schema#comment> "The port at which a runner server accepts the connection of an orchestrator."@en .
+<https://w3id.org/rdf-connect#grpcPort> <http://www.w3.org/2000/01/rdf-schema#label> "gRPC port"@en .
+# 
+# https://w3id.org/rdf-connect#historySize
+<https://w3id.org/rdf-connect#historySize> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdf-connect#historySize> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdf-connect#RunnerServer> .
+<https://w3id.org/rdf-connect#historySize> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/rdf-connect#historySize> <http://www.w3.org/2000/01/rdf-schema#comment> "The number of disconnected runners a runner server keeps for its dashboard, or -1 to keep all of them."@en .
+<https://w3id.org/rdf-connect#historySize> <http://www.w3.org/2000/01/rdf-schema#label> "history size"@en .
+# 
+# https://w3id.org/rdf-connect#hostname
+<https://w3id.org/rdf-connect#hostname> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdf-connect#hostname> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdf-connect#RunnerServer> .
+<https://w3id.org/rdf-connect#hostname> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/rdf-connect#hostname> <http://www.w3.org/2000/01/rdf-schema#comment> "The host name at which orchestrators reach a runner server. Together with rdfc:grpcPort, it forms the rdfc:grpc address of the TCP runner that the server describes."@en .
+<https://w3id.org/rdf-connect#hostname> <http://www.w3.org/2000/01/rdf-schema#label> "hostname"@en .
+# 
+# https://w3id.org/rdf-connect#httpPort
+<https://w3id.org/rdf-connect#httpPort> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdf-connect#httpPort> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdf-connect#RunnerServer> .
+<https://w3id.org/rdf-connect#httpPort> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/rdf-connect#httpPort> <http://www.w3.org/2000/01/rdf-schema#comment> "The port at which a runner server serves its runner definition and processor configurations over HTTP."@en .
+<https://w3id.org/rdf-connect#httpPort> <http://www.w3.org/2000/01/rdf-schema#label> "HTTP port"@en .
+# 
 # https://w3id.org/rdf-connect#logLevel
 <https://w3id.org/rdf-connect#logLevel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <https://w3id.org/rdf-connect#logLevel> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdf-connect#Writer> .
@@ -183,11 +224,11 @@ _:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foa
 <https://w3id.org/rdf-connect#logLevel> <http://www.w3.org/2000/01/rdf-schema#comment> "Optional level at which an orchestrator logs the data written to a channel, such as info or debug. It is an aid while developing or inspecting a pipeline and has no effect on how messages are routed or delivered. Its domain is rdfc:Writer because an orchestrator logs each payload once, as the payload is submitted to the channel."@en .
 <https://w3id.org/rdf-connect#logLevel> <http://www.w3.org/2000/01/rdf-schema#label> "log level"@en .
 # 
-# https://w3id.org/rdf-connect#module_path
-<https://w3id.org/rdf-connect#module_path> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<https://w3id.org/rdf-connect#module_path> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
-<https://w3id.org/rdf-connect#module_path> <http://www.w3.org/2000/01/rdf-schema#comment> "The module path of a processor implemented in Python."@en .
-<https://w3id.org/rdf-connect#module_path> <http://www.w3.org/2000/01/rdf-schema#label> "module path"@en .
+# https://w3id.org/rdf-connect#modulePath
+<https://w3id.org/rdf-connect#modulePath> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdf-connect#modulePath> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/rdf-connect#modulePath> <http://www.w3.org/2000/01/rdf-schema#comment> "The module path of a processor implemented in Python."@en .
+<https://w3id.org/rdf-connect#modulePath> <http://www.w3.org/2000/01/rdf-schema#label> "module path"@en .
 # 
 # 
 # 
@@ -256,6 +297,17 @@ _:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foa
 <https://w3id.org/rdf-connect#Runner> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#SoftwareAgent> .
 <https://w3id.org/rdf-connect#Runner> <http://www.w3.org/2000/01/rdf-schema#comment> "An agent responsible for executing processors based on specific implementations. As a subclass of prov:SoftwareAgent, a runner is a non-human agent implemented in software that bears responsibility for executing processor activities."@en .
 <https://w3id.org/rdf-connect#Runner> <http://www.w3.org/2000/01/rdf-schema#label> "Runner"@en .
+# 
+# https://w3id.org/rdf-connect#RunnerServer
+<https://w3id.org/rdf-connect#RunnerServer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/rdf-connect#RunnerServer> <http://www.w3.org/2000/01/rdf-schema#comment> "A server that hosts a runner and the processors it can execute, so that orchestrators connect to that runner as a TCP runner instead of starting it. Each runner implementation that offers such a server declares its own subclass."@en .
+<https://w3id.org/rdf-connect#RunnerServer> <http://www.w3.org/2000/01/rdf-schema#label> "Runner Server"@en .
+# 
+# https://w3id.org/rdf-connect#TcpRunner
+<https://w3id.org/rdf-connect#TcpRunner> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/rdf-connect#TcpRunner> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/rdf-connect#Runner> .
+<https://w3id.org/rdf-connect#TcpRunner> <http://www.w3.org/2000/01/rdf-schema#comment> "A runner that is already running as a runner server, and that an orchestrator connects to at its rdfc:grpc address instead of starting it with a command."@en .
+<https://w3id.org/rdf-connect#TcpRunner> <http://www.w3.org/2000/01/rdf-schema#label> "TCP Runner"@en .
 # 
 # https://w3id.org/rdf-connect#Writer
 <https://w3id.org/rdf-connect#Writer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
