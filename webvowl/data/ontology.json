@@ -57,16 +57,16 @@
         "value" : "2026-08-17",
         "type" : "label"
       } ],
-      "versionInfo" : [ {
-        "identifier" : "versionInfo",
-        "language" : "undefined",
-        "value" : "0.4.0",
-        "type" : "label"
-      } ],
       "preferredNamespaceUri" : [ {
         "identifier" : "preferredNamespaceUri",
         "language" : "undefined",
         "value" : "https://w3id.org/rdf-connect#",
+        "type" : "label"
+      } ],
+      "versionInfo" : [ {
+        "identifier" : "versionInfo",
+        "language" : "undefined",
+        "value" : "0.4.0",
         "type" : "label"
       } ],
       "issued" : [ {
@@ -88,58 +88,82 @@
     "id" : "7",
     "type" : "owl:Class"
   }, {
-    "id" : "14",
-    "type" : "owl:Class"
-  }, {
-    "id" : "1",
-    "type" : "owl:Class"
-  }, {
-    "id" : "15",
-    "type" : "owl:Class"
-  }, {
-    "id" : "13",
+    "id" : "17",
     "type" : "owl:Class"
   }, {
     "id" : "27",
     "type" : "owl:Class"
   }, {
-    "id" : "30",
+    "id" : "1",
+    "type" : "owl:Class"
+  }, {
+    "id" : "18",
     "type" : "owl:Class"
   }, {
     "id" : "16",
     "type" : "owl:Class"
   }, {
-    "id" : "23",
-    "type" : "rdfs:Datatype"
+    "id" : "14",
+    "type" : "owl:Thing"
   }, {
     "id" : "36",
+    "type" : "owl:Class"
+  }, {
+    "id" : "45",
+    "type" : "owl:Class"
+  }, {
+    "id" : "26",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "19",
+    "type" : "owl:Class"
+  }, {
+    "id" : "49",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "29",
+    "id" : "44",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "38",
     "type" : "owl:Class"
+  }, {
+    "id" : "29",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "50",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "51",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "31",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "54",
+    "type" : "rdfs:Datatype"
   }, {
     "id" : "3",
     "type" : "owl:Thing"
   }, {
-    "id" : "21",
-    "type" : "owl:Thing"
-  }, {
-    "id" : "25",
+    "id" : "34",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "6",
     "type" : "owl:Class"
   }, {
-    "id" : "45",
+    "id" : "57",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "20",
+    "id" : "25",
     "type" : "owl:Class"
   }, {
-    "id" : "43",
+    "id" : "55",
     "type" : "owl:Class"
   }, {
-    "id" : "32",
+    "id" : "13",
+    "type" : "owl:Class"
+  }, {
+    "id" : "21",
     "type" : "owl:Class"
   } ],
   "classAttribute" : [ {
@@ -174,7 +198,7 @@
       "en" : "A qualified association that binds a runner (agent) to the processor instances (activities) it executes within a pipeline, and to the pipeline plan itself. As a subclass of prov:Association it qualifies the assignment of responsibility for those processors to their runner, and as a subclass of prov:ActivityInfluence it cites those processors directly with prov:activity."
     },
     "id" : "7",
-    "superClasses" : [ "13", "9" ]
+    "superClasses" : [ "16", "9" ]
   }, {
     "iri" : "http://www.w3.org/ns/prov#Entity",
     "baseIri" : "http://www.w3.org/ns/prov",
@@ -182,9 +206,22 @@
     "label" : {
       "IRI-based" : "Entity"
     },
-    "subClasses" : [ "15", "16" ],
+    "subClasses" : [ "18", "19" ],
     "attributes" : [ "external" ],
-    "id" : "14"
+    "id" : "17"
+  }, {
+    "iri" : "https://w3id.org/rdf-connect#TcpRunner",
+    "baseIri" : "https://w3id.org/rdf-connect",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "TcpRunner",
+      "en" : "TCP Runner"
+    },
+    "comment" : {
+      "en" : "A runner that is already running as a runner server, and that an orchestrator connects to at its rdfc:grpc address instead of starting it with a command."
+    },
+    "id" : "27",
+    "superClasses" : [ "25" ]
   }, {
     "iri" : "https://w3id.org/rdf-connect#Processor",
     "baseIri" : "https://w3id.org/rdf-connect",
@@ -209,8 +246,8 @@
     "comment" : {
       "en" : "A data channel entity that provides input data to a processor. As a subclass of prov:Entity, a reader is a data artifact that is consumed (prov:used) by a processor activity."
     },
-    "id" : "15",
-    "superClasses" : [ "14" ]
+    "id" : "18",
+    "superClasses" : [ "17" ]
   }, {
     "iri" : "http://www.w3.org/ns/prov#Association",
     "baseIri" : "http://www.w3.org/ns/prov",
@@ -220,7 +257,14 @@
     },
     "subClasses" : [ "7" ],
     "attributes" : [ "external" ],
-    "id" : "13"
+    "id" : "16"
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "14",
+    "label" : {
+      "undefined" : "Thing"
+    }
   }, {
     "iri" : "http://www.w3.org/ns/prov#SoftwareAgent",
     "baseIri" : "http://www.w3.org/ns/prov",
@@ -228,9 +272,9 @@
     "label" : {
       "IRI-based" : "SoftwareAgent"
     },
-    "subClasses" : [ "20" ],
+    "subClasses" : [ "25" ],
     "attributes" : [ "external" ],
-    "id" : "27"
+    "id" : "36"
   }, {
     "iri" : "http://xmlns.com/foaf/0.1/Person",
     "baseIri" : "http://xmlns.com/foaf/0.1",
@@ -239,7 +283,14 @@
       "IRI-based" : "Person"
     },
     "attributes" : [ "external" ],
-    "id" : "30"
+    "id" : "45"
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "26",
+    "label" : {
+      "undefined" : "Thing"
+    }
   }, {
     "iri" : "https://w3id.org/rdf-connect#Writer",
     "baseIri" : "https://w3id.org/rdf-connect",
@@ -251,21 +302,21 @@
     "comment" : {
       "en" : "A data channel entity that handles output data from a processor. As a subclass of prov:Entity, a writer is a data artifact generated (prov:wasGeneratedBy) by a processor activity and consumed by downstream processors."
     },
-    "id" : "16",
-    "superClasses" : [ "14" ]
+    "id" : "19",
+    "superClasses" : [ "17" ]
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "23",
+    "id" : "49",
     "label" : {
       "IRI-based" : "string"
     }
   }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "36",
+    "id" : "44",
     "label" : {
-      "IRI-based" : "string"
+      "IRI-based" : "integer"
     }
   }, {
     "iri" : "https://w3id.org/rdf-connect#CommandRunner",
@@ -278,8 +329,43 @@
     "comment" : {
       "en" : "A runner that executes processors via shell commands."
     },
+    "id" : "38",
+    "superClasses" : [ "25" ]
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
     "id" : "29",
-    "superClasses" : [ "20" ]
+    "label" : {
+      "IRI-based" : "integer"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "50",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "51",
+    "label" : {
+      "IRI-based" : "integer"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "31",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "54",
+    "label" : {
+      "IRI-based" : "string"
+    }
   }, {
     "iri" : "http://www.w3.org/2002/07/owl#Thing",
     "baseIri" : "http://owl2vowl.de",
@@ -288,16 +374,9 @@
       "undefined" : "Thing"
     }
   }, {
-    "iri" : "http://www.w3.org/2002/07/owl#Thing",
-    "baseIri" : "http://owl2vowl.de",
-    "id" : "21",
-    "label" : {
-      "undefined" : "Thing"
-    }
-  }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "25",
+    "id" : "34",
     "label" : {
       "IRI-based" : "string"
     }
@@ -313,11 +392,11 @@
       "en" : "A plan specifying a sequence of processors and runners forming a data processing workflow. As a subclass of prov:Plan, a pipeline represents the set of steps intended by agents and executed to achieve data processing goals."
     },
     "id" : "6",
-    "superClasses" : [ "32" ]
+    "superClasses" : [ "21" ]
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "45",
+    "id" : "57",
     "label" : {
       "IRI-based" : "string"
     }
@@ -329,12 +408,12 @@
       "IRI-based" : "Runner",
       "en" : "Runner"
     },
-    "subClasses" : [ "29" ],
+    "subClasses" : [ "27", "38" ],
     "comment" : {
       "en" : "An agent responsible for executing processors based on specific implementations. As a subclass of prov:SoftwareAgent, a runner is a non-human agent implemented in software that bears responsibility for executing processor activities."
     },
-    "id" : "20",
-    "superClasses" : [ "27" ]
+    "id" : "25",
+    "superClasses" : [ "36" ]
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Class",
     "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
@@ -343,7 +422,19 @@
       "IRI-based" : "Class"
     },
     "attributes" : [ "external" ],
-    "id" : "43"
+    "id" : "55"
+  }, {
+    "iri" : "https://w3id.org/rdf-connect#RunnerServer",
+    "baseIri" : "https://w3id.org/rdf-connect",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "RunnerServer",
+      "en" : "Runner Server"
+    },
+    "comment" : {
+      "en" : "A server that hosts a runner and the processors it can execute, so that orchestrators connect to that runner as a TCP runner instead of starting it. Each runner implementation that offers such a server declares its own subclass."
+    },
+    "id" : "13"
   }, {
     "iri" : "http://www.w3.org/ns/prov#Plan",
     "baseIri" : "http://www.w3.org/ns/prov",
@@ -353,7 +444,7 @@
     },
     "subClasses" : [ "6" ],
     "attributes" : [ "external" ],
-    "id" : "32"
+    "id" : "21"
   } ],
   "property" : [ {
     "id" : "2",
@@ -368,53 +459,50 @@
     "id" : "12",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "17",
+    "id" : "15",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "20",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "22",
     "type" : "owl:objectProperty"
   }, {
     "id" : "8",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "18",
+    "id" : "23",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "19",
+    "id" : "24",
     "type" : "owl:objectProperty"
   }, {
     "id" : "11",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "22",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "24",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "26",
-    "type" : "rdfs:SubClassOf"
-  }, {
     "id" : "28",
-    "type" : "rdfs:SubClassOf"
+    "type" : "owl:datatypeProperty"
   }, {
-    "id" : "31",
+    "id" : "30",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "32",
     "type" : "rdfs:SubClassOf"
   }, {
     "id" : "33",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "34",
-    "type" : "owl:objectProperty"
+    "type" : "owl:datatypeProperty"
   }, {
     "id" : "35",
-    "type" : "owl:objectProperty"
+    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "37",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "38",
+    "id" : "39",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "39",
-    "type" : "owl:objectProperty"
+    "id" : "40",
+    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "41",
     "type" : "rdfs:SubClassOf"
@@ -422,20 +510,44 @@
     "id" : "42",
     "type" : "rdfs:SubClassOf"
   }, {
+    "id" : "43",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "46",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "47",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "48",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "52",
+    "type" : "owl:objectProperty"
+  }, {
     "id" : "4",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "46",
+    "id" : "58",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "44",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "47",
+    "id" : "59",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "40",
+    "id" : "56",
     "type" : "owl:objectProperty"
+  }, {
+    "id" : "60",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "53",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "61",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "62",
+    "type" : "owl:datatypeProperty"
   } ],
   "propertyAttribute" : [ {
     "iri" : "https://w3id.org/rdf-connect#pyImplementationOf",
@@ -479,6 +591,20 @@
     "attributes" : [ "object", "external" ],
     "id" : "10"
   }, {
+    "iri" : "https://w3id.org/rdf-connect#processorConfig",
+    "baseIri" : "https://w3id.org/rdf-connect",
+    "range" : "14",
+    "label" : {
+      "IRI-based" : "processorConfig",
+      "en" : "processor configuration"
+    },
+    "domain" : "13",
+    "comment" : {
+      "en" : "A file with processor definitions that a runner server hosts, so that pipelines connecting to the server can use those processors. The location is usually given as an IRI, resolved against the document that declares it, and can also be given as a string literal."
+    },
+    "attributes" : [ "object" ],
+    "id" : "12"
+  }, {
     "iri" : "https://w3id.org/rdf-connect#file",
     "baseIri" : "https://w3id.org/rdf-connect",
     "range" : "3",
@@ -491,7 +617,12 @@
       "en" : "The file name containing the processor logic of a JavaScript processor. The location is usually given as an IRI, resolved against the document that declares it, and can also be given as a string literal."
     },
     "attributes" : [ "object" ],
-    "id" : "12"
+    "id" : "15"
+  }, {
+    "range" : "21",
+    "domain" : "6",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "20"
   }, {
     "iri" : "https://w3id.org/rdf-connect#javaImplementationOf",
     "baseIri" : "https://w3id.org/rdf-connect",
@@ -506,7 +637,7 @@
       "en" : "Indicates that a processor is implemented in Java and is a specialization of implementationOf."
     },
     "attributes" : [ "object" ],
-    "id" : "17"
+    "id" : "22"
   }, {
     "iri" : "http://www.w3.org/ns/prov#hadPlan",
     "baseIri" : "http://www.w3.org/ns/prov",
@@ -531,25 +662,25 @@
       "en" : "Indicates that a processor is implemented in JavaScript and is a specialization of implementationOf."
     },
     "attributes" : [ "object" ],
-    "id" : "18"
+    "id" : "23"
   }, {
     "iri" : "https://w3id.org/rdf-connect#handlesSubjectsOf",
     "baseIri" : "https://w3id.org/rdf-connect",
-    "range" : "21",
+    "range" : "26",
     "label" : {
       "IRI-based" : "handlesSubjectsOf",
       "en" : "handle subjects of"
     },
-    "domain" : "20",
+    "domain" : "25",
     "comment" : {
       "en" : "The property that defines which type of processors a runner can handle, typically linked to a specific implementation property."
     },
     "attributes" : [ "object" ],
-    "id" : "19"
+    "id" : "24"
   }, {
     "iri" : "https://w3id.org/rdf-connect#instantiates",
     "baseIri" : "https://w3id.org/rdf-connect",
-    "range" : "20",
+    "range" : "25",
     "label" : {
       "IRI-based" : "instantiates",
       "en" : "instantiates"
@@ -562,23 +693,42 @@
     "attributes" : [ "object" ],
     "id" : "11"
   }, {
+    "iri" : "https://w3id.org/rdf-connect#historySize",
+    "baseIri" : "https://w3id.org/rdf-connect",
+    "range" : "29",
+    "label" : {
+      "IRI-based" : "historySize",
+      "en" : "history size"
+    },
+    "domain" : "13",
+    "comment" : {
+      "en" : "The number of disconnected runners a runner server keeps for its dashboard, or -1 to keep all of them."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "28"
+  }, {
     "iri" : "https://w3id.org/rdf-connect#logLevel",
     "baseIri" : "https://w3id.org/rdf-connect",
-    "range" : "23",
+    "range" : "31",
     "label" : {
       "IRI-based" : "logLevel",
       "en" : "log level"
     },
-    "domain" : "16",
+    "domain" : "19",
     "comment" : {
       "en" : "Optional level at which an orchestrator logs the data written to a channel, such as info or debug. It is an aid while developing or inspecting a pipeline and has no effect on how messages are routed or delivered. Its domain is rdfc:Writer because an orchestrator logs each payload once, as the payload is submitted to the channel."
     },
     "attributes" : [ "datatype" ],
-    "id" : "22"
+    "id" : "30"
+  }, {
+    "range" : "25",
+    "domain" : "27",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "32"
   }, {
     "iri" : "https://w3id.org/rdf-connect#class",
     "baseIri" : "https://w3id.org/rdf-connect",
-    "range" : "25",
+    "range" : "34",
     "label" : {
       "IRI-based" : "class",
       "en" : "class"
@@ -588,27 +738,56 @@
       "en" : "The class name of a processor. Applicable for any object-oriented programming language."
     },
     "attributes" : [ "datatype" ],
-    "id" : "24"
+    "id" : "33"
   }, {
-    "range" : "27",
-    "domain" : "20",
+    "range" : "36",
+    "domain" : "25",
     "attributes" : [ "object", "anonymous" ],
-    "id" : "26"
+    "id" : "35"
   }, {
-    "range" : "20",
-    "domain" : "29",
+    "range" : "25",
+    "domain" : "38",
     "attributes" : [ "object", "anonymous" ],
-    "id" : "28"
+    "id" : "37"
   }, {
-    "range" : "32",
-    "domain" : "6",
+    "range" : "17",
+    "domain" : "18",
     "attributes" : [ "object", "anonymous" ],
-    "id" : "31"
+    "id" : "39"
   }, {
-    "range" : "13",
+    "range" : "9",
     "domain" : "7",
     "attributes" : [ "object", "anonymous" ],
-    "id" : "33"
+    "id" : "40"
+  }, {
+    "range" : "16",
+    "domain" : "7",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "41"
+  }, {
+    "range" : "17",
+    "domain" : "19",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "42"
+  }, {
+    "iri" : "https://w3id.org/rdf-connect#grpcPort",
+    "baseIri" : "https://w3id.org/rdf-connect",
+    "range" : "44",
+    "label" : {
+      "IRI-based" : "grpcPort",
+      "en" : "gRPC port"
+    },
+    "domain" : "13",
+    "comment" : {
+      "en" : "The port at which a runner server accepts the connection of an orchestrator."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "43"
+  }, {
+    "range" : "0",
+    "domain" : "1",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "46"
   }, {
     "iri" : "https://w3id.org/rdf-connect#jar",
     "baseIri" : "https://w3id.org/rdf-connect",
@@ -622,7 +801,7 @@
       "en" : "Path to the JAR file containing the processor logic of a Java processor. The location is usually given as an IRI, resolved against the document that declares it, and can also be given as a string literal."
     },
     "attributes" : [ "object" ],
-    "id" : "34"
+    "id" : "47"
   }, {
     "iri" : "https://w3id.org/rdf-connect#entrypoint",
     "baseIri" : "https://w3id.org/rdf-connect",
@@ -636,17 +815,7 @@
       "en" : "The folder location of the main script or module entry point of a JavaScript processor. The location is usually given as an IRI, resolved against the document that declares it, and can also be given as a string literal."
     },
     "attributes" : [ "object" ],
-    "id" : "35"
-  }, {
-    "range" : "0",
-    "domain" : "1",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "37"
-  }, {
-    "range" : "9",
-    "domain" : "7",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "38"
+    "id" : "48"
   }, {
     "iri" : "http://www.w3.org/ns/prov#activity",
     "baseIri" : "http://www.w3.org/ns/prov",
@@ -655,30 +824,20 @@
       "IRI-based" : "activity"
     },
     "domain" : "3",
-    "subproperty" : [ "40" ],
+    "subproperty" : [ "53" ],
     "attributes" : [ "object", "external" ],
-    "id" : "39"
-  }, {
-    "range" : "14",
-    "domain" : "15",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "41"
-  }, {
-    "range" : "14",
-    "domain" : "16",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "42"
+    "id" : "52"
   }, {
     "iri" : "https://w3id.org/rdf-connect#implementationOf",
     "baseIri" : "https://w3id.org/rdf-connect",
-    "range" : "43",
+    "range" : "55",
     "label" : {
       "IRI-based" : "implementationOf",
       "en" : "implementation of"
     },
-    "superproperty" : [ "44" ],
-    "domain" : "43",
-    "subproperty" : [ "18", "2", "17" ],
+    "superproperty" : [ "56" ],
+    "domain" : "55",
+    "subproperty" : [ "23", "2", "22" ],
     "comment" : {
       "en" : "Abstract property that conveys the implementation language of a processor. As a subproperty of rdfs:subClassOf, any processor definition declared with rdfc:implementationOf rdfc:Processor is itself a subclass of rdfc:Processor, and therefore a class that a pipeline can instantiate. Its subjects and objects are classes rather than processor instances, which is why its domain and range are rdfs:Class."
     },
@@ -687,7 +846,7 @@
   }, {
     "iri" : "https://w3id.org/rdf-connect#command",
     "baseIri" : "https://w3id.org/rdf-connect",
-    "range" : "45",
+    "range" : "57",
     "label" : {
       "IRI-based" : "command",
       "en" : "command"
@@ -697,7 +856,21 @@
       "en" : "Shell command used by an orchestrator to execute a runner instance."
     },
     "attributes" : [ "datatype" ],
-    "id" : "46"
+    "id" : "58"
+  }, {
+    "iri" : "https://w3id.org/rdf-connect#httpPort",
+    "baseIri" : "https://w3id.org/rdf-connect",
+    "range" : "51",
+    "label" : {
+      "IRI-based" : "httpPort",
+      "en" : "HTTP port"
+    },
+    "domain" : "13",
+    "comment" : {
+      "en" : "The port at which a runner server serves its runner definition and processor configurations over HTTP."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "59"
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#subClassOf",
     "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
@@ -708,21 +881,21 @@
     "domain" : "3",
     "subproperty" : [ "4" ],
     "attributes" : [ "object", "external" ],
-    "id" : "44"
+    "id" : "56"
   }, {
-    "iri" : "https://w3id.org/rdf-connect#module_path",
+    "iri" : "https://w3id.org/rdf-connect#grpc",
     "baseIri" : "https://w3id.org/rdf-connect",
-    "range" : "36",
+    "range" : "49",
     "label" : {
-      "IRI-based" : "module_path",
-      "en" : "module path"
+      "IRI-based" : "grpc",
+      "en" : "gRPC address"
     },
-    "domain" : "3",
+    "domain" : "27",
     "comment" : {
-      "en" : "The module path of a processor implemented in Python."
+      "en" : "The host:port address at which an orchestrator reaches a TCP runner, written as [::1]:port for an IPv6 literal."
     },
     "attributes" : [ "datatype" ],
-    "id" : "47"
+    "id" : "60"
   }, {
     "iri" : "https://w3id.org/rdf-connect#processor",
     "baseIri" : "https://w3id.org/rdf-connect",
@@ -731,12 +904,40 @@
       "IRI-based" : "processor",
       "en" : "processor"
     },
-    "superproperty" : [ "39" ],
+    "superproperty" : [ "52" ],
     "domain" : "7",
     "comment" : {
       "en" : "Declares a processor instance (activity) used in an execution context, part of a pipeline. As a subproperty of prov:activity, it identifies the Processor instances (prov:Activity) the runner is responsible for executing within an ExecutionContext (prov:Association, prov:ActivityInfluence)."
     },
     "attributes" : [ "object" ],
-    "id" : "40"
+    "id" : "53"
+  }, {
+    "iri" : "https://w3id.org/rdf-connect#modulePath",
+    "baseIri" : "https://w3id.org/rdf-connect",
+    "range" : "54",
+    "label" : {
+      "IRI-based" : "modulePath",
+      "en" : "module path"
+    },
+    "domain" : "3",
+    "comment" : {
+      "en" : "The module path of a processor implemented in Python."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "61"
+  }, {
+    "iri" : "https://w3id.org/rdf-connect#hostname",
+    "baseIri" : "https://w3id.org/rdf-connect",
+    "range" : "50",
+    "label" : {
+      "IRI-based" : "hostname",
+      "en" : "hostname"
+    },
+    "domain" : "13",
+    "comment" : {
+      "en" : "The host name at which orchestrators reach a runner server. Together with rdfc:grpcPort, it forms the rdfc:grpc address of the TCP runner that the server describes."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "62"
   } ]
 }
