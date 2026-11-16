@@ -9,6 +9,8 @@ This section provides details for each class and property defined by RDF-Connect
   <li><a href="#Processor" title="https://w3id.org/rdf-connect#Processor">Processor</a></li>
   <li><a href="#Reader" title="https://w3id.org/rdf-connect#Reader">Reader</a></li>
   <li><a href="#Runner" title="https://w3id.org/rdf-connect#Runner">Runner</a></li>
+  <li><a href="#RunnerServer" title="https://w3id.org/rdf-connect#RunnerServer">Runner Server</a></li>
+  <li><a href="#TcpRunner" title="https://w3id.org/rdf-connect#TcpRunner">TCP Runner</a></li>
   <li><a href="#Writer" title="https://w3id.org/rdf-connect#Writer">Writer</a></li>
  </ul>
  <div class="entity" id="CommandRunner">
@@ -127,7 +129,7 @@ This section provides details for each class and property defined by RDF-Connect
     has sub-classes
    </dt>
    <dd>
-    <a href="#CommandRunner" title="https://w3id.org/rdf-connect#CommandRunner">Command Runner</a> <sup class="type-c" title="class">c</sup>
+    <a href="#CommandRunner" title="https://w3id.org/rdf-connect#CommandRunner">Command Runner</a> <sup class="type-c" title="class">c</sup>, <a href="#TcpRunner" title="https://w3id.org/rdf-connect#TcpRunner">TCP Runner</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     is in domain of
@@ -140,6 +142,42 @@ This section provides details for each class and property defined by RDF-Connect
    </dt>
    <dd>
     <a href="#instantiates" title="https://w3id.org/rdf-connect#instantiates">instantiates</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="RunnerServer">
+  <h3>Runner Server<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#RunnerServer</p>
+  <div class="comment">
+   <span class="markdown">A server that hosts a runner and the processors it can execute, so that orchestrators connect to that runner as a TCP runner instead of starting it. Each runner implementation that offers such a server declares its own subclass.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#httpPort" title="https://w3id.org/rdf-connect#httpPort">HTTP port</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#grpcPort" title="https://w3id.org/rdf-connect#grpcPort">gRPC port</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#historySize" title="https://w3id.org/rdf-connect#historySize">history size</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hostname" title="https://w3id.org/rdf-connect#hostname">hostname</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#processorConfig" title="https://w3id.org/rdf-connect#processorConfig">processor configuration</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="TcpRunner">
+  <h3>TCP Runner<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#TcpRunner</p>
+  <div class="comment">
+   <span class="markdown">A runner that is already running as a runner server, and that an orchestrator connects to at its rdfc:grpc address instead of starting it with a command.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Runner" title="https://w3id.org/rdf-connect#Runner">Runner</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#grpc" title="https://w3id.org/rdf-connect#grpc">gRPC address</a> <sup class="type-dp" title="data property">dp</sup>
    </dd>
   </dl>
  </div>
@@ -177,6 +215,7 @@ This section provides details for each class and property defined by RDF-Connect
   <li><a href="#javaImplementationOf" title="https://w3id.org/rdf-connect#javaImplementationOf">Java Implementation Of</a></li>
   <li><a href="#jsImplementationOf" title="https://w3id.org/rdf-connect#jsImplementationOf">JavaScript Implementation Of</a></li>
   <li><a href="#processor" title="https://w3id.org/rdf-connect#processor">processor</a></li>
+  <li><a href="#processorConfig" title="https://w3id.org/rdf-connect#processorConfig">processor configuration</a></li>
   <li><a href="#pyImplementationOf" title="https://w3id.org/rdf-connect#pyImplementationOf">Python Implementation Of</a></li>
  </ul>
  <div class="entity" id="consistsOf">
@@ -373,6 +412,23 @@ This section provides details for each class and property defined by RDF-Connect
    </dl>
   </div>
  </div>
+ <div class="entity" id="processorConfig">
+  <h3>processor configuration<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#processorConfig</p>
+  <div class="comment">
+   <span class="markdown">A file with processor definitions that a runner server hosts, so that pipelines connecting to the server can use those processors. The location is usually given as an IRI, resolved against the document that declares it, and can also be given as a string literal.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#RunnerServer" title="https://w3id.org/rdf-connect#RunnerServer">Runner Server</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
  <div class="entity" id="pyImplementationOf">
   <h3>Python Implementation Of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/rdf-connect#pyImplementationOf</p>
@@ -395,8 +451,13 @@ This section provides details for each class and property defined by RDF-Connect
  <ul class="hlist">
   <li><a href="#class" title="https://w3id.org/rdf-connect#class">class</a></li>
   <li><a href="#command" title="https://w3id.org/rdf-connect#command">command</a></li>
+  <li><a href="#grpc" title="https://w3id.org/rdf-connect#grpc">gRPC address</a></li>
+  <li><a href="#grpcPort" title="https://w3id.org/rdf-connect#grpcPort">gRPC port</a></li>
+  <li><a href="#historySize" title="https://w3id.org/rdf-connect#historySize">history size</a></li>
+  <li><a href="#hostname" title="https://w3id.org/rdf-connect#hostname">hostname</a></li>
+  <li><a href="#httpPort" title="https://w3id.org/rdf-connect#httpPort">HTTP port</a></li>
   <li><a href="#logLevel" title="https://w3id.org/rdf-connect#logLevel">log level</a></li>
-  <li><a href="#module_path" title="https://w3id.org/rdf-connect#module_path">module path</a></li>
+  <li><a href="#modulePath" title="https://w3id.org/rdf-connect#modulePath">module path</a></li>
  </ul>
  <div class="entity" id="class">
   <h3>class<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
@@ -432,6 +493,121 @@ This section provides details for each class and property defined by RDF-Connect
    </dl>
   </div>
  </div>
+ <div class="entity" id="grpc">
+  <h3>gRPC address<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#grpc</p>
+  <div class="comment">
+   <span class="markdown">The host:port address at which an orchestrator reaches a TCP runner, written as [::1]:port for an IPv6 literal.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#TcpRunner" title="https://w3id.org/rdf-connect#TcpRunner">TCP Runner</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="grpcPort">
+  <h3>gRPC port<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#grpcPort</p>
+  <div class="comment">
+   <span class="markdown">The port at which a runner server accepts the connection of an orchestrator.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#RunnerServer" title="https://w3id.org/rdf-connect#RunnerServer">Runner Server</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="historySize">
+  <h3>history size<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#historySize</p>
+  <div class="comment">
+   <span class="markdown">The number of disconnected runners a runner server keeps for its dashboard, or -1 to keep all of them.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#RunnerServer" title="https://w3id.org/rdf-connect#RunnerServer">Runner Server</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hostname">
+  <h3>hostname<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#hostname</p>
+  <div class="comment">
+   <span class="markdown">The host name at which orchestrators reach a runner server. Together with rdfc:grpcPort, it forms the rdfc:grpc address of the TCP runner that the server describes.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#RunnerServer" title="https://w3id.org/rdf-connect#RunnerServer">Runner Server</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="httpPort">
+  <h3>HTTP port<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#httpPort</p>
+  <div class="comment">
+   <span class="markdown">The port at which a runner server serves its runner definition and processor configurations over HTTP.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#RunnerServer" title="https://w3id.org/rdf-connect#RunnerServer">Runner Server</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
  <div class="entity" id="logLevel">
   <h3>log level<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/rdf-connect#logLevel</p>
@@ -455,9 +631,9 @@ This section provides details for each class and property defined by RDF-Connect
    </dl>
   </div>
  </div>
- <div class="entity" id="module_path">
+ <div class="entity" id="modulePath">
   <h3>module path<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#module_path</p>
+  <p><strong>IRI:</strong> https://w3id.org/rdf-connect#modulePath</p>
   <div class="comment">
    <span class="markdown">The module path of a processor implemented in Python.</span>
   </div>
