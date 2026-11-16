@@ -166,6 +166,13 @@ rdfs:subClassOf rdf:type owl:ObjectProperty .
            rdfs:label "processor"@en .
 
 
+###  https://w3id.org/rdf-connect#processorConfig
+:processorConfig rdf:type owl:ObjectProperty ;
+                 rdfs:domain :RunnerServer ;
+                 rdfs:comment "A file with processor definitions that a runner server hosts, so that pipelines connecting to the server can use those processors. The location is usually given as an IRI, resolved against the document that declares it, and can also be given as a string literal."@en ;
+                 rdfs:label "processor configuration"@en .
+
+
 ###  https://w3id.org/rdf-connect#pyImplementationOf
 :pyImplementationOf rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf :implementationOf ;
@@ -191,6 +198,46 @@ rdfs:subClassOf rdf:type owl:ObjectProperty .
          rdfs:label "command"@en .
 
 
+###  https://w3id.org/rdf-connect#grpc
+:grpc rdf:type owl:DatatypeProperty ;
+      rdfs:domain :TcpRunner ;
+      rdfs:range xsd:string ;
+      rdfs:comment "The host:port address at which an orchestrator reaches a TCP runner, written as [::1]:port for an IPv6 literal."@en ;
+      rdfs:label "gRPC address"@en .
+
+
+###  https://w3id.org/rdf-connect#grpcPort
+:grpcPort rdf:type owl:DatatypeProperty ;
+          rdfs:domain :RunnerServer ;
+          rdfs:range xsd:integer ;
+          rdfs:comment "The port at which a runner server accepts the connection of an orchestrator."@en ;
+          rdfs:label "gRPC port"@en .
+
+
+###  https://w3id.org/rdf-connect#historySize
+:historySize rdf:type owl:DatatypeProperty ;
+             rdfs:domain :RunnerServer ;
+             rdfs:range xsd:integer ;
+             rdfs:comment "The number of disconnected runners a runner server keeps for its dashboard, or -1 to keep all of them."@en ;
+             rdfs:label "history size"@en .
+
+
+###  https://w3id.org/rdf-connect#hostname
+:hostname rdf:type owl:DatatypeProperty ;
+          rdfs:domain :RunnerServer ;
+          rdfs:range xsd:string ;
+          rdfs:comment "The host name at which orchestrators reach a runner server. Together with rdfc:grpcPort, it forms the rdfc:grpc address of the TCP runner that the server describes."@en ;
+          rdfs:label "hostname"@en .
+
+
+###  https://w3id.org/rdf-connect#httpPort
+:httpPort rdf:type owl:DatatypeProperty ;
+          rdfs:domain :RunnerServer ;
+          rdfs:range xsd:integer ;
+          rdfs:comment "The port at which a runner server serves its runner definition and processor configurations over HTTP."@en ;
+          rdfs:label "HTTP port"@en .
+
+
 ###  https://w3id.org/rdf-connect#logLevel
 :logLevel rdf:type owl:DatatypeProperty ;
           rdfs:domain :Writer ;
@@ -199,11 +246,11 @@ rdfs:subClassOf rdf:type owl:ObjectProperty .
           rdfs:label "log level"@en .
 
 
-###  https://w3id.org/rdf-connect#module_path
-:module_path rdf:type owl:DatatypeProperty ;
-             rdfs:range xsd:string ;
-             rdfs:comment "The module path of a processor implemented in Python."@en ;
-             rdfs:label "module path"@en .
+###  https://w3id.org/rdf-connect#modulePath
+:modulePath rdf:type owl:DatatypeProperty ;
+            rdfs:range xsd:string ;
+            rdfs:comment "The module path of a processor implemented in Python."@en ;
+            rdfs:label "module path"@en .
 
 
 #################################################################
@@ -283,6 +330,19 @@ rdfs:Class rdf:type owl:Class .
         rdfs:subClassOf <http://www.w3.org/ns/prov#SoftwareAgent> ;
         rdfs:comment "An agent responsible for executing processors based on specific implementations. As a subclass of prov:SoftwareAgent, a runner is a non-human agent implemented in software that bears responsibility for executing processor activities."@en ;
         rdfs:label "Runner"@en .
+
+
+###  https://w3id.org/rdf-connect#RunnerServer
+:RunnerServer rdf:type owl:Class ;
+              rdfs:comment "A server that hosts a runner and the processors it can execute, so that orchestrators connect to that runner as a TCP runner instead of starting it. Each runner implementation that offers such a server declares its own subclass."@en ;
+              rdfs:label "Runner Server"@en .
+
+
+###  https://w3id.org/rdf-connect#TcpRunner
+:TcpRunner rdf:type owl:Class ;
+           rdfs:subClassOf :Runner ;
+           rdfs:comment "A runner that is already running as a runner server, and that an orchestrator connects to at its rdfc:grpc address instead of starting it with a command."@en ;
+           rdfs:label "TCP Runner"@en .
 
 
 ###  https://w3id.org/rdf-connect#Writer
